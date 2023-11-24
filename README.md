@@ -1,6 +1,4 @@
 # client
 Clientside Jorchel project
 
-push test
-
-push test 2
+he pusheado a main que os jodan
