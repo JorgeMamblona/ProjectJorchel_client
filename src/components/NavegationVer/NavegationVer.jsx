@@ -6,7 +6,7 @@ const NavegationVer = () => {
     return (
         <>
 
-            <Nav className="col-md-12 d-none d-md-block bg-dark sidebar"
+            <Nav className="bg-dark sidebar"
 
             >
                 <div className="sidebar-sticky"></div>

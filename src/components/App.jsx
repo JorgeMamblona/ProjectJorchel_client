@@ -13,7 +13,7 @@ function App() {
     <>
       <div className='App'>
 
-        <NavegationHor />
+        <NavegationVer />
         <AppRoutes />
         <Footer />
 
