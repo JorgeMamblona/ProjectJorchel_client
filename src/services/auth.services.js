@@ -12,7 +12,7 @@ class AuthService {
     }
 
     signup(userData) {
-        return this.api.post('/signup', userData)
+        return this.api.post('/auth/sign-up', userData)
     }
     // login(userData) {
     //     return this.api.post('/login', userData)
