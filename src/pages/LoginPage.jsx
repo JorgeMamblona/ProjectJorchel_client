@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <<<<<<< Updated upstream
 const Login = () => {
     return (
@@ -27,13 +26,10 @@ const Login = () => {
 >>>>>>> d0c56eb2523f1ead2d9e0c5ea67b4adb8beec307
                     <h1>Log in</h1>
                     <LoginForm />
-                </Col>
-            </Row>
-        </Container>
-<<<<<<< HEAD
+                </Col >
+            </Row >
+        </Container >
 >>>>>>> Stashed changes
-=======
->>>>>>> d0c56eb2523f1ead2d9e0c5ea67b4adb8beec307
     )
 }
 
