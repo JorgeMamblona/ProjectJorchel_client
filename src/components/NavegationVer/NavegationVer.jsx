@@ -26,6 +26,7 @@ const NavegationVer = () => {
 
                     </NavDropdown>
                     <hr />
+                    <h1>Holaa</h1>
 
                     <Link to={'/'} className='nav-link'>Proyecto </Link>
                     <Link to={'/'} className='nav-link'>Tareas</Link>
