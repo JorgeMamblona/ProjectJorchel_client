@@ -1,4 +1,10 @@
 body {
   font-family: sans-serif;
   color: black;
+
+
+}
+
+.App {
+  display: flex;
 }
