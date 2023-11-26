@@ -15,18 +15,6 @@ const NavegationVer = () => {
     return (
         <>
 
-<<<<<<< Updated upstream
-            <Nav className="col-md-12 d-none d-md-block bg-dark sidebar"
-
-            >
-                <div className="sidebar-sticky"></div>
-                <Nav.Item>
-                    <Link to={'#'} className='nav-link'>Sign up</Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Link to={'#'} className='nav-link'>Sign up</Link>
-                </Nav.Item>
-=======
             <div data-bs-theme="dark" className='custom-nav'>
                 <Container>
                     <Link to={'/'} className='navbar-brand'></Link>
@@ -41,7 +29,6 @@ const NavegationVer = () => {
 
                     <Link to={'/'} className='nav-link'>Proyecto </Link>
                     <Link to={'/'} className='nav-link'>Tareas</Link>
->>>>>>> Stashed changes
 
 
 
