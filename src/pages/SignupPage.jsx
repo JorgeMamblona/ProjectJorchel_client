@@ -8,13 +8,8 @@ const Signup = () => {
 
         <Container>
             <Row>
-<<<<<<< Updated upstream:src/pages/SignuPage.jsx
                 <Col md={{ offset: 3, span: 6 }}>
                     <h1>Resgistro</h1>
-=======
-                <Col className="signup-page" md={{ offset: 3, span: 6 }}>
-                    <h1>Registro</h1>
->>>>>>> Stashed changes:src/pages/SignupPage.jsx
                     <SignupForm />
                 </Col>
             </Row>
