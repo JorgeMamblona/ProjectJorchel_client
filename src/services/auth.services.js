@@ -1,11 +1,9 @@
 import axios from "axios";
-import Signup from "../pages/SignupPage";
 
 class AuthService {
     constructor() {
         this.api = axios.create({
             baseURL: `${import.meta.env.VITE_API_URL}`
-
 
         })
 
@@ -14,10 +12,16 @@ class AuthService {
     signup(userData) {
         return this.api.post('/auth/sign-up', userData)
     }
-    // login(userData) {
-    //     return this.api.post('/login', userData)
-    // }
-    // FALTA VERIFY 
+
+    login(userData) {
+        return this.api.post('/auth/log-in', userData)
+    }
+
+    verify(authToken) {
+        return this.api.get('/auth/verify', {
+            headers: { Authorization: `Bearer ${authToken}` }
+        })
+    }
 
 }
 
