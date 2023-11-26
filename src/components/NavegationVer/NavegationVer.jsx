@@ -11,10 +11,10 @@ const NavegationVer = () => {
             >
                 <div className="sidebar-sticky"></div>
                 <Nav.Item>
-                    <Link to={'#'} className='nav-link'>Sign up</Link>
+                    <Link to={'/sign-up'} className='nav-link'>Sign up</Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Link to={'#'} className='nav-link'>Sign up</Link>
+                    <Link to={'/log-in'} className='nav-link'>Log in</Link>
                 </Nav.Item>
 
 
