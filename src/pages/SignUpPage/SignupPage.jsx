@@ -1,9 +1,9 @@
 import { Container, Row, Col } from "react-bootstrap"
-import SignupForm from "../components/SignupForm/SignupForm"
+import SignupForm from "../../components/SignupForm/SignupForm"
 
 import './SignupPage.css'
 
-const Signup = () => {
+const SignupPage = () => {
     return (
 
         <Container>
@@ -17,4 +17,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default SignupPage
