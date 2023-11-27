@@ -2,6 +2,7 @@ import NavegationHor from './NavegationHor/NavegationHor'
 import Footer from './Footer/Footer'
 import AppRoutes from '../routes/AppRoutes'
 import NavegationVer from './NavegationVer/NavegationVer'
+import 'bootstrap'
 
 import { useContext, useEffect } from 'react'
 import { AuthContext } from '../contexts/auth.context'
@@ -18,7 +19,7 @@ function App() {
 
   return (
     <>
-      <div className='App'>
+      <div className={loggedUser ? 'app-flex' : 'app-block'}>
 
         {loggedUser ? <NavegationVer /> : <NavegationHor />}
         <AppRoutes />
