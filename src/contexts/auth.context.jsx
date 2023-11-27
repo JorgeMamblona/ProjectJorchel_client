@@ -5,7 +5,7 @@ const AuthContext = createContext()
 
 const AuthContextWrapper = props => {
 
-    const [loggedUser, setLoggerUser] = useState(null)
+    const [loggedUser, setLoggedUser] = useState(null)
 
     const authenticateUser = () => {
 
@@ -14,13 +14,19 @@ const AuthContextWrapper = props => {
         token && authService
             .verify(token)
             .then(({ data }) => {
-                setLoggerUser(data.loggedUser)
+                setLoggedUser(data.loggedUser)
             })
             .catch(err => console.log(err))
     }
 
+    const logout = () => {
+        localStorage.removeItem('authToken')
+        setLoggedUser(null)
+
+    }
+
     return (
-        <AuthContext.Provider value={{ loggedUser, authenticateUser }}>
+        <AuthContext.Provider value={{ loggedUser, authenticateUser, logout }}>
             {props.children}
         </AuthContext.Provider>
     )

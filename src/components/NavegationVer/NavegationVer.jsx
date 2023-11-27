@@ -1,20 +1,22 @@
 import { NavDropdown, Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 import { useContext } from 'react'
 
-
-
-
-
 import './NavegationVer.css'
+
 const NavegationVer = () => {
 
+    const { loggedUser, logout } = useContext(AuthContext)
+    const navigate = useNavigate()
 
-    const { loggedUser } = useContext(AuthContext)
+    const doLogout = () => {
+        logout()
+        navigate("/")
+
+    }
     return (
         <>
-
             <div data-bs-theme="dark" className='custom-nav'>
                 <Container>
                     <Link to={'/'} className='navbar-brand'></Link>
@@ -22,7 +24,7 @@ const NavegationVer = () => {
 
                         <Link className='dropdown-item' to={'/my-profile'} >Mi perfil </Link>
                         <NavDropdown.Divider />
-                        <Link className='dropdown-item' to={'/log-out'} >Log out </Link>
+                        <span className='dropdown-item' onClick={doLogout}>Log out </span>
 
                     </NavDropdown>
                     <hr />
