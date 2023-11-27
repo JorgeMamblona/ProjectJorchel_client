@@ -1,11 +1,12 @@
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import './NavegationHor.css'
 
 const NavegationHor = () => {
 
     return (
         <>
-            <Navbar bg="dark" data-bs-theme="dark">
+            <Navbar className='custom-nav-hor' bg="dark" data-bs-theme="dark">
                 <Container>
                     <Link to={'/'} className='navbar-brand'>Jorchel</Link>
                     <Nav className="me-auto">

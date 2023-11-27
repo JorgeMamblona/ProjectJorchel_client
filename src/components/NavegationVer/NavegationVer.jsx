@@ -1,4 +1,4 @@
-import { NavDropdown, Container } from 'react-bootstrap'
+import { NavDropdown, Container, Accordion } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
 import { useContext } from 'react'
@@ -28,8 +28,16 @@ const NavegationVer = () => {
 
                     </NavDropdown>
                     <hr />
-                    <h1>Holaa</h1>
 
+                    <Accordion defaultActiveKey="0">
+                        <Accordion.Item eventKey="0">
+                            <Accordion.Header>Proyecto</Accordion.Header>
+                            <Accordion.Body>
+                                <Link to={'/sign-up'} className='nav-link'>Proyecto </Link>
+                            </Accordion.Body>
+                        </Accordion.Item>
+
+                    </Accordion>
                     <Link to={'/'} className='nav-link'>Proyecto </Link>
                     <Link to={'/'} className='nav-link'>Tareas</Link>
 
