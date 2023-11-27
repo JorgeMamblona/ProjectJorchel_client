@@ -12,7 +12,7 @@ const UserList = ({ userList, addUser }) => {
             {
                 userList.map(elm => {
                     return (
-                        <Button key={elm._id} className="mb-1 sm" style={{ width: '100%' }} onClick={() => addUser(elm.username)}>{elm.username}</Button>
+                        <Button key={elm._id} className="mb-1 sm" style={{ width: '100%' }} onClick={() => addUser({ _id: elm._id, username: elm.username })}>{elm.username}</Button>
                     )
                 }).slice(0, 3)
             }

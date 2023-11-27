@@ -91,7 +91,7 @@ const NewProjectForm = () => {
 
                     {
                         newFormData.colaborators.map(elm => {
-                            return <p key={elm}>{elm}</p>
+                            return <p key={elm._id}>{elm.username}</p>
                         })
                     }
 
