@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Form, Button } from "react-bootstrap"
 import authService from "../../services/auth.services"
+import './SignupForm.css'
 
 const SignupForm = () => {
 
@@ -12,6 +13,13 @@ const SignupForm = () => {
 
 
     })
+
+    // const customButtonStyle = {
+    //     border: '3px solid #F72485',
+    //     backgroundColor: 'transparent',
+    //     color: '#F72485',
+    //     transition: 'all 0.3s ease',
+    // };
 
 
     const handleInputChange = e => {
@@ -32,9 +40,7 @@ const SignupForm = () => {
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" value={signupData.email} onChange={handleInputChange} name='email' placeholder="Enter email" />
-                <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                </Form.Text>
+
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -46,7 +52,7 @@ const SignupForm = () => {
                 <Form.Control type="password" value={signupData.username} onChange={handleInputChange} name='username' placeholder="Username" />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button className="myButton2" type="submit">
                 Submit
             </Button>
         </Form>

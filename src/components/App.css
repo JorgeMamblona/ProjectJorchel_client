@@ -1,10 +1,39 @@
 body {
-  font-family: sans-serif;
-  color: black;
+  font-family: 'Poppins', 'sans-serif';
+  color: rgb(255, 255, 255);
 
 
 }
 
 .app-flex {
   display: flex;
+}
+
+.myButton {
+  background-color: #0AA7FF !important;
+  width: 100%;
+  border: 0px !important;
+}
+
+.myButton:hover {
+  background-color: #0b82c8 !important;
+  width: 100%;
+  border: 0px !important;
+}
+
+
+.myButton2 {
+  border: 3px solid #F72485 !important;
+  background-color: transparent !important;
+  color: #F72485 !important;
+  transition: all 0.3s ease;
+  width: 100%;
+
+
+}
+
+.myButton2:hover {
+  background-color: #F72485 !important;
+  color: white !important;
+
 }

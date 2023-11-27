@@ -2,10 +2,31 @@
     background-color: rgb(42, 42, 42) !important;
     width: 20%;
     position: relative;
-    margin-right: 10px;
+
     color: white;
     padding-top: 10px;
+    background-color: #12062d !important;
+    font-family: 'Poppins', sans-serif;
+    border-right: solid, 5px, white !important;
 
 
     height: 100vh;
+}
+
+.custom-nav img {
+    width: 75px;
+    position: fixed;
+    top: 90vh !important;
+    left: 4vw;
+}
+
+.my-accoddion {
+
+    --bs-accordion-color: #ffffff !important;
+    --bs-accordion-bg: #12062d !important;
+}
+
+
+.my-accordion-button {
+    color: white;
 }
