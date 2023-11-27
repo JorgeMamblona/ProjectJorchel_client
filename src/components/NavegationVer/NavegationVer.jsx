@@ -1,24 +1,40 @@
-import { Nav } from 'react-bootstrap'
+import { NavDropdown, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../contexts/auth.context'
+import { useContext } from 'react'
+
+
+
+
 
 import './NavegationVer.css'
 const NavegationVer = () => {
+
+
+    const { loggedUser } = useContext(AuthContext)
     return (
         <>
 
-            <Nav className="bg-dark sidebar"
+            <div data-bs-theme="dark" className='custom-nav'>
+                <Container>
+                    <Link to={'/'} className='navbar-brand'></Link>
+                    <NavDropdown title={loggedUser.username} id="collapsible-nav-dropdown">
 
-            >
-                <div className="sidebar-sticky"></div>
-                <Nav.Item>
-                    <Link to={'/sign-up'} className='nav-link'>Sign up</Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Link to={'/log-in'} className='nav-link'>Log in</Link>
-                </Nav.Item>
+                        <Link className='dropdown-item' to={'/my-profile'} >Mi perfil </Link>
+                        <NavDropdown.Divider />
+                        <Link className='dropdown-item' to={'/log-out'} >Log out </Link>
+
+                    </NavDropdown>
+                    <hr />
+                    <h1>Holaa</h1>
+
+                    <Link to={'/'} className='nav-link'>Proyecto </Link>
+                    <Link to={'/'} className='nav-link'>Tareas</Link>
 
 
-            </Nav>
+
+                </Container>
+            </div>
 
         </>
     )
