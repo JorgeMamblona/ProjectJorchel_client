@@ -32,7 +32,7 @@ const UsersListForm = ({ data, handleInputChange, setUsers }) => {
 
     useEffect(() => {
         setUsers(selectedUsers)
-    }, [userList])
+    }, [userList, selectedUsers])
 
     return (
         <>
