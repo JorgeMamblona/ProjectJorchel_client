@@ -14,6 +14,7 @@ const AppRoutes = () => {
 
     return (
         <Routes>
+
             <Route path='/' element={<HomePage />} />
             <Route path='/sign-up' element={<SignupPage />} />
             <Route path='/log-in' element={<LoginPage />} />

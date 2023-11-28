@@ -38,3 +38,19 @@ body {
   color: white !important;
 
 }
+
+h2 {
+  font-size: 1.5rem !important;
+
+
+}
+
+h3 {
+  font-size: 1rem !important;
+
+}
+
+p {
+  font-size: .75rem;
+  font-weight: 500 !important;
+}

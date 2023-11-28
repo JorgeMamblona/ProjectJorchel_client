@@ -62,7 +62,8 @@ const NavegationVer = () => {
 
 
 
-                                {!projects ? <><p>loading</p></> : projects.map(e => {
+
+                               {!projects ? <><p>loading</p></> : projects.map(e => {
                                     return (
                                         <div key={e._id}>
                                             <Link to={'/sign-up'} className='nav-link'>{e.title}</Link>
@@ -78,7 +79,7 @@ const NavegationVer = () => {
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
-                    <Link to={'/'} className='nav-link'>Proyecto </Link>
+                    <Link to={'/'} className='nav-link'>Ver proyecto </Link>
                     <Link to={'/'} className='nav-link'>Tareas</Link>
 
 
