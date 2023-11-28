@@ -27,7 +27,7 @@ const NavegationVer = () => {
 
     return (
         <>
-            <div className='custom-nav'>
+            <div className='custom-nav  '>
                 <Container>
                     <Link to={'/'} className='navbar-brand'></Link>
                     <NavDropdown title={loggedUser.username} id="collapsible-nav-dropdown">
