@@ -12,6 +12,15 @@ class ProjectService {
     create(formData) {
         return this.api.post('/create', formData)
     }
+    getAll() {
+        return this.api.get('/getAllProjects')
+    }
+
+    getOwnedProjects(owner) {
+        return this.api.post('/getOwnedProjects', { owner })
+    }
+
+
 
 }
 

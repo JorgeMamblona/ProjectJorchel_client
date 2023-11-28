@@ -1,9 +1,11 @@
 import { NavDropdown, Container, Accordion, Button } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import logo from './../../assets/logo.png'
 import 'bootstrap'
+
+import projectService from '../../services/projects.services'
 
 
 import './NavegationVer.css'
@@ -12,6 +14,20 @@ const NavegationVer = () => {
 
     const { loggedUser, logout } = useContext(AuthContext)
     const navigate = useNavigate()
+
+    const [projects, setProjects] = useState()
+
+    useEffect(() => {
+        loadProjects()
+    }, [])
+
+    const loadProjects = () => {
+
+        projectService
+            .getOwnedProjects(loggedUser._id)
+            .then(({ data }) => setProjects(data))
+            .catch(err => console.log(err))
+    }
 
     const doLogout = () => {
         logout()
@@ -41,11 +57,23 @@ const NavegationVer = () => {
 
                     <Accordion className='my-accordion dark' style={{ backgroundColor: '#12062d' }}>
                         <Accordion.Item eventKey="0">
-                            <Accordion.Header className='my-accordion-button dark'>Proyecto</Accordion.Header>
+                            <Accordion.Header className='my-accordion-button dark' onClick={loadProjects}>Proyecto</Accordion.Header>
                             <Accordion.Body>
-                                <Link to={'/'} className='nav-link'>Proyecto</Link>
-                                <hr />
-                                <Link to={'/project/create'} className='nav-link'>
+
+
+
+
+                               {!projects ? <><p>loading</p></> : projects.map(e => {
+                                    return (
+                                        <div key={e._id}>
+                                            <Link to={'/sign-up'} className='nav-link'>{e.title}</Link>
+                                            <hr />
+                                        </div>
+                                    )
+                                })}
+
+
+                                <Link to='/project/create' className='nav-link'>
                                     <Button className='myButton'>New Project</Button>
                                 </Link>
                             </Accordion.Body>
