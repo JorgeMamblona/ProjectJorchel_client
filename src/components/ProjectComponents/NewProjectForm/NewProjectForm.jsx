@@ -4,6 +4,7 @@ import { Col, Form, Row, Button } from "react-bootstrap"
 import projectService from "../../../services/projects.services"
 import { formatDate } from "../../../utils/formatDate"
 import UsersListForm from "../../UsersListForm/UsersListForm"
+import uploadServices from "../../../services/upload.services"
 
 const NewProjectForm = () => {
 
@@ -37,6 +38,19 @@ const NewProjectForm = () => {
         setNewFormData({ ...newFormData, colaborators: list })
     }
 
+    const handleFileUpload = e => {
+
+        const formData = new FormData()
+        formData.append('imageData', e.target.files[0])
+
+        uploadServices
+            .uploadimage(formData)
+            .then(({ data }) => {
+                setNewFormData({ ...newFormData, image: data.cloudinary_url })
+            })
+            .catch(err => console.log(err))
+    }
+
     return (
         <Form onSubmit={handleFormSubmit}>
             <Form.Group className="mb-3">
@@ -65,7 +79,7 @@ const NewProjectForm = () => {
                 <Col md={{ span: 6 }}>
                     <Form.Group className="mb-3">
                         <Form.Label>Image</Form.Label>
-                        <Form.Control type="text" value={newFormData.image} name='image' placeholder="Cloudinary??" onChange={handleInputChange}></Form.Control>
+                        <Form.Control type="file" onChange={handleFileUpload}></Form.Control>
                     </Form.Group>
                 </Col>
 
