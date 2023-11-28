@@ -1,9 +1,11 @@
 import { NavDropdown, Container, Accordion, Button } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import logo from './../../assets/logo.png'
 import 'bootstrap'
+
+import projectService from '../../services/projects.services'
 
 
 import './NavegationVer.css'
@@ -12,6 +14,17 @@ const NavegationVer = () => {
 
     const { loggedUser, logout } = useContext(AuthContext)
     const navigate = useNavigate()
+
+    const [projects, setProjects] = useState()
+
+    useEffect(() => {
+        projectService
+            .getAll()
+            .then(({ data }) => setProjects(data))
+            .catch(err => console.log(err))
+
+    }, [])
+    console.log(projects)
 
     const doLogout = () => {
         logout()
@@ -43,8 +56,19 @@ const NavegationVer = () => {
                         <Accordion.Item eventKey="0">
                             <Accordion.Header className='my-accordion-button dark'>Proyecto</Accordion.Header>
                             <Accordion.Body>
-                                <Link to={'/sign-up'} className='nav-link'>Proyecto</Link>
-                                <hr />
+
+
+
+                                {!projects ? <><p>loading</p></> : projects.map(e => {
+                                    return (
+                                        <div key={e._id}>
+                                            <Link to={'/sign-up'} className='nav-link'>{e.title}</Link>
+                                            <hr />
+                                        </div>
+                                    )
+                                })}
+
+
                                 <Link to={'/project/create'} className='nav-link'>
                                     <Button className='myButton'>New Project</Button>
                                 </Link>
