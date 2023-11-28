@@ -48,7 +48,7 @@ const SignupForm = () => {
                 <Form.Control type="password" value={loginData.password} onChange={handleInputChange} name='password' placeholder="Password" />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button className="myButton2" type="submit">
                 Submit
             </Button>
         </Form>
