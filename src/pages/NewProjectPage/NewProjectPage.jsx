@@ -1,12 +1,9 @@
 import { Container, Row, Col } from "react-bootstrap"
 import NewProjectForm from "../../components/ProjectComponents/NewProjectForm/NewProjectForm"
+import { useLocation } from "react-router-dom"
 
-import { useContext, useEffect } from 'react'
-import { AuthContext } from '../../contexts/auth.context'
 
 const NewProjectPage = () => {
-
-    const { loggedUser, authenticateUser, isLoading } = useContext(AuthContext)
 
     return (
 

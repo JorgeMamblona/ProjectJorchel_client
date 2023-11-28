@@ -18,13 +18,16 @@ const NavegationVer = () => {
     const [projects, setProjects] = useState()
 
     useEffect(() => {
+        loadProjects()
+    }, [])
+
+    const loadProjects = () => {
+
         projectService
-            .getAll()
+            .getOwnedProjects(loggedUser._id)
             .then(({ data }) => setProjects(data))
             .catch(err => console.log(err))
-
-    }, [])
-    console.log(projects)
+    }
 
     const doLogout = () => {
         logout()
@@ -54,7 +57,7 @@ const NavegationVer = () => {
 
                     <Accordion className='my-accordion dark' style={{ backgroundColor: '#12062d' }}>
                         <Accordion.Item eventKey="0">
-                            <Accordion.Header className='my-accordion-button dark'>Proyecto</Accordion.Header>
+                            <Accordion.Header className='my-accordion-button dark' onClick={loadProjects}>Proyecto</Accordion.Header>
                             <Accordion.Body>
 
 
@@ -69,7 +72,7 @@ const NavegationVer = () => {
                                 })}
 
 
-                                <Link to={'/project/create'} className='nav-link'>
+                                <Link to='/project/create' className='nav-link'>
                                     <Button className='myButton'>New Project</Button>
                                 </Link>
                             </Accordion.Body>

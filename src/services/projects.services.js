@@ -16,6 +16,10 @@ class ProjectService {
         return this.api.get('/getAllProjects')
     }
 
+    getOwnedProjects(owner) {
+        return this.api.post('/getOwnedProjects', { owner })
+    }
+
 
 
 }
