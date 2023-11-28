@@ -1,5 +1,18 @@
 .custom-nav-hor {
     width: 100% !important;
-    margin-bottom: 1rem;
+
     position: absolute;
+    background-color: #290E64 !important;
+    font-family: 'Popins', sans-serif;
+    align-items: center;
+    border: solid, 5spx, rgb(240, 14, 14);
+
+}
+
+img {
+    width: 100px;
+}
+
+.my-nav-link {
+    padding-bottom: 0px !important;
 }

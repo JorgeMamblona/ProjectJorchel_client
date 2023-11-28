@@ -5,15 +5,16 @@ import './SignupPage.css'
 
 const SignupPage = () => {
     return (
-
-        <Container>
-            <Row>
-                <Col md={{ offset: 3, span: 6 }}>
-                    <h1>Resgistro</h1>
-                    <SignupForm />
-                </Col>
-            </Row>
-        </Container>
+        <div className="signup-page">
+            <Container className='signup-page'>
+                <Row >
+                    <Col md={{ offset: 3, span: 6 }}>
+                        <h1>Sign Up</h1>
+                        <SignupForm />
+                    </Col>
+                </Row>
+            </Container>
+        </div>
     )
 }
 
