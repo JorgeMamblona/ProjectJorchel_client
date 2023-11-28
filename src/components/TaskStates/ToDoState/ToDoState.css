@@ -1,0 +1,57 @@
+.to-do {
+
+    border: 1px solid #7D7D7D;
+    color: #7D7D7D;
+    font-weight: bold;
+    padding: 30px;
+
+}
+
+.task {
+    width: 100%;
+    border: 1px solid #D9D9D9;
+    background: rgba(217, 217, 217, 0.50);
+    color: white;
+}
+
+.title {
+
+    border-bottom: 1px solid #7D7D7D;
+
+
+}
+
+.row {
+    --bs-gutter-x: 0 !important;
+}
+
+.task-info {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 100 !important;
+}
+
+.contributors {
+    display: flex;
+    margin-right: .1rem;
+}
+
+.avatar {
+    width: 20px;
+    height: 20px;
+}
+
+img {
+    width: 20px;
+}
+
+.task {
+    padding-left: .5rem;
+    text-align: start;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+p {
+    margin-bottom: 0 !important;
+}

@@ -43,7 +43,7 @@ const NavegationVer = () => {
                         <Accordion.Item eventKey="0">
                             <Accordion.Header className='my-accordion-button dark'>Proyecto</Accordion.Header>
                             <Accordion.Body>
-                                <Link to={'/sign-up'} className='nav-link'>Proyecto</Link>
+                                <Link to={'/'} className='nav-link'>Proyecto</Link>
                                 <hr />
                                 <Link to={'/project/create'} className='nav-link'>
                                     <Button className='myButton'>New Project</Button>
@@ -51,7 +51,7 @@ const NavegationVer = () => {
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
-                    <Link to={'/'} className='nav-link'>Proyecto </Link>
+                    <Link to={'/'} className='nav-link'>Ver proyecto </Link>
                     <Link to={'/'} className='nav-link'>Tareas</Link>
 
 

@@ -1,0 +1,40 @@
+.project-page {
+    color: white;
+    width: 100%;
+    margin-left: 2rem;
+    justify-content: space-around;
+}
+
+.task-col {
+    margin-right: 1rem;
+    margin-top: 1rem !important;
+    border-radius: 15px;
+
+    width: 20% !important;
+    height: 70vh;
+
+}
+
+.header-info {
+    margin-top: 1rem;
+    display: flex;
+}
+
+.colaborators {
+    display: flex;
+}
+
+.avatar {
+    height: 35px;
+    width: 35px;
+    margin-left: .5rem;
+    overflow: hidden;
+    border-radius: 50px;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: white;
+}
+
+img {
+    width: 40px;
+}
