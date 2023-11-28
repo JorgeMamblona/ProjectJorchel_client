@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Col, Form, Row, Button } from "react-bootstrap"
 import projectService from "../../../services/projects.services"
@@ -31,6 +31,10 @@ const NewProjectForm = () => {
             .create(newFormData)
             .then(() => navigate("/"))
             .catch(err => console.log(err))
+    }
+
+    const setUsers = list => {
+        setNewFormData({ ...newFormData, colaborators: list })
     }
 
     return (
@@ -81,10 +85,19 @@ const NewProjectForm = () => {
             </Row>
             <Row>
                 <Col md={{ span: 6 }}>
-                    <UsersListForm data={newFormData} handleInputChange={handleInputChange} />
+                    <UsersListForm data={newFormData} handleInputChange={handleInputChange} setUsers={setUsers} />
+                </Col>
+                <Col md={{ span: 6 }}>
+
+                    {
+                        newFormData.colaborators.map(elm => {
+                            return <p key={elm._id}>{elm.username}</p>
+                        })
+                    }
+
                 </Col>
             </Row >
-            <Button variant="primary" type="submit">
+            <Button className="mt-3" variant="primary" type="submit">
                 Submit
             </Button>
         </Form>
