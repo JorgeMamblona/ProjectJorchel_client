@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useContext, useState } from "react"
+import { AuthContext } from '../../../contexts/auth.context'
 import { useNavigate } from "react-router-dom"
 import { Col, Form, Row, Button } from "react-bootstrap"
 import projectService from "../../../services/projects.services"
@@ -6,9 +7,12 @@ import { formatDate } from "../../../utils/formatDate"
 import UsersListForm from "../../UsersListForm/UsersListForm"
 import uploadServices from "../../../services/upload.services"
 
+
 const NewProjectForm = () => {
 
     const navigate = useNavigate()
+    const { loggedUser, logout } = useContext(AuthContext)
+
 
     const [newFormData, setNewFormData] = useState({
         title: '',
@@ -17,7 +21,8 @@ const NewProjectForm = () => {
         state: 'TODO',
         startDate: formatDate(new Date),
         endDate: '',
-        colaborators: []
+        colaborators: [],
+        owner: loggedUser._id
     })
 
     const handleInputChange = e => {
@@ -30,7 +35,9 @@ const NewProjectForm = () => {
 
         projectService
             .create(newFormData)
-            .then(() => navigate("/"))
+            .then(() => {
+                navigate("/")
+            })
             .catch(err => console.log(err))
     }
 
