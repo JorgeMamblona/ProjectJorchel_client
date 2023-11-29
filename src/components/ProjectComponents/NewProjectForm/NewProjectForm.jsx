@@ -1,12 +1,16 @@
 import { useContext, useState } from "react"
 import { AuthContext } from '../../../contexts/auth.context'
-import { useNavigate } from "react-router-dom"
-import { Col, Form, Row, Button } from "react-bootstrap"
-import projectService from "../../../services/projects.services"
+
 import { formatDate } from "../../../utils/formatDate"
+
 import UsersListForm from "../../UsersListForm/UsersListForm"
+
+import projectService from "../../../services/projects.services"
 import uploadServices from "../../../services/upload.services"
 
+import { useNavigate } from "react-router-dom"
+
+import { Col, Form, Row, Button } from "react-bootstrap"
 
 const NewProjectForm = () => {
 

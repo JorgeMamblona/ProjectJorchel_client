@@ -9,9 +9,11 @@ const UsersListForm = ({ data, handleInputChange, setUsers }) => {
     const [selectedUsers, setSelectedUSers] = useState([])
     const loadUsers = e => {
         const { value } = e.target
-        // if (e.target.value.length >= 3) {
-        findUsers(value)
-        //  }
+        if (value) {
+            findUsers(value)
+        } else {
+            setUserList([])
+        }
 
     }
 

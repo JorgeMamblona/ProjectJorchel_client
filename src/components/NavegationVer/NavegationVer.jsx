@@ -1,13 +1,15 @@
-import { NavDropdown, Container, Accordion, Button } from 'react-bootstrap'
-import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
-import { useContext, useEffect, useState } from 'react'
-import logo from './../../assets/logo.png'
-import 'bootstrap'
 
 import projectService from '../../services/projects.services'
 
+import { useContext, useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
+import { NavDropdown, Container, Accordion, Button } from 'react-bootstrap'
+
+import logo from './../../assets/logo.png'
+
+import 'bootstrap'
 import './NavegationVer.css'
 
 const NavegationVer = () => {
@@ -34,12 +36,6 @@ const NavegationVer = () => {
         navigate("/")
 
     }
-    const headerStyle = {
-        backgroundColor: '#12062d', // Establecer el color de fondo del header
-        color: 'white', // Color del texto
-        borderRadius: '0.25rem', // Opcional: añadir bordes redondeados para el header
-        padding: '0.75rem 1rem', // Opcional: ajustar el relleno del header
-    };
 
     return (
         <>
@@ -63,10 +59,10 @@ const NavegationVer = () => {
 
 
 
-                               {!projects ? <><p>loading</p></> : projects.map(e => {
+                                {!projects ? <><p>loading</p></> : projects.map(e => {
                                     return (
                                         <div key={e._id}>
-                                            <Link to={'/sign-up'} className='nav-link'>{e.title}</Link>
+                                            <Link to={`/project/${e._id}`} className='nav-link'>{e.title}</Link>
                                             <hr />
                                         </div>
                                     )

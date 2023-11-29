@@ -20,7 +20,9 @@ class ProjectService {
         return this.api.post('/getOwnedProjects', { owner })
     }
 
-
+    getDetails(project_id) {
+        return this.api.get(`/${project_id}`)
+    }
 
 }
 
