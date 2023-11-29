@@ -12,6 +12,10 @@ class UserService {
         return this.api.post('/listAllUsers', { userToFind })
     }
 
+    listUsersById(participants) {
+        return this.api.post('/listUsersById', participants)
+    }
+
 }
 
 const userService = new UserService()

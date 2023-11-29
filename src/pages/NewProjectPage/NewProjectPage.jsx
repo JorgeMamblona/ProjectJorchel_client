@@ -1,7 +1,6 @@
-import { Container, Row, Col } from "react-bootstrap"
 import NewProjectForm from "../../components/ProjectComponents/NewProjectForm/NewProjectForm"
-import { useLocation } from "react-router-dom"
 
+import { Container, Row, Col } from "react-bootstrap"
 
 const NewProjectPage = () => {
 
