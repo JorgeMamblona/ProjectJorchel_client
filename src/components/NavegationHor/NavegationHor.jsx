@@ -1,7 +1,9 @@
-import { Container, Nav, Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import './NavegationHor.css'
+
 import logo from './../../assets/logo.png'
+
+import { Container, Nav, Navbar } from 'react-bootstrap'
+import './NavegationHor.css'
 
 const NavegationHor = () => {
 
@@ -19,13 +21,9 @@ const NavegationHor = () => {
                         </Nav>
                     </div>
                 </Container>
-
             </Navbar>
-
-
-
-
         </>
     )
 }
+
 export default NavegationHor

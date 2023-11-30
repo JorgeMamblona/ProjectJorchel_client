@@ -1,13 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './components/App'
-import { BrowserRouter as Router } from 'react-router-dom';
-import { AuthContextWrapper } from './contexts/auth.context';
-import { ProjectsNavContextWrapper } from './contexts/projectsNav.context';
+import { AuthContextWrapper } from './contexts/auth.context'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import App from './components/App'
+
+import ReactDOM from 'react-dom/client'
+import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+
   <AuthContextWrapper>
     <Router>
       <React.StrictMode>

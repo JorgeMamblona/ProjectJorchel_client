@@ -1,13 +1,15 @@
-import './DoneState.css'
 import avatar from './../../../assets/holaaa.jpeg'
+
+import './DoneState.css'
+
 const DoneState = () => {
+
     return (
         <div className="task-col done text-center">
             <div className="title">
                 <h2>DONE</h2>
             </div>
             <div className="task-done" >
-
                 <h3>Soy la tarea</h3>
                 <div className="task-info">
                     <p>Fecha de entrega:</p>
@@ -19,7 +21,6 @@ const DoneState = () => {
                             <img src={avatar} alt="" />
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

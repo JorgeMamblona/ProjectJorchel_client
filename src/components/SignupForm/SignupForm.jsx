@@ -13,37 +13,40 @@ const SignupForm = () => {
 
     const navigate = useNavigate()
 
-    const [signupData, setSignupData] = useState({
+    const [formData, setformData] = useState({
+
         email: '',
         password: '',
         username: '',
         avatar: avatar
-
-
     })
 
     const handleInputChange = e => {
+
         const { value, name } = e.target
-        setSignupData({ ...signupData, [name]: value })
+
+        setSignupData({ ...formData, [name]: value })
     }
+
     const handleFormSubmit = e => {
+
         e.preventDefault()
 
         authService
-            .signup(signupData)
+            .signup(formData)
             .then(() => navigate('/'))
             .catch(err => console.log(err))
     }
 
     const handleFileUpload = e => {
 
-        const formData = new FormData()
-        formData.append('imageData', e.target.files[0])
+        const fileFormData = new FormData()
+        fileFormData.append('imageData', e.target.files[0])
 
         uploadServices
-            .uploadimage(formData)
+            .uploadimage(fileFormData)
             .then(({ data }) => {
-                setSignupData({ ...signupData, avatar: data.cloudinary_url })
+                setSignupData({ ...formData, avatar: data.cloudinary_url })
             })
             .catch(err => console.log(err))
     }
@@ -52,19 +55,18 @@ const SignupForm = () => {
         <Form onSubmit={handleFormSubmit}>
             <Form.Group className="mb-3">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" value={signupData.email} onChange={handleInputChange} name='email' placeholder="Enter email" />
+                <Form.Control type="email" value={formData.email} onChange={handleInputChange} name='email' placeholder="Enter email" />
 
             </Form.Group>
             <Form.Group className="mb-3" >
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="text" value={signupData.username} onChange={handleInputChange} name='username' placeholder="Username" />
+                <Form.Control type="text" value={formData.username} onChange={handleInputChange} name='username' placeholder="Username" />
             </Form.Group>
 
             <Form.Group className="mb-3" >
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" value={signupData.password} onChange={handleInputChange} name='password' placeholder="Password" />
+                <Form.Control type="password" value={formData.password} onChange={handleInputChange} name='password' placeholder="Password" />
             </Form.Group>
-
 
             <Form.Group className="mb-3" >
                 <Form.Label>Avatar</Form.Label>

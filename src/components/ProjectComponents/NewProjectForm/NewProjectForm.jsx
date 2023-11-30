@@ -15,7 +15,7 @@ import { Col, Form, Row, Button } from "react-bootstrap"
 const NewProjectForm = () => {
 
     const navigate = useNavigate()
-    const { loggedUser, logout } = useContext(AuthContext)
+    const { loggedUser, logout, authenticateUser } = useContext(AuthContext)
 
 
     const [newFormData, setNewFormData] = useState({
@@ -40,6 +40,7 @@ const NewProjectForm = () => {
         projectService
             .create(newFormData)
             .then(() => {
+                authenticateUser()
                 navigate("/")
             })
             .catch(err => console.log(err))
@@ -110,16 +111,14 @@ const NewProjectForm = () => {
             </Row>
             <Row>
                 <Col md={{ span: 6 }}>
-                    <UsersListForm data={newFormData} handleInputChange={handleInputChange} setUsers={setUsers} />
+                    <UsersListForm setUsers={setUsers} />
                 </Col>
                 <Col md={{ span: 6 }}>
-
                     {
                         newFormData.colaborators.map(elm => {
                             return <p key={elm._id}>{elm.username}</p>
                         })
                     }
-
                 </Col>
             </Row >
             <Button className="mt-3" variant="primary" type="submit">

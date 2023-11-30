@@ -21,7 +21,7 @@ const NavegationVer = () => {
 
     useEffect(() => {
         loadProjects()
-    }, [])
+    }, [loggedUser])
 
     const loadProjects = () => {
 
@@ -75,7 +75,7 @@ const NavegationVer = () => {
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
-                    <Link to={'/'} className='nav-link'>Ver proyecto </Link>
+                    <Link to={'/project/myProjects'} className='nav-link mt-3'><Button className='myButton'>My Projects</Button></Link>
                     <Link to={'/'} className='nav-link'>Tareas</Link>
 
 

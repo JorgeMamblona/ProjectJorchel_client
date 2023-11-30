@@ -6,10 +6,10 @@ import { AuthContext } from "../../contexts/auth.context"
 
 const SignupForm = () => {
 
-    const [loginData, setloginData] = useState({
+    const [formData, setFormData] = useState({
+
         email: '',
         password: '',
-
     })
 
     const navigate = useNavigate()
@@ -17,8 +17,9 @@ const SignupForm = () => {
     const { authenticateUser } = useContext(AuthContext)
 
     const handleInputChange = e => {
+
         const { value, name } = e.target
-        setloginData({ ...loginData, [name]: value })
+        setFormData({ ...formData, [name]: value })
     }
 
     const handleFormSubmit = e => {
@@ -26,12 +27,11 @@ const SignupForm = () => {
         e.preventDefault()
 
         authService
-            .login(loginData)
+            .login(formData)
             .then(({ data }) => {
                 localStorage.setItem('authToken', data.authToken)
                 authenticateUser()
                 navigate('/')
-
             })
             .catch(err => console.log(err))
     }
@@ -40,12 +40,12 @@ const SignupForm = () => {
         <Form onSubmit={handleFormSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" value={loginData.email} onChange={handleInputChange} name='email' placeholder="Enter email" />
+                <Form.Control type="email" value={formData.email} onChange={handleInputChange} name='email' placeholder="Enter email" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" value={loginData.password} onChange={handleInputChange} name='password' placeholder="Password" />
+                <Form.Control type="password" value={formData.password} onChange={handleInputChange} name='password' placeholder="Password" />
             </Form.Group>
 
             <Button className="myButton2" type="submit">

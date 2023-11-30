@@ -7,7 +7,6 @@ import UsersListForm from '../UsersListForm/UsersListForm'
 import taskService from '../../services/tasks.services'
 
 import { useContext, useState } from 'react'
-
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { Col, Form, Row, Button } from "react-bootstrap"
@@ -20,6 +19,7 @@ const NewTaskForm = () => {
     const navigate = useNavigate()
 
     const [newTaskData, setNewTaskData] = useState({
+
         title: '',
         description: '',
         state: 'TODO',
@@ -28,16 +28,17 @@ const NewTaskForm = () => {
         participants: [],
         owner: loggedUser._id,
         project: project_id
-
     })
 
     const handleInputChange = e => {
-        const { value, name } = e.target
-        setNewTaskData({ ...newTaskData, [name]: value })
 
+        const { value, name } = e.target
+
+        setNewTaskData({ ...newTaskData, [name]: value })
     }
 
     const handleFormSubmit = e => {
+
         e.preventDefault()
 
         taskService
@@ -46,8 +47,8 @@ const NewTaskForm = () => {
             .catch(err => console.log(err))
     }
 
-
     const setUsers = list => {
+
         setNewTaskData({ ...newTaskData, participants: list })
     }
 
@@ -76,7 +77,6 @@ const NewTaskForm = () => {
                     </Form.Group>
                 </Col>
 
-
                 <Col md={{ span: 6 }}>
                     <Form.Group className="mb-3">
                         <Form.Label>Starting date:</Form.Label>
@@ -96,13 +96,9 @@ const NewTaskForm = () => {
                     <UsersListForm data={newTaskData} handleInputChange={handleInputChange} setUsers={setUsers} />
                 </Col>
                 <Col md={{ span: 6 }}>
-
                     {
-                        newTaskData.participants.map(elm => {
-                            return <p key={elm._id}>{elm.username}</p>
-                        })
+                        newTaskData.participants.map(elm => <p key={elm._id}>{elm.username}</p>)
                     }
-
                 </Col>
             </Row >
             <Button className="mt-3" variant="primary" type="submit">
@@ -111,4 +107,5 @@ const NewTaskForm = () => {
         </Form>
     )
 }
+
 export default NewTaskForm

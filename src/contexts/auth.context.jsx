@@ -1,5 +1,5 @@
-import { createContext, useState } from "react";
-import authService from "../services/auth.services";
+import authService from "../services/auth.services"
+import { createContext, useState } from "react"
 
 const AuthContext = createContext()
 
@@ -26,13 +26,14 @@ const AuthContextWrapper = props => {
     }
 
     const logout = () => {
+
         localStorage.removeItem('authToken')
         setLoggedUser(null)
         setIsLoading(false)
-
     }
 
     return (
+
         <AuthContext.Provider value={{ loggedUser, authenticateUser, logout, isLoading }}>
             {props.children}
         </AuthContext.Provider>
