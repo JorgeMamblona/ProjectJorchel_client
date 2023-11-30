@@ -51,46 +51,42 @@ const NavegationVer = () => {
                     </NavDropdown>
                     <hr />
 
-                    <Accordion className='my-accordion dark' style={{ backgroundColor: '#12062d' }}>
-                        <Accordion.Item eventKey="0">
-                            <Accordion.Header className='my-accordion-button dark' onClick={loadProjects}>Proyecto</Accordion.Header>
-                            <Accordion.Body>
+                    <div className="my-accordion accordion-flush" id="accordionFlushExample">
+                        <div className="accordion-item">
+                            <h2 className="accordion-header" id="flush-headingOne">
+                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    Projects
+                                </button>
+                            </h2>
+                            <hr />
+                            <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div className="accordion-body">
+                                    {!projects ? <><p>loading</p></> : projects.map(e => {
+                                        return (
+                                            <div key={e._id}>
+                                                <Link to={`/project/${e._id}`} className='nav-link'>{e.title}</Link>
+                                                <hr />
+                                            </div>
+                                        )
+                                    })}
+                                    <Link to='/project/create' className='nav-link'>
+                                        <Button className='myButton'>New Project</Button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
 
-
-
-
-                                {!projects ? <><p>loading</p></> : projects.map(e => {
-                                    return (
-                                        <div key={e._id}>
-                                            <Link to={`/project/${e._id}`} className='nav-link'>{e.title}</Link>
-                                            <hr />
-                                        </div>
-                                    )
-                                })}
-
-
-                                <Link to='/project/create' className='nav-link'>
-                                    <Button className='myButton'>New Project</Button>
-                                </Link>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                    </Accordion>
+                    </div>
                     <Link to={'/project/myProjects'} className='nav-link mt-3'><Button className='myButton'>My Projects</Button></Link>
                     <Link to={'/'} className='nav-link'>Tareas</Link>
-
-
                     <Link to={'/'} className="footer-nav"><img src={logo} alt="" /></Link>
-
-
-
-
-                </Container>
+                </Container >
 
 
 
 
 
-            </div>
+            </div >
 
         </>
     )

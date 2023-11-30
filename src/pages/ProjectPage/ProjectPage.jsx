@@ -51,10 +51,10 @@ const ProjectPage = () => {
 
                     </Link>
                     <div className="colaborators">
-                        <div className="avatar">
+                        <div className="avatar-2">
                             <img src={avatar} alt="" />
                         </div>
-                        <div className="avatar">
+                        <div className="avatar-2">
                             <img src={avatar} alt="" />
                         </div>
 
