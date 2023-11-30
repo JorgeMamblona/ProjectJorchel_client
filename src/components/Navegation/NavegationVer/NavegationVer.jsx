@@ -1,13 +1,13 @@
-import { AuthContext } from '../../contexts/auth.context'
+import { AuthContext } from '../../../contexts/auth.context'
 
-import projectService from '../../services/projects.services'
+import projectService from '../../../services/projects.services'
 
 import { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { NavDropdown, Container, Accordion, Button } from 'react-bootstrap'
 
-import logo from './../../assets/logo.png'
+import logo from './../../../assets/logo.png'
 
 import 'bootstrap'
 import './NavegationVer.css'
@@ -26,7 +26,7 @@ const NavegationVer = () => {
     const loadProjects = () => {
 
         projectService
-            .getOwnedProjects(loggedUser._id)
+            .getOwnedProjects()
             .then(({ data }) => setProjects(data))
             .catch(err => console.log(err))
     }
@@ -38,7 +38,7 @@ const NavegationVer = () => {
     }
 
     return (
-        <div className='custom-nav  '>
+        <div className='custom-nav'>
             <Container>
                 <Link to={'/'} className='navbar-brand'></Link>
                 <NavDropdown title={loggedUser.username} id="collapsible-nav-dropdown">
@@ -60,7 +60,7 @@ const NavegationVer = () => {
                         <hr />
                         <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                             <div className="accordion-body">
-                                {/* TODO: DESACOPLAR LISTADO DE PROYECTOS */}
+                                {/* NOT: DESACOPLAR LISTADO DE PROYECTOS */}
                                 {!projects ? <><p>loading</p></> : projects.map(e => {
                                     return (
                                         <div key={e._id}>

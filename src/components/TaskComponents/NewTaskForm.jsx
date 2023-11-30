@@ -15,7 +15,6 @@ import './NewTaskForm.css'
 const NewTaskForm = () => {
 
     const { project_id } = useParams()
-    const { loggedUser, logout } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const [newTaskData, setNewTaskData] = useState({
@@ -26,7 +25,6 @@ const NewTaskForm = () => {
         startDate: formatDate(new Date),
         endDate: '',
         participants: [],
-        owner: loggedUser._id,
         project: project_id
     })
 

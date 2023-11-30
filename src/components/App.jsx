@@ -1,7 +1,6 @@
 import { AuthContext } from '../contexts/auth.context'
 
-import NavegationHor from './NavegationHor/NavegationHor'
-import NavegationVer from './NavegationVer/NavegationVer'
+import Navegation from './Navegation/Navegation'
 import Footer from './Footer/Footer'
 import AppRoutes from '../routes/AppRoutes'
 
@@ -15,14 +14,11 @@ function App() {
   const { loggedUser } = useContext(AuthContext)
 
   return (
-    <>
-      <div className={loggedUser ? 'app-flex' : 'app-block'}>
-        {/* TODO: REACOPLAR COMPONENTES DE NAVEGACIÓN */}
-        {loggedUser ? <NavegationVer /> : <NavegationHor />}
-        <AppRoutes />
-        <Footer />
-      </div>
-    </>
+    <div className={loggedUser ? 'app-flex' : 'app-block'}>
+      <Navegation />
+      <AppRoutes />
+      <Footer />
+    </div>
   )
 }
 

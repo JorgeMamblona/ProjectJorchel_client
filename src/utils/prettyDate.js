@@ -1,4 +1,5 @@
 const prettyDate = date => {
+    if (!date) return ''
     let formatDate = date.slice(0, 10)
     formatDate = formatDate.split('-')
 
