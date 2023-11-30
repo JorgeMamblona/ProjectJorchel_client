@@ -1,26 +1,24 @@
-import { AuthContext } from '../../contexts/auth.context'
+import { AuthContext } from '../../../contexts/auth.context'
 
-import ProjectCard from '../../components/ProjectComponents/ProjectCard'
-import projectService from '../../services/projects.services'
+import ProjectCard from '../../../components/ProjectComponents/ProjectCard'
+import projectService from '../../../services/projects.services'
 
 import { useContext, useEffect, useState } from "react"
 
 const ListProjectPage = () => {
 
-    const { loggedUser } = useContext(AuthContext)
-    const { _id: owner } = loggedUser
     const [projects, setProjects] = useState()
 
     useEffect(() => {
 
-        loadProjects(owner)
+        loadProjects()
 
     }, [])
 
-    const loadProjects = owner => {
+    const loadProjects = () => {
 
         projectService
-            .getOwnedProjects(owner)
+            .getOwnedProjects()
             .then(({ data }) => setProjects(data))
             .catch(err => console.log(err))
     }

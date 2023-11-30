@@ -1,20 +1,20 @@
-import projectService from '../../services/projects.services'
+import projectService from '../../../services/projects.services'
 
-import ToDoState from '../../components/TaskStates/ToDoState/ToDoState'
-import InProgressState from '../../components/TaskStates/InProgressState/InProgressState'
-import ReviewState from '../../components/TaskStates/ReviewState/ReviewState'
-import DoneState from '../../components/TaskStates/DoneState/DoneState'
-import ProjectTaskState from '../../components/ProjectComponents/ProjectTaskState'
+import ToDoState from '../../../components/TaskStates/ToDoState/ToDoState'
+import InProgressState from '../../../components/TaskStates/InProgressState/InProgressState'
+import ReviewState from '../../../components/TaskStates/ReviewState/ReviewState'
+import DoneState from '../../../components/TaskStates/DoneState/DoneState'
+import ProjectTaskState from '../../../components/ProjectComponents/ProjectTaskState'
 
 import { useParams, Link } from "react-router-dom"
 
-import avatar from './../../assets/holaaa.jpeg'
+import avatar from './../../../assets/holaaa.jpeg'
 
 import { useEffect, useState } from 'react'
 
 import { Button } from 'react-bootstrap'
 
-import './ProjectPage.css'
+import './ProjectDetailsPage.css'
 
 
 

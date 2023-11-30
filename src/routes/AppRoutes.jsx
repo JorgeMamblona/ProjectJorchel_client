@@ -1,10 +1,10 @@
 import SignupPage from '../pages/SignupPage/SignupPage'
 import LoginPage from '../pages/LoginPage/LoginPage'
-import NewProjectPage from '../pages/NewProjectPage/NewProjectPage'
+import NewProjectPage from '../pages/Projects/NewProjectPage/NewProjectPage'
 import HomePage from '../pages/HomePage/HomePage'
-import ProjectPage from '../pages/ProjectPage/ProjectPage'
+import ProjectPage from '../pages/Projects/ProjectDetailsPage/ProjectDetailsPage'
 import NewTaskPage from '../pages/NewTaskPage/NewTaskPage'
-import ListProjectPage from '../pages/ListProjectPage/LisProjectPage'
+import ListProjectPage from '../pages/Projects/ProjectsPage/ProjectsPage'
 
 import PrivateRoute from './PrivateRoute'
 

@@ -1,4 +1,4 @@
-import NewProjectForm from "../../components/ProjectComponents/NewProjectForm/NewProjectForm"
+import NewProjectForm from "../../../components/ProjectComponents/NewProjectForm/NewProjectForm"
 
 import { Container, Row, Col } from "react-bootstrap"
 

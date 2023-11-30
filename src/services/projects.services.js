@@ -8,6 +8,17 @@ class ProjectService {
 
         })
 
+        this.api.interceptors.request.use((config) => {
+
+            const storedToken = localStorage.getItem("authToken");
+
+            if (storedToken) {
+                config.headers = { Authorization: `Bearer ${storedToken}` }
+            }
+
+            return config
+        })
+
     }
 
     create(formData) {
@@ -17,8 +28,8 @@ class ProjectService {
         return this.api.get('/getAllProjects')
     }
 
-    getOwnedProjects(owner) {
-        return this.api.post('/getOwnedProjects', { owner })
+    getOwnedProjects() {
+        return this.api.get('/getOwnedProjects')
     }
 
     getDetails(project_id) {
