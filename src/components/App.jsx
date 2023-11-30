@@ -5,24 +5,19 @@ import NavegationVer from './NavegationVer/NavegationVer'
 import Footer from './Footer/Footer'
 import AppRoutes from '../routes/AppRoutes'
 
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 
 import 'bootstrap'
 import './App.css'
 
 function App() {
 
-  const { loggedUser, authenticateUser } = useContext(AuthContext)
-
-  useEffect(() => {
-
-    authenticateUser()
-
-  }, [])
+  const { loggedUser } = useContext(AuthContext)
 
   return (
     <>
       <div className={loggedUser ? 'app-flex' : 'app-block'}>
+        {/* TODO: REACOPLAR COMPONENTES DE NAVEGACIÓN */}
         {loggedUser ? <NavegationVer /> : <NavegationHor />}
         <AppRoutes />
         <Footer />

@@ -30,6 +30,10 @@
     width: 100%;
 }
 
+.my-accordion-header {
+    padding-top: 1rem !important;
+}
+
 
 .my-accordion-button {
     color: white;

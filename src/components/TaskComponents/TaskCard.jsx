@@ -2,16 +2,16 @@
 import { prettyDate } from '../../utils/prettyDate'
 import AvatarList from '../AvatarList/AvatarList'
 
-const TaskCard = ({ task }) => {
+const TaskCard = ({ title, endDate, participants }) => {
 
     return (
 
         <div className="task" >
 
-            <h3>{task.title}</h3>
+            <h3>{title}</h3>
             <div className="task-info">
-                <p>{prettyDate(task.endDate)}</p>
-                <AvatarList participants={task.participants} />
+                <p>{prettyDate(endDate)}</p>
+                <AvatarList participants={participants} />
             </div>
         </div>
 
