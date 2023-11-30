@@ -34,16 +34,22 @@
 .contributors {
     display: flex;
     margin-right: .1rem;
+
 }
 
 .avatar {
     width: 20px;
     height: 20px;
+    border-radius: 50px;
+
+    margin-left: .5rem;
+    overflow: hidden;
+    border-radius: 50px;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: white;
 }
 
-img {
-    width: 20px;
-}
 
 .task {
     padding-left: .5rem;
@@ -54,4 +60,23 @@ img {
 
 p {
     margin-bottom: 0 !important;
+}
+
+.task-col {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #7D7D7D;
+    color: #7D7D7D;
+    font-weight: bold;
+    padding: 30px;
+    height: 400px;
+}
+
+.title {
+    border-bottom: 1px solid #7D7D7D;
+}
+
+.tasks-scroll {
+    height: 400px;
+    overflow-y: auto !important;
 }

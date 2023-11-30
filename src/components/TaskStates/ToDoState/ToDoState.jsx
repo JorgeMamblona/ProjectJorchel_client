@@ -35,10 +35,13 @@ const ToDoState = ({ project_id }) => {
                 <div className="task-col to-do text-center">
                     <div className="title">
                         <h2>TO DO</h2>
+
                     </div>
-                    {
-                        taskList.map(elm => <TaskCard key={elm._id} task={elm} />)
-                    }
+                    <div className="tasks-scroll">
+                        {
+                            taskList.map(elm => <TaskCard key={elm._id} task={elm} />)
+                        }
+                    </div>
                 </div>
             </>
     )

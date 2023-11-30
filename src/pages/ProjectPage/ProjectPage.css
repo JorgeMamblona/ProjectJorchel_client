@@ -6,11 +6,11 @@
 }
 
 .task-col {
-    margin-right: 1rem;
+    margin-right: .5rem;
     margin-top: 1rem !important;
     border-radius: 15px;
 
-    width: 20% !important;
+    width: 23% !important;
     height: 70vh;
 
 }
@@ -22,9 +22,10 @@
 
 .colaborators {
     display: flex;
+    padding-right: 2rem !important;
 }
 
-.avatar {
+.avatar-2 {
     height: 35px;
     width: 35px;
     margin-left: .5rem;
@@ -35,6 +36,6 @@
     background-color: white;
 }
 
-img {
-    width: 40px;
+.avatar-2 img {
+    width: 35px;
 }
