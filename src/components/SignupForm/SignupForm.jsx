@@ -25,7 +25,7 @@ const SignupForm = () => {
 
         const { value, name } = e.target
 
-        setSignupData({ ...formData, [name]: value })
+        setformData({ ...formData, [name]: value })
     }
 
     const handleFormSubmit = e => {
@@ -46,7 +46,7 @@ const SignupForm = () => {
         uploadServices
             .uploadimage(fileFormData)
             .then(({ data }) => {
-                setSignupData({ ...formData, avatar: data.cloudinary_url })
+                setformData({ ...formData, avatar: data.cloudinary_url })
             })
             .catch(err => console.log(err))
     }
