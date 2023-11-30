@@ -1,16 +1,23 @@
+import projectService from '../../services/projects.services'
 
-import './ProjectPage.css'
 import ToDoState from '../../components/TaskStates/ToDoState/ToDoState'
 import InProgressState from '../../components/TaskStates/InProgressState/InProgressState'
 import ReviewState from '../../components/TaskStates/ReviewState/ReviewState'
 import DoneState from '../../components/TaskStates/DoneState/DoneState'
+import ProjectTaskState from '../../components/ProjectComponents/ProjectTaskState'
 
 import { useParams, Link } from "react-router-dom"
 
 import avatar from './../../assets/holaaa.jpeg'
+
 import { useEffect, useState } from 'react'
-import projectService from '../../services/projects.services'
+
 import { Button } from 'react-bootstrap'
+
+import './ProjectPage.css'
+
+
+
 
 const ProjectPage = () => {
 
@@ -60,7 +67,8 @@ const ProjectPage = () => {
 
                 <div className="row justify-content-around">
                     <ToDoState project_id={projectData._id} />
-                    <InProgressState project_id={projectData._id} />
+                    {/* <InProgressState project_id={projectData._id} /> */}
+                    <ProjectTaskState project_id={projectData._id} state='DONE' />
                     <ReviewState project_id={projectData._id} />
                     <DoneState project_id={projectData._id} />
                 </div>
