@@ -5,6 +5,8 @@ import projectService from '../../../services/projects.services'
 
 import { useContext, useEffect, useState } from "react"
 
+import './ProjectsPage.css'
+
 const ListProjectPage = () => {
 
     const [projects, setProjects] = useState()
@@ -24,15 +26,20 @@ const ListProjectPage = () => {
     }
 
     return (
-        <>
-            <div>
-                <h1>My Projects</h1>
+
+        <div className="projects-page d-flex justify-content-center">
+            <div className="container-card">
+                <div>
+                    <h1>My Projects</h1>
+                </div>
+                {/* TODO: DESACOPLAR PROJECTSLIST */}
+                <div className='scrollable-content'>
+                    {
+                        !projects ? <><h1>Loading</h1></> : projects.map(elm => <ProjectCard key={elm._id} {...elm} />)
+                    }
+                </div>
             </div>
-            {/* TODO: DESACOPLAR PROJECTSLIST */}
-            {
-                !projects ? <><h1>Loading</h1></> : projects.map(elm => <ProjectCard key={elm._id} {...elm} />)
-            }
-        </>
+        </div>
     )
 }
 

@@ -1,0 +1,21 @@
+.projects-page {
+    width: 80vw;
+
+    padding-top: 2rem;
+    color: white;
+
+}
+
+.container-card {
+
+    width: 90%;
+}
+
+.scrollable-content {
+    height: 90vh;
+    overflow-y: auto;
+}
+
+.scrollable-content::-webkit-scrollbar {
+    display: none;
+}
