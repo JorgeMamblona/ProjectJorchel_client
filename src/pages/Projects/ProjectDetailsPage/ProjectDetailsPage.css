@@ -39,3 +39,20 @@
 .avatar-2 img {
     width: 35px;
 }
+
+
+
+
+.title_editable_false {
+    background-color: #100724 !important;
+    border: none !important;
+    color: white !important;
+    font-size: 2em !important;
+}
+
+.title_editable_true {
+    background-color: #100724 !important;
+
+    color: white !important;
+    font-size: 2em !important;
+}
