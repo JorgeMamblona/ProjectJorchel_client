@@ -1,10 +1,10 @@
-import taskService from '../../services/tasks.services'
+import taskService from '../../../services/tasks.services'
 
-import TaskCard from '../TaskComponents/TaskCard'
+import TaskCard from '../../TaskComponents/TaskCard'
 
 import { useEffect, useState } from 'react'
 
-import '../TaskStates/ToDoState/ToDoState.css'
+import './State.css'
 
 const ProjectTaskState = ({ project_id, state }) => {
 
@@ -31,16 +31,14 @@ const ProjectTaskState = ({ project_id, state }) => {
             ?
             <></>
             :
-            <>
-                <div className="task-col to-do text-center">
-                    <div className="title">
-                        <h2>{state}</h2>
-                    </div>
-                    {
-                        taskList.map(elm => <TaskCard key={elm._id} task={elm} />)
-                    }
+            <div className={`task-col to-do task-${state} text-center`}>
+                <div className="title">
+                    <h2>{state}</h2>
                 </div>
-            </>
+                {
+                    taskList.map(elm => <TaskCard key={elm._id} {...elm} />)
+                }
+            </div>
     )
 }
 

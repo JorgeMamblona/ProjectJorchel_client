@@ -1,10 +1,7 @@
 import projectService from '../../../services/projects.services'
 
-import ToDoState from '../../../components/TaskStates/ToDoState/ToDoState'
-import InProgressState from '../../../components/TaskStates/InProgressState/InProgressState'
-import ReviewState from '../../../components/TaskStates/ReviewState/ReviewState'
-import DoneState from '../../../components/TaskStates/DoneState/DoneState'
-import ProjectTaskState from '../../../components/ProjectComponents/ProjectTaskState'
+import ProjectTaskState from '../../../components/ProjectComponents/ProjectTaskState/ProjectTaskState'
+import EditableField from '../../../components/EditableField/EditableField'
 
 import { useParams, Link } from "react-router-dom"
 
@@ -24,6 +21,8 @@ const ProjectPage = () => {
     const { project_id } = useParams()
 
     const [projectData, setProjectData] = useState()
+
+
 
     useEffect(() => {
         loadProjectDetails(project_id)
@@ -48,7 +47,7 @@ const ProjectPage = () => {
 
                 <div className="header-info justify-content-between">
 
-                    <h1>Gestion de tareas: {projectData.title}</h1>
+                    <EditableField data={'project-title'} value={projectData.title} data_id={projectData._id} />
 
                     <Link to={`/task/create/${projectData._id}`}>
                         <Button variant="outline-primary">New Task</Button>
@@ -66,11 +65,11 @@ const ProjectPage = () => {
                 </div>
 
                 <div className="row justify-content-around">
-                    <ToDoState project_id={projectData._id} />
-                    {/* <InProgressState project_id={projectData._id} /> */}
+                    <ProjectTaskState project_id={projectData._id} state='TODO' />
+                    <ProjectTaskState project_id={projectData._id} state='ONGOING' />
+                    <ProjectTaskState project_id={projectData._id} state='REVIEW' />
                     <ProjectTaskState project_id={projectData._id} state='DONE' />
-                    <ReviewState project_id={projectData._id} />
-                    <DoneState project_id={projectData._id} />
+
                 </div>
             </div>
     )
