@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
 import taskService from '../../../services/tasks.services'
 
 import TaskCard from '../../TaskComponents/TaskCard'
 
+import { useEffect, useState } from 'react'
 
 import './ToDoState.css'
 
@@ -12,7 +12,6 @@ const ToDoState = ({ project_id }) => {
 
     const loadTask = project_id => {
 
-
         taskService
             .getProjectTasksByState(project_id, 'TODO')
             .then(({ data }) => {
@@ -20,8 +19,11 @@ const ToDoState = ({ project_id }) => {
             })
             .catch(err => console.log(err))
     }
+
     useEffect(() => {
+
         loadTask(project_id)
+
     }, [project_id])
 
     return (

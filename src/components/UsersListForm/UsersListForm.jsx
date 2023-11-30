@@ -1,23 +1,28 @@
-import { Button, Form, InputGroup } from "react-bootstrap"
 import userService from "../../services/user.services"
-import { useEffect, useState } from "react"
+
 import UserList from "../UserList/UserList"
 
-const UsersListForm = ({ data, handleInputChange, setUsers }) => {
+import { useEffect, useState } from "react"
+import { Form } from "react-bootstrap"
+
+const UsersListForm = ({ setUsers }) => {
 
     const [userList, setUserList] = useState([])
     const [selectedUsers, setSelectedUSers] = useState([])
+
     const loadUsers = e => {
+
         const { value } = e.target
+
         if (value) {
             findUsers(value)
         } else {
             setUserList([])
         }
-
     }
 
     const findUsers = value => {
+
         userService
             .listAllUsers(value)
             .then(({ data }) => {
@@ -27,13 +32,16 @@ const UsersListForm = ({ data, handleInputChange, setUsers }) => {
     }
 
     const addUser = user => {
+
         const newList = [...selectedUsers]
         newList.push(user)
         setSelectedUSers(newList)
     }
 
     useEffect(() => {
+
         setUsers(selectedUsers)
+
     }, [userList, selectedUsers])
 
     return (
@@ -42,7 +50,6 @@ const UsersListForm = ({ data, handleInputChange, setUsers }) => {
                 <Form.Control placeholder="Username" onChange={loadUsers} />
             </Form.Group>
             <UserList userList={userList} addUser={addUser} />
-
         </>
     )
 }

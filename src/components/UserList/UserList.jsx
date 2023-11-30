@@ -6,9 +6,7 @@ const UserList = ({ userList, addUser }) => {
     const [users, setUsers] = useState(userList)
 
     return (
-
         <>
-
             {
                 userList.map(elm => {
                     return (
@@ -16,7 +14,6 @@ const UserList = ({ userList, addUser }) => {
                     )
                 }).slice(0, 3)
             }
-
         </>
     )
 }

@@ -1,9 +1,7 @@
 import axios from 'axios'
-
 class UploadServices {
 
     constructor() {
-
         this.api = axios.create({
             baseURL: `${import.meta.env.VITE_API_URL}/upload`
         })
@@ -15,5 +13,4 @@ class UploadServices {
 }
 
 const uploadServices = new UploadServices()
-
 export default uploadServices

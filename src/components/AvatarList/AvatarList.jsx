@@ -8,13 +8,13 @@ const AvatarList = (participants) => {
     const [users, setUsers] = useState()
 
     const loadUserInfo = participants => {
+
         userService
             .listUsersById(participants)
             .then(({ data }) => {
                 setUsers(data)
             })
             .catch(err => console.log(err))
-
     }
 
     useEffect(() => {
@@ -27,7 +27,6 @@ const AvatarList = (participants) => {
             <></>
             :
             <div className="contributors">
-
                 {
                     users.map(elm => {
                         return (
