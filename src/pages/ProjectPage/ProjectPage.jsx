@@ -12,9 +12,6 @@ import { useEffect, useState } from 'react'
 import projectService from '../../services/projects.services'
 import { Button } from 'react-bootstrap'
 
-
-
-
 const ProjectPage = () => {
 
     const { project_id } = useParams()
@@ -26,14 +23,12 @@ const ProjectPage = () => {
     }, [project_id])
 
     const loadProjectDetails = project_id => {
-
         projectService
             .getDetails(project_id)
             .then(({ data }) => {
                 setProjectData(data)
             })
-            .catch()
-
+            .catch(err => console.log(err))
     }
 
     return (
@@ -45,11 +40,13 @@ const ProjectPage = () => {
             <div className="project-page">
 
                 <div className="header-info justify-content-between">
+
                     <h1>Gestion de tareas: {projectData.title}</h1>
+
                     <Link to={`/task/create/${projectData._id}`}>
                         <Button variant="outline-primary">New Task</Button>
-
                     </Link>
+
                     <div className="colaborators">
                         <div className="avatar-2">
                             <img src={avatar} alt="" />
@@ -57,8 +54,8 @@ const ProjectPage = () => {
                         <div className="avatar-2">
                             <img src={avatar} alt="" />
                         </div>
-
                     </div>
+
                 </div>
 
                 <div className="row justify-content-around">

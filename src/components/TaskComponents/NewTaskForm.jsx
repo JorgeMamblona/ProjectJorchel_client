@@ -47,9 +47,9 @@ const NewTaskForm = () => {
             .catch(err => console.log(err))
     }
 
-    const setUsers = list => {
+    const setUsers = participants => {
 
-        setNewTaskData({ ...newTaskData, participants: list })
+        setNewTaskData({ ...newTaskData, participants })
     }
 
     return (

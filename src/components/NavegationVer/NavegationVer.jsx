@@ -38,57 +38,50 @@ const NavegationVer = () => {
     }
 
     return (
-        <>
-            <div className='custom-nav  '>
-                <Container>
-                    <Link to={'/'} className='navbar-brand'></Link>
-                    <NavDropdown title={loggedUser.username} id="collapsible-nav-dropdown">
+        <div className='custom-nav  '>
+            <Container>
+                <Link to={'/'} className='navbar-brand'></Link>
+                <NavDropdown title={loggedUser.username} id="collapsible-nav-dropdown">
 
-                        <Link className='dropdown-item' to={'/my-profile'} >Mi perfil </Link>
-                        <NavDropdown.Divider />
-                        <span className='dropdown-item' onClick={doLogout}>Log out </span>
+                    <Link className='dropdown-item' to={'/my-profile'} >Mi perfil </Link>
+                    <NavDropdown.Divider />
+                    <span className='dropdown-item' onClick={doLogout}>Log out </span>
 
-                    </NavDropdown>
-                    <hr />
+                </NavDropdown>
+                <hr />
 
-                    <div className="my-accordion accordion-flush" id="accordionFlushExample">
-                        <div className="accordion-item">
-                            <h2 className="accordion-header" id="flush-headingOne">
-                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    Projects
-                                </button>
-                            </h2>
-                            <hr />
-                            <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div className="accordion-body">
-                                    {!projects ? <><p>loading</p></> : projects.map(e => {
-                                        return (
-                                            <div key={e._id}>
-                                                <Link to={`/project/${e._id}`} className='nav-link'>{e.title}</Link>
-                                                <hr />
-                                            </div>
-                                        )
-                                    })}
-                                    <Link to='/project/create' className='nav-link'>
-                                        <Button className='myButton'>New Project</Button>
-                                    </Link>
-                                </div>
+                <div className="my-accordion accordion-flush" id="accordionFlushExample">
+                    <div className="accordion-item">
+                        <h2 className="accordion-header" id="flush-headingOne">
+                            <button className="my-accordion-header accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                Projects
+                            </button>
+                        </h2>
+                        <hr />
+                        <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div className="accordion-body">
+                                {/* TODO: DESACOPLAR LISTADO DE PROYECTOS */}
+                                {!projects ? <><p>loading</p></> : projects.map(e => {
+                                    return (
+                                        <div key={e._id}>
+                                            <Link to={`/project/${e._id}`} className='nav-link'>{e.title}</Link>
+                                            <hr />
+                                        </div>
+                                    )
+                                })}
+                                <Link to='/project/create' className='nav-link'>
+                                    <Button className='myButton'>New Project</Button>
+                                </Link>
                             </div>
                         </div>
-
                     </div>
-                    <Link to={'/project/myProjects'} className='nav-link mt-3'><Button className='myButton'>My Projects</Button></Link>
-                    <Link to={'/'} className='nav-link'>Tareas</Link>
-                    <Link to={'/'} className="footer-nav"><img src={logo} alt="" /></Link>
-                </Container >
 
-
-
-
-
-            </div >
-
-        </>
+                </div>
+                <Link to={'/project/myProjects'} className='nav-link mt-3'><Button className='myButton'>My Projects</Button></Link>
+                <Link to={'/'} className='nav-link'>Tareas</Link>
+                <Link to={'/'} className="footer-nav"><img src={logo} alt="" /></Link>
+            </Container >
+        </div >
     )
 }
 

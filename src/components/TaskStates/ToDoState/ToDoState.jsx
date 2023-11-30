@@ -10,7 +10,7 @@ const ToDoState = ({ project_id }) => {
 
     const [taskList, setTaskList] = useState()
 
-    const loadTask = project_id => {
+    const loadTask = () => {
 
         taskService
             .getProjectTasksByState(project_id, 'TODO')
@@ -22,7 +22,7 @@ const ToDoState = ({ project_id }) => {
 
     useEffect(() => {
 
-        loadTask(project_id)
+        loadTask()
 
     }, [project_id])
 
@@ -39,7 +39,7 @@ const ToDoState = ({ project_id }) => {
                     </div>
                     <div className="tasks-scroll">
                         {
-                            taskList.map(elm => <TaskCard key={elm._id} task={elm} />)
+                            taskList.map(elm => <TaskCard key={elm._id} {...elm} />)
                         }
                     </div>
                 </div>

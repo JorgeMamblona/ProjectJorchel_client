@@ -30,8 +30,9 @@ const ListProjectPage = () => {
             <div>
                 <h1>My Projects</h1>
             </div>
+            {/* TODO: DESACOPLAR PROJECTSLIST */}
             {
-                !projects ? <><h1>Loading</h1></> : projects.map(elm => <ProjectCard key={elm._id} project={elm} />)
+                !projects ? <><h1>Loading</h1></> : projects.map(elm => <ProjectCard key={elm._id} {...elm} />)
             }
         </>
     )
