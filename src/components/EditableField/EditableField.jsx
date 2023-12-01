@@ -1,9 +1,13 @@
+import { ProjectsContext } from "../../contexts/projects.context"
+
 import projectService from "../../services/projects.services"
 
 import { Form, Button } from "react-bootstrap"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useContext } from "react"
 
 const EditableField = ({ value, data, data_id }) => {
+
+    const { loadProjects } = useContext(ProjectsContext)
 
     const ref = useRef(null)
     const [editable, setEditable] = useState(false)
@@ -36,10 +40,8 @@ const EditableField = ({ value, data, data_id }) => {
 
         if (model === 'project') {
             projectHandler()
+
         }
-
-
-
 
         setEditable(!editable)
     }
@@ -48,14 +50,14 @@ const EditableField = ({ value, data, data_id }) => {
 
         projectService
             .edit(formData)
-            .then()
+            .then(({ data }) => {
+                console.log(data)
+                loadProjects()
+
+            })
             .catch(err => console.log(err))
     }
 
-
-    useEffect(() => {
-
-    }, [editable])
     return (
 
         <Form onSubmit={handleFormSubmit}>
@@ -64,7 +66,7 @@ const EditableField = ({ value, data, data_id }) => {
                     ref={ref}
                     className={`title_editable_${editable}`}
                     disabled={!editable}
-                    defaultValue={value}
+                    value={value}
                     onChange={handleInputChange}
                 />
                 {editable ? <Button id='2' type="submit">Save</Button> : <span className='btn btn-primary' id='1' onClick={handleEditable}>Edit</span>}
