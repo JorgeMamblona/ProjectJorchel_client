@@ -1,6 +1,5 @@
 import { AuthContext } from '../../../contexts/auth.context'
-
-import projectService from '../../../services/projects.services'
+import { ProjectsContext } from '../../../contexts/projects.context'
 
 import { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
@@ -15,21 +14,13 @@ import './NavegationVer.css'
 const NavegationVer = () => {
 
     const { loggedUser, logout } = useContext(AuthContext)
-    const navigate = useNavigate()
+    const { projects, loadProjects } = useContext(ProjectsContext)
 
-    const [projects, setProjects] = useState()
+    const navigate = useNavigate()
 
     useEffect(() => {
         loadProjects()
     }, [loggedUser])
-
-    const loadProjects = () => {
-
-        projectService
-            .getOwnedProjects()
-            .then(({ data }) => setProjects(data))
-            .catch(err => console.log(err))
-    }
 
     const doLogout = () => {
         logout()
@@ -64,7 +55,7 @@ const NavegationVer = () => {
                                 {!projects ? <><p>loading</p></> : projects.map(e => {
                                     return (
                                         <div key={e._id}>
-                                            <Link to={`/project/${e._id}`} className='nav-link'>{e.title}</Link>
+                                            <Link to={`/project/${e._id}`} className='nav-link' >{e.title}</Link>
                                             <hr />
                                         </div>
                                     )

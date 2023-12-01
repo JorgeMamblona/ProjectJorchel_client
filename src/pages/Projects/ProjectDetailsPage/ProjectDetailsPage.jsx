@@ -1,3 +1,4 @@
+
 import projectService from '../../../services/projects.services'
 
 import ProjectTaskState from '../../../components/ProjectComponents/ProjectTaskState/ProjectTaskState'
@@ -22,13 +23,11 @@ const ProjectPage = () => {
 
     const [projectData, setProjectData] = useState()
 
-
-
     useEffect(() => {
-        loadProjectDetails(project_id)
+        loadProjectDetails()
     }, [project_id])
 
-    const loadProjectDetails = project_id => {
+    const loadProjectDetails = () => {
         projectService
             .getDetails(project_id)
             .then(({ data }) => {
