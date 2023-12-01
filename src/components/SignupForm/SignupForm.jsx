@@ -21,6 +21,8 @@ const SignupForm = () => {
         avatar: avatar
     })
 
+    //const [isLoading]
+
     const handleInputChange = e => {
 
         const { value, name } = e.target

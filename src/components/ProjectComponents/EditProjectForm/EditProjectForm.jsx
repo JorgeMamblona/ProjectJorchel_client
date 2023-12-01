@@ -1,8 +1,8 @@
-import { Col, Form, Row, Button } from "react-bootstrap"
-
-import { formatDate } from "../../../utils/formatDate"
+import { ProjectsContext } from "../../../contexts/projects.context"
 
 import uploadServices from "../../../services/upload.services"
+import projectService from "../../../services/projects.services"
+
 
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
@@ -17,7 +17,10 @@ import './EditProjectForm.css'
 
 const EditProjectForm = () => {
 
+    const { loadProjects } = useContext(ProjectsContext)
+
     const navigate = useNavigate()
+
     const { project_id } = useParams()
     const [project, setProject] = useState({})
     const [editFormData, seteditFormData] = useState({
@@ -57,6 +60,7 @@ const EditProjectForm = () => {
         projectService
             .edit(editFormData)
             .then(() => {
+                loadProjects()
                 navigate("/")
             })
             .catch(err => console.log(err))

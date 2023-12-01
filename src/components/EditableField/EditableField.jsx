@@ -9,12 +9,10 @@ const EditableField = ({ value, data, data_id }) => {
 
     const { loadProjects } = useContext(ProjectsContext)
 
-    const ref = useRef(null)
     const [editable, setEditable] = useState(false)
 
     const handleEditable = () => {
         setEditable(!editable)
-        ref.current.focus()
     }
 
     const handleData = i => {
@@ -32,6 +30,7 @@ const EditableField = ({ value, data, data_id }) => {
 
     const handleInputChange = e => {
         const { value } = e.target
+        console.log(e)
         setformData({ project_id: data_id, [key]: value })
     }
 
@@ -50,23 +49,21 @@ const EditableField = ({ value, data, data_id }) => {
 
         projectService
             .edit(formData)
-            .then(({ data }) => {
-                console.log(data)
-                loadProjects()
-
-            })
+            .then(() => loadProjects())
             .catch(err => console.log(err))
     }
 
+    useEffect(() => {
+        setformData({ project_id: data_id, [key]: value })
+    }, [data_id])
     return (
 
         <Form onSubmit={handleFormSubmit}>
             <Form.Group className='d-flex'>
                 <Form.Control
-                    ref={ref}
                     className={`title_editable_${editable}`}
                     disabled={!editable}
-                    value={value}
+                    value={formData.title}
                     onChange={handleInputChange}
                 />
                 {editable ? <Button id='2' type="submit">Save</Button> : <span className='btn btn-primary' id='1' onClick={handleEditable}>Edit</span>}
