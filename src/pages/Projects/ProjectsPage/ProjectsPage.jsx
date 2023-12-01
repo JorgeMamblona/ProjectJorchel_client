@@ -35,7 +35,7 @@ const ListProjectPage = () => {
                 {/* TODO: DESACOPLAR PROJECTSLIST */}
                 <div className='scrollable-content'>
                     {
-                        !projects ? <><h1>Loading</h1></> : projects.map(elm => <ProjectCard key={elm._id} {...elm} />)
+                        !projects ? <><h1>Loading</h1></> : projects.map(elm => <ProjectCard key={elm._id} {...elm} loadProjects={loadProjects} />)
                     }
                 </div>
             </div>

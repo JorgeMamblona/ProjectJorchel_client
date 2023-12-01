@@ -10,14 +10,15 @@ import { useState } from 'react'
 import projectService from '../../services/projects.services'
 
 
-const ProjectCard = ({ title, state, endDate, colaborators, _id }) => {
+const ProjectCard = ({ title, state, endDate, colaborators, _id: project_id, loadProjects }) => {
+
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const deleteProject = () => {
         projectService
-            .delete(_id)
+            .delete(project_id)
             .then(() => {
                 loadProjects()
                 handleClose()
@@ -37,7 +38,7 @@ const ProjectCard = ({ title, state, endDate, colaborators, _id }) => {
                             </svg>
                         </Button>
                     </Link>
-                    <Link to={`/project/${_id}/edit`}>
+                    <Link to={`/project/${project_id}/edit`} >
                         <Button className='button-options' >
                             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M11.0625 3.77082L15.2292 7.93749M1.16666 17.8333H5.33332L16.2708 6.89582C16.5444 6.62224 16.7614 6.29744 16.9095 5.93998C17.0576 5.58252 17.1338 5.1994 17.1338 4.81249C17.1338 4.42558 17.0576 4.04246 16.9095 3.685C16.7614 3.32754 16.5444 3.00274 16.2708 2.72916C15.9972 2.45557 15.6724 2.23855 15.315 2.09048C14.9575 1.94242 14.5744 1.86621 14.1875 1.86621C13.8006 1.86621 13.4175 1.94242 13.06 2.09048C12.7025 2.23855 12.3777 2.45557 12.1042 2.72916L1.16666 13.6667V17.8333Z" stroke="white" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -94,31 +95,3 @@ export default ProjectCard
 
 
 
-// function Example() {
-
-
-//     return (
-//         <>
-//             <Button variant="primary" onClick={handleShow}>
-//                 Launch demo modal
-//             </Button>
-
-//             <Modal show={show} onHide={handleClose}>
-//                 <Modal.Header closeButton>
-//                     <Modal.Title>Modal heading</Modal.Title>
-//                 </Modal.Header>
-//                 <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-//                 <Modal.Footer>
-//                     <Button variant="secondary" onClick={handleClose}>
-//                         Close
-//                     </Button>
-//                     <Button variant="primary" onClick={handleClose}>
-//                         Save Changes
-//                     </Button>
-//                 </Modal.Footer>
-//             </Modal>
-//         </>
-//     );
-// }
-
-// export default Example;
