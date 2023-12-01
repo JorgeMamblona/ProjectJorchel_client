@@ -13,8 +13,10 @@ import projectService from '../../services/projects.services'
 const ProjectCard = ({ title, state, endDate, colaborators, _id: project_id, loadProjects }) => {
 
     const [show, setShow] = useState(false);
+    const [project, setProject] = useState()
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
 
     const deleteProject = () => {
         projectService
@@ -26,6 +28,8 @@ const ProjectCard = ({ title, state, endDate, colaborators, _id: project_id, loa
             })
             .catch(err => console.log(err))
     }
+
+
     return (
         <div className={`project-card ${state}`}>
             <div className="header-project-card d-flex justify-content-between">
