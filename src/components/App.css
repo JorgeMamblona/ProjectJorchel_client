@@ -2,6 +2,7 @@ body {
   font-family: 'Poppins', 'sans-serif';
   color: rgb(255, 255, 255);
   background-color: #100724 !important;
+  overflow-y: hidden;
 
 
 }
@@ -29,14 +30,35 @@ body {
   color: #F72485 !important;
   transition: all 0.3s ease;
   width: 100%;
-
-
 }
 
 .myButton2:hover {
   background-color: #F72485 !important;
   color: white !important;
 
+}
+
+.myButton3 {
+  background-color: #F72485 !important;
+  transition: all 0.3s ease;
+  border: 0px !important;
+}
+
+.myButton3:hover {
+  background-color: #b51962 !important;
+  border: 0px !important;
+}
+
+.myButton4-outline {
+  border: 1px solid white !important;
+  background-color: transparent !important;
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.myButton4-outline:hover {
+  background-color: white !important;
+  color: #100724 !important;
 }
 
 h2 {

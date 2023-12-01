@@ -5,6 +5,7 @@ import HomePage from '../pages/HomePage/HomePage'
 import ProjectPage from '../pages/Projects/ProjectDetailsPage/ProjectDetailsPage'
 import NewTaskPage from '../pages/NewTaskPage/NewTaskPage'
 import ListProjectPage from '../pages/Projects/ProjectsPage/ProjectsPage'
+import ProjectEditPage from '../pages/Projects/ProjectEditPage/ProjectEditPage'
 
 import PrivateRoute from './PrivateRoute'
 
@@ -23,6 +24,7 @@ const AppRoutes = () => {
                 <Route path='/project/myProjects' element={<ListProjectPage />} />
                 <Route path='/task/create/:project_id' element={<NewTaskPage />} />
                 <Route path='/project/create' element={<NewProjectPage />}></Route>
+                <Route path='/project/:project_id/edit' element={<ProjectEditPage />} />
             </Route>
         </Routes>
     )

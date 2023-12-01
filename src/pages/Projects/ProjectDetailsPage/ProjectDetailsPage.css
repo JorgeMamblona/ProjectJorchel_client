@@ -56,3 +56,13 @@
     color: white !important;
     font-size: 2em !important;
 }
+
+
+.scrollable-content {
+    height: 90vh;
+    overflow-y: auto;
+}
+
+.scrollable-content::-webkit-scrollbar {
+    display: none;
+}

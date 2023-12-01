@@ -40,3 +40,30 @@
     border: 1px solid #0AA7FF;
     background: rgba(10, 167, 255, 0.50);
 }
+
+.modal-content {
+    border: solid 1px #0AA7FF !important;
+    background-color: #100724 !important;
+    color: white !important;
+
+}
+
+.modal-footer {
+    border: 0px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.modal-footer .myButton3 {
+    width: 47%;
+
+}
+
+.modal-footer .myButton4-outline {
+    width: 47%;
+
+}
+
+.modal-header {
+    border: 0px !important;
+}
