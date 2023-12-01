@@ -30,7 +30,7 @@ const ListProjectPage = () => {
         <div className="projects-page d-flex justify-content-center">
             <div className="container-card">
                 <div>
-                    <h1>My Projects</h1>
+                    <h1 className='title-myprojects'>My Projects</h1>
                 </div>
                 {/* TODO: DESACOPLAR PROJECTSLIST */}
                 <div className='scrollable-content'>
