@@ -5,13 +5,17 @@ import { formatDate } from "../../../utils/formatDate"
 import uploadServices from "../../../services/upload.services"
 
 import { useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 
 import UsersListForm from "../../UsersListForm/UsersListForm"
 
 import projectService from "../../../services/projects.services"
 
+
 const EditProjectForm = () => {
 
+    const navigate = useNavigate()
+    const { project_id } = useParams()
     const [editFormData, seteditFormData] = useState({
         title: '',
         description: '',
@@ -20,25 +24,28 @@ const EditProjectForm = () => {
         startDate: formatDate(new Date),
         endDate: '',
         colaborators: [],
+        project_id: project_id
+
     })
 
+    const handleInputChange = e => {
+        const { value, name } = e.target
+        seteditFormData({ ...editFormData, [name]: value })
+    }
+
     const handleFormSubmit = e => {
+
         e.preventDefault()
 
         projectService
             .edit(editFormData)
             .then(() => {
-                authenticateUser()
                 navigate("/")
             })
             .catch(err => console.log(err))
 
     }
 
-    const handleInputChange = e => {
-        const { value, name } = e.target
-        seteditFormData({ ...editFormData, [name]: value })
-    }
 
     const handleFileUpload = e => {
 

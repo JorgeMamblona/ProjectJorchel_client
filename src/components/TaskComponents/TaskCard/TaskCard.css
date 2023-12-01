@@ -1,0 +1,31 @@
+.project-TODO {
+
+    border: 1px solid #7D7D7D !important;
+    color: #7D7D7D !important;
+    font-weight: bold !important;
+
+
+}
+
+.task-project-TODO {
+    width: 100%;
+    border: 1px solid #D9D9D9 !important;
+    background: rgba(217, 217, 217, 0.50) !important;
+    color: white !important;
+}
+
+.ONGOING {
+
+    border: 1px solid;
+    color: red;
+    font-weight: bold;
+    padding: 30px;
+
+}
+
+.task-ONGOING {
+    width: 100%;
+    border: 1px solid #D9D9D9;
+    background: rgba(255, 0, 0, 0.5);
+    color: white;
+}

@@ -1,6 +1,6 @@
 import taskService from '../../../services/tasks.services'
 
-import TaskCard from '../../TaskComponents/TaskCard'
+import TaskCard from '../../TaskComponents/TaskCard/TaskCard'
 
 import { useEffect, useState } from 'react'
 

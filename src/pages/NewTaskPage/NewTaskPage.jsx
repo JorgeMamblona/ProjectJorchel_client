@@ -1,4 +1,4 @@
-import NewTaskForm from "../../components/TaskComponents/NewTaskForm"
+import NewTaskForm from "../../components/TaskComponents/NewTaskForm/NewTaskForm"
 
 import { Container, Row, Col } from "react-bootstrap"
 
