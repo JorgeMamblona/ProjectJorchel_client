@@ -1,0 +1,10 @@
+.my-tasks {
+    color: white;
+}
+
+.list-scrollable-content {
+    margin-top: 2rem;
+    width: 70vw !important;
+    height: 80vh !important;
+    overflow-y: auto !important;
+}

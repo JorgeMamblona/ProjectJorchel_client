@@ -71,7 +71,7 @@ const NavegationVer = () => {
                     <Button style={{ width: '100%' }} className='myButton3'>New Project</Button>
                 </Link>
                 <Link to={'/project/myProjects'} className='my-nav nav-link mt-3'>All Projects</Link>
-                <Link to={'/'} className='my-nav nav-link mt-3'>All Tasks</Link>
+                <Link to={'/task/myTasks'} className='my-nav nav-link mt-3'>All Tasks</Link>
 
             </Container >
         </div >
