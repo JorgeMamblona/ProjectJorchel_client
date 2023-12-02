@@ -69,7 +69,7 @@ const NavegationVer = () => {
 
                 </div>
                 <Link to={'/project/myProjects'} className='nav-link mt-3'><Button className='myButton'>My Projects</Button></Link>
-                <Link to={'/'} className='nav-link'>Tareas</Link>
+                <Link to={'/task/myTasks'} className='nav-link mt-3'><Button className='myButton'>My Tasks</Button></Link>
                 <Link to={'/'} className="footer-nav"><img src={logo} alt="" /></Link>
             </Container >
         </div >
