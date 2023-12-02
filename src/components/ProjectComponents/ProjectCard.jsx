@@ -1,3 +1,4 @@
+import { ProjectsContext } from '../../contexts/projects.context'
 import { Link, useNavigate } from 'react-router-dom'
 
 import AvatarList from './../AvatarList/AvatarList'
@@ -6,16 +7,18 @@ import './ProjectCard.css'
 import { Button, Form, Modal } from 'react-bootstrap'
 
 import { prettyDate } from '../../utils/prettyDate'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import projectService from '../../services/projects.services'
+import TaskCounter from '../TaskComponents/TaskCounter/TaskCounter'
+
+const ProjectCard = ({ title, state, endDate, colaborators, _id: project_id }) => {
+
+    const { loadProjects } = useContext(ProjectsContext)
 
 
-const ProjectCard = ({ title, state, endDate, colaborators, _id: project_id, loadProjects }) => {
-
-    const [show, setShow] = useState(false);
-    const [project, setProject] = useState()
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [show, setShow] = useState(false)
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true)
 
 
     const deleteProject = () => {
@@ -65,10 +68,10 @@ const ProjectCard = ({ title, state, endDate, colaborators, _id: project_id, loa
             <hr />
             <div className="body-project-card d-flex justify-content-around">
                 <p>{prettyDate(endDate)}</p>
-                <p>Tasks to do:</p>
-                <p>Tasks on going:</p>
-                <p>Tasks on revies:</p>
-                <p>Tasks done:</p>
+                <p>Tasks to do: {<TaskCounter state={'TODO'} />}</p>
+                <p>Tasks on going:{<TaskCounter state={'ONGOING'} />}</p>
+                <p>Tasks on revies:{<TaskCounter state={'REVIEW'} />}</p>
+                <p>Tasks done:{<TaskCounter state={'DONE'} />}</p>
                 <AvatarList participants={colaborators} />
             </div>
 

@@ -26,6 +26,10 @@ class TaskService {
     getProjectTasksByState(project_id, state) {
         return this.api.post('/getProjectTasksByState', { project_id, state })
     }
+
+    getOwnedTasks() {
+        return this.api.get('/getOwnedTasks')
+    }
 }
 
 const taskService = new TaskService()
