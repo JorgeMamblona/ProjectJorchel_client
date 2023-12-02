@@ -4,6 +4,8 @@ import TaskList from '../../../components/TaskComponents/TaskList/TaskList'
 
 import { useEffect, useState } from "react"
 
+import './ListTasksPage.css'
+
 const ListTasksPage = () => {
 
     const [taskList, setTaskList] = useState()
@@ -27,7 +29,7 @@ const ListTasksPage = () => {
             ?
             <></>
             :
-            <div>
+            <div className='list-tasks-page '>
                 <TaskList taskList={taskList} />
             </div>
     )

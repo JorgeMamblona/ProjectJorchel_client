@@ -1,13 +1,15 @@
 import MyTaskCard from '../MyTaskCard/MyTaskCard'
+import './TaskList.css'
 
 const TaskList = ({ taskList }) => {
 
     return (
-        <>
-            {
-                taskList.map(elm => <MyTaskCard key={elm._id} {...elm} />)
-            }
-        </>
+        <div className="my-tasks">
+            <h1>My tasks</h1>
+            <div className='list-scrollable-content'>
+                {taskList.map(elm => <MyTaskCard key={elm._id} {...elm} />)}
+            </div>
+        </div>
     )
 }
 

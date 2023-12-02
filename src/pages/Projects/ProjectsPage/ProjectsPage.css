@@ -11,13 +11,13 @@
     width: 90%;
 }
 
-.scrollable-content {
-    height: 90vh;
-    overflow-y: auto;
+.project-scrollable-content {
+    height: 80vh !important;
+    overflow-y: auto !important;
 }
 
-.scrollable-content::-webkit-scrollbar {
-    display: none;
+.project-scrollable-content::-webkit-scrollbar {
+    display: none !important;
 }
 
 
