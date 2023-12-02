@@ -8,7 +8,7 @@ const TaskCard = ({ title, endDate, state, participants }) => {
 
     return (
 
-        <div className={`task-project-${state} project-${state}`} >
+        <div className={`task-project-${state}`} >
 
             <h3>{title}</h3>
             <div className="task-info">

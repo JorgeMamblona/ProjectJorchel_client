@@ -1,31 +1,68 @@
-.project-TODO {
-
+.task-TODO {
+    width: 100%;
     border: 1px solid #7D7D7D !important;
+    background: transparent;
     color: #7D7D7D !important;
-    font-weight: bold !important;
-
-
 }
 
 .task-project-TODO {
-    width: 100%;
-    border: 1px solid #D9D9D9 !important;
-    background: rgba(217, 217, 217, 0.50) !important;
-    color: white !important;
+    border: 1px solid #7D7D7D !important;
+    color: #ffffff;
+    font-weight: bold;
+    background: rgba(217, 217, 217, 0.20) !important;
+    padding: .5rem;
+    text-align: start;
 }
 
-.ONGOING {
-
-    border: 1px solid;
-    color: red;
+.task-project-ONGOING {
+    border: 1px solid #F72485;
+    color: #ffffff;
     font-weight: bold;
-    padding: 30px;
-
+    background: rgba(247, 36, 133, 0.20);
+    padding: .5rem;
+    text-align: start;
 }
 
 .task-ONGOING {
     width: 100%;
-    border: 1px solid #D9D9D9;
-    background: rgba(255, 0, 0, 0.5);
-    color: white;
+    border: 1px solid #F72485 !important;
+    background: transparent;
+    color: #F72485 !important;
+}
+
+.task-project-REVIEW {
+    border: 1px solid #957BFF;
+    color: #ffffff;
+    font-weight: bold;
+    background: rgba(149, 123, 255, 0.20);
+    padding: .5rem;
+    text-align: start;
+}
+
+.task-REVIEW {
+    width: 100%;
+    border: 1px solid #957BFF !important;
+    background: transparent;
+    color: #957BFF !important;
+}
+
+.task-project-DONE {
+    border: 1px solid #0AA7FF;
+    color: #ffffff;
+    font-weight: bold;
+    background: rgba(10, 167, 255, 0.20);
+    padding: .5rem;
+    text-align: start;
+}
+
+.task-DONE {
+    width: 100%;
+    border: 1px solid #0AA7FF !important;
+    background: transparent;
+    color: #0AA7FF !important;
+}
+
+.task-info {
+    display: flex;
+    justify-content: space-between;
 }

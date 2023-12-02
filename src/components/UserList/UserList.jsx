@@ -5,12 +5,16 @@ const UserList = ({ userList, addUser }) => {
 
     const [users, setUsers] = useState(userList)
 
+
     return (
         <>
             {
                 userList.map(elm => {
                     return (
-                        <Button key={elm._id} className="mb-1 sm" style={{ width: '100%' }} onClick={() => addUser({ _id: elm._id, username: elm.username })}>{elm.username}</Button>
+                        <Button key={elm._id} className="mb-1 sm" style={{ width: '100%' }} onClick={() => addUser({ _id: elm._id, username: elm.username, avatar: elm.avatar })}>
+                            <p>{elm.username}</p>
+                            <img src={elm.avatar} alt="" />
+                        </Button>
                     )
                 }).slice(0, 3)
             }

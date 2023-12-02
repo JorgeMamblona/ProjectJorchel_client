@@ -48,9 +48,10 @@ const NavegationVer = () => {
                                 Projects
                             </button>
                         </h2>
-                        <hr />
+
                         <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div className="accordion-body">
+                            <div className="accordion-body my-accordion-body scrollable-content">
+                                <hr />
                                 {/* NOT: DESACOPLAR LISTADO DE PROYECTOS */}
                                 {!projects ? <><p>loading</p></> : projects.map(e => {
                                     return (
@@ -60,17 +61,18 @@ const NavegationVer = () => {
                                         </div>
                                     )
                                 })}
-                                <Link to='/project/create' className='nav-link'>
-                                    <Button className='myButton'>New Project</Button>
-                                </Link>
+
                             </div>
                         </div>
                     </div>
 
                 </div>
-                <Link to={'/project/myProjects'} className='nav-link mt-3'><Button className='myButton'>My Projects</Button></Link>
-                <Link to={'/'} className='nav-link'>Tareas</Link>
-                <Link to={'/'} className="footer-nav"><img src={logo} alt="" /></Link>
+                <Link to='/project/create' className='nav-link'>
+                    <Button style={{ width: '100%' }} className='myButton3'>New Project</Button>
+                </Link>
+                <Link to={'/project/myProjects'} className='my-nav nav-link mt-3'>All Projects</Link>
+                <Link to={'/'} className='my-nav nav-link mt-3'>All Tasks</Link>
+
             </Container >
         </div >
     )

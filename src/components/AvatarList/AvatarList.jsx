@@ -2,6 +2,7 @@ import userService from '../../services/user.services'
 
 import { useEffect, useState } from 'react'
 
+import './AvatarList.css'
 
 const AvatarList = (participants) => {
 
@@ -31,7 +32,7 @@ const AvatarList = (participants) => {
                     users.map(elm => {
                         return (
                             <div key={elm._id} className="avatar">
-                                <img src={elm.avatar} alt="" />
+                                <img src={elm.avatar} alt="" className='avatar-image' />
                             </div>
                         )
                     })
