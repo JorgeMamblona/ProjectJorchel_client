@@ -1,0 +1,40 @@
+.editButton {
+    align-items: center;
+    margin: .75rem;
+}
+
+.form-edit {
+    align-items: center !important;
+}
+
+
+
+.my-icon path {
+    transition: stroke 0.3s ease-in-out;
+}
+
+.my-icon:hover path {
+    stroke: #F72485;
+    stroke-opacity: 1;
+
+}
+
+.button-icon {
+    background-color: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: .75rem;
+}
+
+
+.my-icon2 path {
+    transition: stroke 0.3s ease-in-out;
+}
+
+.my-icon2:hover path {
+    stroke: #0AA7FF;
+    fill: #0AA7FF;
+    ;
+    stroke-opacity: 1;
+
+}

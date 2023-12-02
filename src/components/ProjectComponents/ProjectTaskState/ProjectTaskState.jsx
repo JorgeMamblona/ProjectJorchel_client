@@ -4,7 +4,7 @@ import TaskCard from '../../TaskComponents/TaskCard/TaskCard'
 
 import { useEffect, useState } from 'react'
 
-import './State.css'
+import './ProjectTaskState.css'
 
 const ProjectTaskState = ({ project_id, state }) => {
 
@@ -31,13 +31,15 @@ const ProjectTaskState = ({ project_id, state }) => {
             ?
             <></>
             :
-            <div className={`task-col to-do task-${state} text-center`}>
+            <div className={`task-col task-${state} text-center scrollable-content`}>
                 <div className="title">
                     <h2>{state}</h2>
                 </div>
-                {
-                    taskList.map(elm => <TaskCard key={elm._id} {...elm} />)
-                }
+                <div className='my-scrollable-content'>
+                    {
+                        taskList.map(elm => <TaskCard key={elm._id} {...elm} />)
+                    }
+                </div>
             </div>
     )
 }

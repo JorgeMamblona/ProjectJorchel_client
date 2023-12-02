@@ -12,6 +12,8 @@ import { useNavigate } from "react-router-dom"
 
 import { Col, Form, Row, Button } from "react-bootstrap"
 
+import './NewProjectForm.css'
+
 const NewProjectForm = () => {
 
     const navigate = useNavigate()
@@ -64,7 +66,7 @@ const NewProjectForm = () => {
     }
 
     return (
-        <Form onSubmit={handleFormSubmit}>
+        <Form className="new-project-form" onSubmit={handleFormSubmit}>
             <Form.Group className="mb-3">
                 <Form.Label>Title *</Form.Label>
                 <Form.Control type="text" value={newFormData.title} name='title' placeholder="Enter Project Title" onChange={handleInputChange}></Form.Control>
@@ -116,7 +118,9 @@ const NewProjectForm = () => {
                 <Col md={{ span: 6 }}>
                     {
                         newFormData.colaborators.map(elm => {
-                            return <p key={elm._id}>{elm.username}</p>
+                            return <div key={elm._id}><p>{elm.username}</p>
+
+                            </div>
                         })
                     }
                 </Col>

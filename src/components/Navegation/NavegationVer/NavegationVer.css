@@ -1,7 +1,8 @@
 .custom-nav {
     background-color: rgb(42, 42, 42) !important;
-    width: 20%;
-    position: relative;
+    width: 20% !important;
+    position: sticky;
+    top: 0;
 
 
 
@@ -24,17 +25,39 @@
 
 .my-accordion {
 
-    border: 1px solid white;
+    border: 1px solid #0AA7FF;
     border-radius: 8px;
-    padding: .5rem 1rem;
+    padding: 1rem;
     width: 100%;
+    margin-bottom: 1rem;
 }
 
-.my-accordion-header {
-    padding-top: 1rem !important;
+.accordion-header {
+    color: #0AA7FF;
 }
 
 
 .my-accordion-button {
     color: white;
+}
+
+.my-accordion-body {
+    height: 150px !important;
+    max-height: 250px !important;
+}
+
+.scrollable-content {
+    height: 150px;
+}
+
+.scrollable-content::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: #F72485 !important;
 }

@@ -1,14 +1,15 @@
 import { ProjectsContext } from "../../../contexts/projects.context"
 
 import uploadServices from "../../../services/upload.services"
-import projectService from "../../../services/projects.services"
 
+import { formatDate } from "../../../utils/formatDate"
 
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import { useContext } from "react"
 
 import UsersListForm from "../../UsersListForm/UsersListForm"
-
+import { Col, Form, Row, Button } from "react-bootstrap"
 import { prettyDate } from "../../../utils/prettyDate"
 import projectService from "../../../services/projects.services"
 
@@ -39,13 +40,7 @@ const EditProjectForm = () => {
         loadProjects()
     }, [])
 
-    const loadProjects = () => {
-        projectService
-            .getDetails(project_id)
-            .then(({ data }) => setProject(data))
-            .catch(err => console.log(err))
 
-    }
 
 
     const handleInputChange = e => {
