@@ -33,6 +33,9 @@ class TaskService {
     delete(task_id) {
         return this.api.delete(`/${task_id}/delete`)
     }
+    edit(data) {
+        return this.api.put(`/${data._id}/edit`, data)
+    }
 }
 
 const taskService = new TaskService()
