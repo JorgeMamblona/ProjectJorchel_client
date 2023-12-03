@@ -30,6 +30,9 @@ class TaskService {
     getOwnedTasks() {
         return this.api.get('/getOwnedTasks')
     }
+    delete(task_id) {
+        return this.api.delete(`/${task_id}/delete`)
+    }
 }
 
 const taskService = new TaskService()

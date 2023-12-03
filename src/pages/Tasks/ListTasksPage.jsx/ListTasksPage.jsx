@@ -30,7 +30,7 @@ const ListTasksPage = () => {
             <></>
             :
             <div className='list-tasks-page '>
-                <TaskList taskList={taskList} />
+                <TaskList taskList={taskList} loadMyTasks={loadMyTasks} />
             </div>
     )
 }

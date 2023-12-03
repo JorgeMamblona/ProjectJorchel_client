@@ -1,9 +1,10 @@
 import './MyTaskCard.css'
 import AvatarList from '../../AvatarList/AvatarList'
 import { Link } from 'react-router-dom'
-import { Button, Form } from 'react-bootstrap'
+import { Button, Form, Modal } from 'react-bootstrap'
 import { useState } from 'react'
 import { prettyDate } from '../../../utils/prettyDate'
+import taskService from '../../../services/tasks.services'
 
 const MyTaskCard = ({
     title,
@@ -12,11 +13,24 @@ const MyTaskCard = ({
     startDate,
     endDate,
     project,
-    participants
+    _id,
+    participants,
+    loadMyTasks
 }) => {
+
     const [show, setShow] = useState(false)
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
+
+    const deleteTask = () => {
+        taskService
+            .delete(_id)
+            .then(() => {
+                loadMyTasks()
+                handleClose()
+            })
+            .catch(err => console.log(err))
+    }
 
 
     return (
@@ -60,6 +74,23 @@ const MyTaskCard = ({
                             <option value="DONE">Done</option>
                         </Form.Select>
                     </Form.Group>
+                    <Modal className='my-modal' show={show} onHide={handleClose}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>You are going to delete {title}</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            You will not be able to recover the file. Are you sure?
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary myButton4-outline" onClick={handleClose}>
+                                Cancel
+                            </Button>
+                            <Button variant="primary myButton3" onClick={deleteTask}>
+                                Delete
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+
                 </div>
 
 
