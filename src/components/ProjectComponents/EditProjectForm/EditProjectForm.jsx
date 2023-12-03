@@ -25,13 +25,13 @@ const EditProjectForm = () => {
     const { project_id } = useParams()
     const [project, setProject] = useState({})
     const [editFormData, seteditFormData] = useState({
-        title: '',
-        description: '',
-        image: '',
-        state: 'TODO',
-        startDate: formatDate(new Date),
-        endDate: '',
-        colaborators: [],
+        title: title,
+        description: description,
+        image: image,
+        state: state,
+        startDate: startDate,
+        endDate: endDate,
+        colaborators: colaborators,
         project_id: project_id
 
     })
