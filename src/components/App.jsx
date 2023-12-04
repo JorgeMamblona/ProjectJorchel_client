@@ -17,7 +17,6 @@ function App() {
     <div className={loggedUser ? 'app-flex' : 'app-block'}>
       <Navegation />
       <AppRoutes />
-      <Footer />
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Button } from "react-bootstrap"
+import './UserList.css'
 
 const UserList = ({ userList, addUser }) => {
 
@@ -11,9 +12,9 @@ const UserList = ({ userList, addUser }) => {
             {
                 userList.map(elm => {
                     return (
-                        <Button key={elm._id} className="mb-1 sm" style={{ width: '100%' }} onClick={() => addUser({ _id: elm._id, username: elm.username, avatar: elm.avatar })}>
+                        <Button key={elm._id} className="mb-1 mr-1 sm d-flex" style={{ width: '100%' }} onClick={() => addUser({ _id: elm._id, username: elm.username, avatar: elm.avatar })}>
                             <p>{elm.username}</p>
-                            <img src={elm.avatar} alt="" />
+                            <img className="avatar-userlist" src={elm.avatar} alt="" />
                         </Button>
                     )
                 }).slice(0, 3)

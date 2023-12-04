@@ -123,7 +123,7 @@ const MyTaskCard = ({
 
                     </Link>
                     <Form.Group >
-                        <Form.Select className='my-form-select' type="text" name='state'>
+                        <Form.Select className={`form-select-${state} my-form-select`} type="text" name='state'>
                             <option value='TODO'>To Do</option>
                             <option value="ONGOING">On Going</option>
                             <option value="REVIEW">Review</option>
@@ -149,7 +149,7 @@ const MyTaskCard = ({
 
 
 
-                    <Modal className='my-modal' show={showEdit} onHide={handleCloseEdit}>
+                    <Modal className='' show={showEdit} onHide={handleCloseEdit}>
                         <Modal.Header closeButton>
                             <Modal.Title>Editing {title}</Modal.Title>
                         </Modal.Header>
@@ -191,7 +191,7 @@ const MyTaskCard = ({
                                         <div className="col-2 item-list">
                                             <Form.Group className="mb-3">
                                                 <Form.Label>State </Form.Label>
-                                                <Form.Select type="text" value={editFormData.state} name='state' onChange={handleInputChange} >
+                                                <Form.Select type="text" value={editFormData.state} name='state' onChange={handleInputChange}  >
                                                     <option value='TODO'>To Do</option>
                                                     <option value="ONGOING">On Going</option>
                                                     <option value="REVIEW">Review</option>
@@ -208,7 +208,7 @@ const MyTaskCard = ({
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className="col-3 item-list">
+                                        <div className="col-5 item-list">
 
                                             <Col >
                                                 <Form.Group className="mb-3">
@@ -217,10 +217,10 @@ const MyTaskCard = ({
                                                 </Form.Group>
                                             </Col>
                                         </div>
-                                        <div className="col-3">
+                                        <div className="col-5">
 
 
-                                            <Form.Group className="mb-3">
+                                            <Form.Group className="mb-3 mt-3">
                                                 <Form.Label>End date</Form.Label>
                                                 <Form.Control type="date" value={editFormData.endDate} name='endDate' onChange={handleInputChange}></Form.Control>
                                             </Form.Group>
@@ -245,7 +245,7 @@ const MyTaskCard = ({
 
 
             </div>
-        </div>
+        </div >
     )
 
 

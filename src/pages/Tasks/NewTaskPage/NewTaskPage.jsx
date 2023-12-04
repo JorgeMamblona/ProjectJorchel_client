@@ -2,7 +2,7 @@ import NewTaskForm from "../../../components/TaskComponents/NewTaskForm/NewTaskF
 
 import { Container, Row, Col } from "react-bootstrap"
 
-import './NewTaskPage'
+import './NewTaskPage.css'
 
 const NewTaskPage = () => {
     return (
