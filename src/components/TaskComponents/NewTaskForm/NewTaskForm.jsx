@@ -50,58 +50,60 @@ const NewTaskForm = () => {
     }
 
     return (
-        <Form onSubmit={handleFormSubmit}>
-            <Form.Group className="mb-3">
-                <Form.Label>Title *</Form.Label>
-                <Form.Control type="text" value={newTaskData.title} name='title' placeholder="Enter Project Title" onChange={handleInputChange}></Form.Control>
-            </Form.Group>
+        <div className="new-task-form">
+            <Form onSubmit={handleFormSubmit}>
+                <Form.Group className="mb-3">
+                    <Form.Label>Title *</Form.Label>
+                    <Form.Control type="text" value={newTaskData.title} name='title' placeholder="Enter Project Title" onChange={handleInputChange}></Form.Control>
+                </Form.Group>
 
-            <Form.Group className="mb-3">
-                <Form.Label>Description *</Form.Label>
-                <Form.Control type="text" value={newTaskData.description} name='description' placeholder="Enter description" onChange={handleInputChange}></Form.Control>
-            </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Description *</Form.Label>
+                    <Form.Control type="text" value={newTaskData.description} name='description' placeholder="Enter description" onChange={handleInputChange}></Form.Control>
+                </Form.Group>
 
-            <Row>
-                <Col md={{ span: 6 }}>
-                    <Form.Group className="mb-3">
-                        <Form.Label>State </Form.Label>
-                        <Form.Select type="text" value={newTaskData.state} name='state' onChange={handleInputChange}>
-                            <option value='TODO'>To Do</option>
-                            <option value="ONGOING">On Going</option>
-                            <option value="REVIEW">Review</option>
-                            <option value="DONE">Done</option>
-                        </Form.Select>
-                    </Form.Group>
-                </Col>
+                <Row>
+                    <Col md={{ span: 6 }}>
+                        <Form.Group className="mb-3">
+                            <Form.Label>State </Form.Label>
+                            <Form.Select type="text" value={newTaskData.state} name='state' onChange={handleInputChange}>
+                                <option value='TODO'>To Do</option>
+                                <option value="ONGOING">On Going</option>
+                                <option value="REVIEW">Review</option>
+                                <option value="DONE">Done</option>
+                            </Form.Select>
+                        </Form.Group>
+                    </Col>
 
-                <Col md={{ span: 6 }}>
-                    <Form.Group className="mb-3">
-                        <Form.Label>Starting date:</Form.Label>
-                        <Form.Control type="date" value={newTaskData.startDate} name='startDate' onChange={handleInputChange}></Form.Control>
-                    </Form.Group>
-                </Col>
+                    <Col md={{ span: 6 }}>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Starting date:</Form.Label>
+                            <Form.Control type="date" value={newTaskData.startDate} name='startDate' onChange={handleInputChange}></Form.Control>
+                        </Form.Group>
+                    </Col>
 
-                <Col md={{ span: 6 }}>
-                    <Form.Group className="mb-3">
-                        <Form.Label>End date</Form.Label>
-                        <Form.Control type="date" value={newTaskData.endDate} name='endDate' onChange={handleInputChange}></Form.Control>
-                    </Form.Group>
-                </Col>
-            </Row>
-            <Row>
-                <Col md={{ span: 6 }}>
-                    <UsersListForm data={newTaskData} handleInputChange={handleInputChange} setUsers={setUsers} />
-                </Col>
-                <Col md={{ span: 6 }}>
-                    {
-                        newTaskData.participants.map(elm => <p key={elm._id}>{elm.username}</p>)
-                    }
-                </Col>
-            </Row >
-            <Button className="mt-3" variant="primary" type="submit">
-                Submit
-            </Button>
-        </Form>
+                    <Col md={{ span: 6 }}>
+                        <Form.Group className="mb-3">
+                            <Form.Label>End date</Form.Label>
+                            <Form.Control type="date" value={newTaskData.endDate} name='endDate' onChange={handleInputChange}></Form.Control>
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={{ span: 6 }}>
+                        <UsersListForm data={newTaskData} handleInputChange={handleInputChange} setUsers={setUsers} />
+                    </Col>
+                    <Col md={{ span: 6 }}>
+                        {
+                            newTaskData.participants.map(elm => <p key={elm._id}>{elm.username}</p>)
+                        }
+                    </Col>
+                </Row >
+                <Button className="mt-3" variant="primary" type="submit">
+                    Submit
+                </Button>
+            </Form>
+        </div>
     )
 }
 

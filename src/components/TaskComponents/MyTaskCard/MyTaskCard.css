@@ -33,3 +33,28 @@
 p {
     margin-bottom: 0;
 }
+
+.my-form-select {
+    --bs-form-select-bg-img: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e) !important;
+    color: #ffffff !important;
+}
+
+.form-select-TODO {
+    background-color: #383148 !important;
+    color: #ffffff !important;
+}
+
+.form-select-ONGOING {
+    background-color: #3e0f37 !important;
+    color: #ffffff !important;
+}
+
+.form-select-REVIEW {
+    background-color: #2b1f4f !important;
+    color: #ffffff !important;
+}
+
+.form-select-DONE {
+    background-color: #182750 !important;
+    color: #ffffff !important;
+}
