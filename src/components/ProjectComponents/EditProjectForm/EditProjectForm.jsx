@@ -113,9 +113,7 @@ const EditProjectForm = () => {
                                     {
                                         editFormData.colaborators
                                             ?
-                                            editFormData.colaborators.map(elm => {
-                                                return <p key={elm._id}>{elm.username}</p>
-                                            })
+                                            editFormData.colaborators.map(elm => <p key={elm}>{elm.username}</p>)
                                             :
                                             <></>
                                     }
@@ -158,8 +156,8 @@ const EditProjectForm = () => {
 
                             <Col >
                                 <Form.Group className="mb-3">
-                                    <Form.Label>Current start date: {prettyDate(project.startDate)}</Form.Label>
-                                    <Form.Control type="date" value={editFormData.startDate} name='startDate' onChange={handleInputChange}></Form.Control>
+                                    <Form.Label>Current start date: {prettyDate(formatDate(editFormData.startDate))}</Form.Label>
+                                    <Form.Control type="date" value={formatDate(editFormData.startDate)} name='startDate' onChange={handleInputChange}></Form.Control>
                                 </Form.Group>
                             </Col>
                         </div>
@@ -168,7 +166,7 @@ const EditProjectForm = () => {
 
                             <Form.Group className="mb-3">
                                 <Form.Label>End date</Form.Label>
-                                <Form.Control type="date" value={editFormData.endDate} name='endDate' onChange={handleInputChange}></Form.Control>
+                                <Form.Control type="date" value={formatDate(editFormData.endDate)} name='endDate' onChange={handleInputChange}></Form.Control>
                             </Form.Group>
                         </div>
 
