@@ -26,14 +26,14 @@ const EditableField = ({ value, data, data_id }) => {
     const key = handleData(1)
 
     const [formData, setformData] = useState({
-        project_id: data_id,
+        _id: data_id,
         [key]: value
     })
 
     const handleInputChange = e => {
         const { value } = e.target
         console.log(e)
-        setformData({ project_id: data_id, [key]: value })
+        setformData({ _id: data_id, [key]: value })
     }
 
     const handleFormSubmit = e => {
@@ -56,7 +56,7 @@ const EditableField = ({ value, data, data_id }) => {
     }
 
     useEffect(() => {
-        setformData({ project_id: data_id, [key]: value })
+        setformData({ _id: data_id, [key]: value })
     }, [data_id])
     return (
         <div className="form-edit">

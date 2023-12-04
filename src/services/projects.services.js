@@ -37,7 +37,7 @@ class ProjectService {
     }
 
     edit(data) {
-        return this.api.put(`/${data.project_id}/edit`, data)
+        return this.api.put(`/${data._id}/edit`, data)
     }
     delete(project_id) {
         return this.api.delete(`${project_id}/delete`)

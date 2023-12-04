@@ -19,29 +19,40 @@ import './EditProjectForm.css'
 const EditProjectForm = () => {
 
     const { loadProjects } = useContext(ProjectsContext)
-
     const navigate = useNavigate()
 
     const { project_id } = useParams()
     const [project, setProject] = useState({})
+    const [projectDetails, setProjectDetails] = useState({})
+
+
     const [editFormData, seteditFormData] = useState({
-        title: title,
-        description: description,
-        image: image,
-        state: state,
-        startDate: startDate,
-        endDate: endDate,
-        colaborators: colaborators,
-        project_id: project_id
+        title: '',
+        description: '',
+        image: '',
+        state: '',
+        startDate: '',
+        endDate: '',
+        colaborators: '',
 
     })
 
     useEffect(() => {
+        handleDetails()
         loadProjects()
+
     }, [])
 
 
+    const handleDetails = () => {
 
+        projectService
+            .getDetails(project_id)
+            .then(({ data }) => {
+                seteditFormData(data)
+            })
+            .catch(err => console.log(err))
+    }
 
     const handleInputChange = e => {
         const { value, name } = e.target
@@ -81,86 +92,94 @@ const EditProjectForm = () => {
     }
 
     return (
-        <div className="edit-project-form">
-            <Form onSubmit={handleFormSubmit}>
-                <div className="row">
-                    <div className="col-6 item-list">
-                        <Form.Label>Title *</Form.Label>
-                        <Form.Control type="text" value={editFormData.title} name='title' placeholder={project.title} onChange={handleInputChange}></Form.Control>
+        !projectDetails
+            ?
+            <></>
+            :
+            <div className="edit-project-form">
+                <Form onSubmit={handleFormSubmit}>
+                    <div className="row">
+                        <div className="col-6 item-list">
+                            <Form.Label>Title *</Form.Label>
+                            <Form.Control type="text" value={editFormData.title} name='title' placeholder={project.title} onChange={handleInputChange}></Form.Control>
+                        </div>
+                        <div className="col-5 ">
+                            <Row>
+                                <Form.Label>Participants:</Form.Label>
+                                <Col md={{ span: 6 }}>
+                                    <UsersListForm setUsers={setUsers} />
+                                </Col>
+                                <Col md={{ span: 6 }}>
+                                    {
+                                        editFormData.colaborators
+                                            ?
+                                            editFormData.colaborators.map(elm => {
+                                                return <p key={elm._id}>{elm.username}</p>
+                                            })
+                                            :
+                                            <></>
+                                    }
+                                </Col>
+                            </Row >
+                        </div>
                     </div>
-                    <div className="col-5 ">
-                        <Row>
-                            <Form.Label>Participants:</Form.Label>
-                            <Col md={{ span: 6 }}>
-                                <UsersListForm setUsers={setUsers} />
-                            </Col>
-                            <Col md={{ span: 6 }}>
-                                {
-                                    editFormData.colaborators.map(elm => {
-                                        return <p key={elm._id}>{elm.username}</p>
-                                    })
-                                }
-                            </Col>
-                        </Row >
-                    </div>
-                </div>
 
-                <div className="row">
-                    <div className="col-6">
+                    <div className="row">
+                        <div className="col-6">
 
-                        <Form.Group className="mb-3">
-                            <Form.Label>Description *</Form.Label>
-                            <Form.Control type="text" value={editFormData.description} name='description' placeholder={project.description} onChange={handleInputChange}></Form.Control>
-                        </Form.Group>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-2 item-list">
-                        <Form.Group className="mb-3">
-                            <Form.Label>State </Form.Label>
-                            <Form.Select type="text" value={editFormData.state} name='state' onChange={handleInputChange} >
-                                <option value='TODO'>To Do</option>
-                                <option value="ONGOING">On Going</option>
-                                <option value="REVIEW">Review</option>
-                                <option value="DONE">Done</option>
-                            </Form.Select>
-                        </Form.Group>
-                    </div>
-                    <div className="col-4">
-
-                        <Form.Group className="mb-3">
-                            <Form.Label>Image</Form.Label>
-                            <Form.Control type="file" onChange={handleFileUpload}></Form.Control>
-                        </Form.Group>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-3 item-list">
-
-                        <Col >
                             <Form.Group className="mb-3">
-                                <Form.Label>Current start date: {prettyDate(project.startDate)}</Form.Label>
-                                <Form.Control type="date" value={editFormData.startDate} name='startDate' onChange={handleInputChange}></Form.Control>
+                                <Form.Label>Description *</Form.Label>
+                                <Form.Control type="text" value={editFormData.description} name='description' placeholder={project.description} onChange={handleInputChange}></Form.Control>
                             </Form.Group>
-                        </Col>
+                        </div>
                     </div>
-                    <div className="col-3">
+                    <div className="row">
+                        <div className="col-2 item-list">
+                            <Form.Group className="mb-3">
+                                <Form.Label>State </Form.Label>
+                                <Form.Select type="text" value={editFormData.state} name='state' onChange={handleInputChange} >
+                                    <option value='TODO'>To Do</option>
+                                    <option value="ONGOING">On Going</option>
+                                    <option value="REVIEW">Review</option>
+                                    <option value="DONE">Done</option>
+                                </Form.Select>
+                            </Form.Group>
+                        </div>
+                        <div className="col-4">
+
+                            <Form.Group className="mb-3">
+                                <Form.Label>Image</Form.Label>
+                                <Form.Control type="file" onChange={handleFileUpload}></Form.Control>
+                            </Form.Group>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-3 item-list">
+
+                            <Col >
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Current start date: {prettyDate(project.startDate)}</Form.Label>
+                                    <Form.Control type="date" value={editFormData.startDate} name='startDate' onChange={handleInputChange}></Form.Control>
+                                </Form.Group>
+                            </Col>
+                        </div>
+                        <div className="col-3">
 
 
-                        <Form.Group className="mb-3">
-                            <Form.Label>End date</Form.Label>
-                            <Form.Control type="date" value={editFormData.endDate} name='endDate' onChange={handleInputChange}></Form.Control>
-                        </Form.Group>
+                            <Form.Group className="mb-3">
+                                <Form.Label>End date</Form.Label>
+                                <Form.Control type="date" value={editFormData.endDate} name='endDate' onChange={handleInputChange}></Form.Control>
+                            </Form.Group>
+                        </div>
+
                     </div>
 
-                </div>
 
-
-                <Button className="mt-3 myButton2" type="submit">
-                    Submit
-                </Button>
-            </Form>
-        </div>
+                    <Button className="mt-3 myButton2" type="submit">
+                        Submit
+                    </Button>
+                </Form>
+            </div>
     )
 }
 
