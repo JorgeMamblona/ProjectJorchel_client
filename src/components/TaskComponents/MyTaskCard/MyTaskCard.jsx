@@ -43,10 +43,6 @@ const MyTaskCard = ({
 
     })
 
-    useEffect(() => {
-        loadMyTasks()
-    }, [])
-
     const handleInputChange = e => {
         const { value, name } = e.target
         seteditFormData({ ...editFormData, [name]: value })
@@ -127,7 +123,7 @@ const MyTaskCard = ({
 
                     </Link>
                     <Form.Group >
-                        <Form.Select className='my-form-select' type="text" value='' name='state' onChange=''>
+                        <Form.Select className='my-form-select' type="text" name='state'>
                             <option value='TODO'>To Do</option>
                             <option value="ONGOING">On Going</option>
                             <option value="REVIEW">Review</option>
