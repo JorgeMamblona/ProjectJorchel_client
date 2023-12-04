@@ -1,20 +1,24 @@
-import { useState } from "react"
-import taskService from '../../../services/tasks.services'
-const TaskCounter = ({ state }) => {
+import { useEffect, useState } from "react"
+const TaskCounter = ({ state, taskList, project_id }) => {
 
     const [counter, setCounter] = useState(0)
+    const [tasks, setTasks] = useState(taskList)
 
-    taskService
-        .getOwnedTasks()
-        .then(({ data }) => {
-            const filtered = data.filter(elm => elm.state === state)
-            setCounter(filtered.length)
-        })
-        .catch(err => console.log(err))
+
+    useEffect(() => {
+        filterTasks()
+    }, [])
+
+
+    const filterTasks = () => {
+        const filtered = tasks.filter(elm => elm.state === state && elm.project === project_id)
+        setCounter(filtered.length)
+    }
+
     return (
         !counter
             ?
-            <></>
+            <span>0</span>
             :
             <span>{counter}</span>
 

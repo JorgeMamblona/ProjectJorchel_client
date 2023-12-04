@@ -3,13 +3,12 @@ import commentService from "../../services/comment.services"
 import CommentCard from "../CommentCard/CommentCard"
 
 const CommentsList = ({ parent }) => {
-
     const [comments, setComments] = useState()
 
 
     useEffect(() => {
         loadCommnents()
-    }, [])
+    }, [parent])
 
     const loadCommnents = () => {
 

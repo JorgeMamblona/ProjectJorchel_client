@@ -4,23 +4,9 @@ import { useEffect, useState } from 'react'
 
 import './AvatarList.css'
 
-const AvatarList = (participants) => {
+const AvatarList = ({ participants }) => {
 
-    const [users, setUsers] = useState()
-
-    const loadUserInfo = participants => {
-
-        userService
-            .listUsersById(participants)
-            .then(({ data }) => {
-                setUsers(data)
-            })
-            .catch(err => console.log(err))
-    }
-
-    useEffect(() => {
-        loadUserInfo(participants)
-    }, [])
+    const [users, setUsers] = useState(participants)
 
     return (
         !users
@@ -29,9 +15,9 @@ const AvatarList = (participants) => {
             :
             <div className="contributors">
                 {
-                    users.map(elm => {
+                    users.map((elm, i) => {
                         return (
-                            <div key={elm._id} className="avatar">
+                            <div key={elm._id + i} className="avatar">
                                 <img src={elm.avatar} alt="" className='avatar-image' />
                             </div>
                         )
