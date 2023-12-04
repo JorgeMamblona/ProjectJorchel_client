@@ -1,8 +1,11 @@
 const formatDate = date => {
 
-    const day = date.getDate()
-    const month = (date.getMonth() + 1)
-    const year = date.getFullYear()
+    const toDate = new Date(date)
+
+    let day = toDate.getDate()
+    day < 10 ? day = '0' + day : day
+    const month = (toDate.getMonth() + 1)
+    const year = toDate.getFullYear()
     const formatedDate = `${year}-${month}-${day}`
 
     return formatedDate

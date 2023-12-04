@@ -74,7 +74,7 @@ const ProjectCard = ({ title, state, endDate, colaborators, _id: project_id }) =
 
                         </Link>
                         <Form.Group className="mb-3">
-                            <Form.Select className='my-form-select' type="text" value='' name='state'>
+                            <Form.Select className='my-form-select' type="text" value={state} name='state'>
                                 <option value='TODO'>To Do</option>
                                 <option value="ONGOING">On Going</option>
                                 <option value="REVIEW">Review</option>
