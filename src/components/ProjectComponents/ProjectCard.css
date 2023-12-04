@@ -67,3 +67,25 @@
 .modal-header {
     border: 0px !important;
 }
+
+
+
+.form-select-TODO {
+    background-color: #383148 !important;
+    color: #ffffff !important;
+}
+
+.form-select-ONGOING {
+    background-color: #3e0f37 !important;
+    color: #ffffff !important;
+}
+
+.form-select-REVIEW {
+    background-color: #2b1f4f !important;
+    color: #ffffff !important;
+}
+
+.form-select-DONE {
+    background-color: #182750 !important;
+    color: #ffffff !important;
+}
