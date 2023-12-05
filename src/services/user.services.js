@@ -15,6 +15,10 @@ class UserService {
     listUsersById(participants) {
         return this.api.post('/listUsersById', participants)
     }
+    findUserById(owner) {
+        return this.api.get('/findUserById', owner)
+    }
+
 
 
 }
