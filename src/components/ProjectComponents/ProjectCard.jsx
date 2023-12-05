@@ -17,6 +17,7 @@ const ProjectCard = ({ title, state, endDate, colaborators, _id: project_id }) =
     const { loadProjects } = useContext(ProjectsContext)
 
 
+
     const [show, setShow] = useState(false)
     const [taskList, setTaskList] = useState()
     const handleClose = () => setShow(false)
@@ -33,6 +34,7 @@ const ProjectCard = ({ title, state, endDate, colaborators, _id: project_id }) =
             })
             .catch(err => console.log(err))
     }
+
     const loadTasks = () => {
         taskService
             .getOwnedTasks()
@@ -42,9 +44,28 @@ const ProjectCard = ({ title, state, endDate, colaborators, _id: project_id }) =
             .catch(err => console.log(err))
     }
 
+
+    const [formData, setFormData] = useState({
+        _id: project_id,
+        state: state
+    })
+
     useEffect(() => {
         loadTasks()
-    }, [])
+        handleSubmit()
+    }, [formData])
+
+    const updateState = input => {
+        setFormData({ _id: project_id, state: input })
+    }
+    const handleSubmit = () => {
+
+        projectService
+            .edit(formData)
+            .then()
+            .catch(err => console.log(err))
+
+    }
 
 
     return (
@@ -52,7 +73,7 @@ const ProjectCard = ({ title, state, endDate, colaborators, _id: project_id }) =
             ?
             <></>
             :
-            <div className={`project-card ${state}`}>
+            <div className={`project-card ${formData.state}`}>
                 <div className="header-project-card d-flex justify-content-between">
                     <h5>{title}</h5>
                     <div className="options d-flex">
@@ -74,14 +95,13 @@ const ProjectCard = ({ title, state, endDate, colaborators, _id: project_id }) =
 
                         </Link>
                         <Form.Group className="mb-3">
-
-                            <Form.Select className={`my-form-select form-select-${state}`} type="text" value={state} name='state'>
-
-                                <option value='TODO'>To Do</option>
-                                <option value="ONGOING">On Going</option>
-                                <option value="REVIEW">Review</option>
-                                <option value="DONE">Done</option>
-                            </Form.Select>
+                            <div>
+                                <option value='TODO'>{formData.state}</option>
+                                <option value='TODO' onClick={() => updateState('TODO')}>To Do</option>
+                                <option value="ONGOING" onClick={() => updateState('ONGOING')}>On Going</option>
+                                <option value="REVIEW" onClick={() => updateState('REVIEW')}>Review</option>
+                                <option value="DONE" onClick={() => updateState('DONE')}>Done</option>
+                            </div>
                         </Form.Group>
                     </div>
                 </div>
