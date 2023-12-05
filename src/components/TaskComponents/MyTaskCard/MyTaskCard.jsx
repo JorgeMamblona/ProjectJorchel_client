@@ -95,6 +95,7 @@ const MyTaskCard = ({
 
     const updateState = input => {
         setTaskState({ _id, state: input })
+        handleStateSubmit()
     }
 
     const handleStateSubmit = () => {
@@ -105,6 +106,7 @@ const MyTaskCard = ({
             .catch(err => console.log(err))
     }
 
+
     useEffect(() => {
         loadMyTasks()
         handleStateSubmit()
@@ -114,10 +116,13 @@ const MyTaskCard = ({
 
 
     return (
-        <div className={`task-data row my-task-${state} `}>
-            <div className="col-3">
-                <p><b>{title}</b></p>
-            </div>
+        <div className={`task-data row my-task-${taskState.state} `}>
+            <Link to={`/task/${_id}`}
+            ><div className="col-3">
+                    <p>{title}</p>
+                </div>
+            </Link>
+
             <div className="col-3">
                 <p>End date: {prettyDate(endDate)}</p>
             </div>

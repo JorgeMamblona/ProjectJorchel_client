@@ -11,6 +11,7 @@ import ListTasksPage from '../pages/Tasks/ListTasksPage.jsx/ListTasksPage'
 import PrivateRoute from './PrivateRoute'
 
 import { Routes, Route } from 'react-router-dom'
+import TaskDetailsPage from '../pages/Tasks/TaskDetailsPage/TaskDetailsPage'
 
 const AppRoutes = () => {
 
@@ -21,6 +22,7 @@ const AppRoutes = () => {
             <Route path='/sign-up' element={<SignupPage />} />
             <Route path='/log-in' element={<LoginPage />} />
             <Route path='/project/:project_id' element={<ProjectPage />} />
+            <Route path='/task/:task_id' element={<TaskDetailsPage />} />
             <Route element={<PrivateRoute />}>
                 <Route path='/project/myProjects' element={<ListProjectPage />} />
                 <Route path='/task/myTasks' element={<ListTasksPage />} />
