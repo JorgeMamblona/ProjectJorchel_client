@@ -88,6 +88,26 @@ const MyTaskCard = ({
             .catch(err => console.log(err))
     }
 
+    const [taskState, setTaskState] = useState({
+        _id,
+        state
+    })
+
+    const updateState = input => {
+        setTaskState({ _id, state: input })
+    }
+
+    const handleStateSubmit = () => {
+
+        taskService
+            .edit(taskState)
+            .then()
+            .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        handleStateSubmit()
+    }, [taskState])
 
     return (
         <div className={`task-data row my-task-${state} `}>
@@ -123,12 +143,13 @@ const MyTaskCard = ({
 
                     </Link>
                     <Form.Group >
-                        <Form.Select className={`form-select-${state} my-form-select`} type="text" name='state'>
-                            <option value='TODO'>To Do</option>
-                            <option value="ONGOING">On Going</option>
-                            <option value="REVIEW">Review</option>
-                            <option value="DONE">Done</option>
-                        </Form.Select>
+                        <div>
+                            <option value='TODO'>{taskState.state}</option>
+                            <option value='TODO' onClick={() => updateState('TODO')}>To Do</option>
+                            <option value="ONGOING" onClick={() => updateState('ONGOING')}>On Going</option>
+                            <option value="REVIEW" onClick={() => updateState('REVIEW')}>Review</option>
+                            <option value="DONE" onClick={() => updateState('DONE')}>Done</option>
+                        </div>
                     </Form.Group>
                     <Modal className='my-modal' show={show} onHide={handleClose}>
                         <Modal.Header closeButton>

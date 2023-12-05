@@ -27,7 +27,7 @@ class CommentService {
 
     getParentComments(parent) {
         console.log(parent)
-        return this.api.post('/getProjectComments', { parent })
+        return this.api.post('/getParentComments', { parent })
     }
 
 
