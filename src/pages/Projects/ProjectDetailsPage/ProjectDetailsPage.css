@@ -83,9 +83,3 @@
 .scrollable-content::-webkit-scrollbar {
     display: none;
 }
-
-.my-comments {
-    position: fixed;
-    border: 1px solid;
-    padding: 50px
-}

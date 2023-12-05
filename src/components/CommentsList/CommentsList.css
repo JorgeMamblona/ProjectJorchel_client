@@ -1,0 +1,30 @@
+.my-comments {
+    position: fixed !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    width: 40% !important;
+    height: 100% !important;
+    border: 1px solid #F72485;
+    background-color: #100724;
+    padding: 1rem;
+}
+
+.my-comments {
+    margin-bottom: 0 !important;
+}
+
+.comments-list {
+    position: absolute;
+    bottom: 5rem;
+}
+
+.comments-scrollable {
+    border: 3px solid palevioletred;
+    height: 80vh;
+    width: 90%;
+    overflow-y: auto;
+}
+
+.comments-scrollable::-webkit-scrollbar {
+    display: none;
+}

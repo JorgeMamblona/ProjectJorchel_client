@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import commentService from "../../services/comment.services"
 import CommentCard from "../CommentCard/CommentCard"
+import './CommentsList.css'
 
 const CommentsList = ({ parent }) => {
     const [comments, setComments] = useState()
@@ -23,7 +24,8 @@ const CommentsList = ({ parent }) => {
             ?
             <></>
             :
-            <div>
+
+            <div className="comments-list comments-scrollable" >
                 {
                     comments.map(elm => <CommentCard key={elm._id} {...elm} />)
                 }

@@ -1,0 +1,13 @@
+.comment-container {
+    background-color: #0AA7FF;
+    padding: .5rem;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+}
+
+h5 {
+    margin-bottom: 0 !important;
+}
