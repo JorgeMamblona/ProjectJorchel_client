@@ -36,6 +36,10 @@ class TaskService {
     edit(data) {
         return this.api.put(`/${data._id}/edit`, data)
     }
+
+    tasksDetails(task_id) {
+        return this.api.get(`/${task_id}`)
+    }
 }
 
 const taskService = new TaskService()
