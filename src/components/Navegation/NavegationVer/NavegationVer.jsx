@@ -31,14 +31,20 @@ const NavegationVer = () => {
     return (
         <div className='custom-nav'>
             <Container>
-                <Link to={'/'} className='navbar-brand'></Link>
-                <NavDropdown title={loggedUser.username} id="collapsible-nav-dropdown">
+                <div className="nav-header d-flex mr-2">
+                    <img className='logo' src={logo} alt="" />
+                    <Link to={'/'} className='navbar-brand'></Link>
+                    <img className='avatar' src={loggedUser.image} alt="" />
+                    <NavDropdown title={loggedUser.username} id="collapsible-nav-dropdown">
 
-                    <Link className='dropdown-item' to={'/my-profile'} >Mi perfil </Link>
-                    <NavDropdown.Divider />
-                    <span className='dropdown-item' onClick={doLogout}>Log out </span>
+                        <Link className='dropdown-item' to={'/my-profile'} >Mi perfil </Link>
+                        <NavDropdown.Divider />
+                        <span className='dropdown-item' onClick={doLogout}>Log out </span>
 
-                </NavDropdown>
+                    </NavDropdown>
+
+
+                </div>
                 <hr />
 
                 <div className="my-accordion accordion-flush" id="accordionFlushExample">
