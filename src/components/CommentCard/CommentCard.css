@@ -6,8 +6,44 @@
     border-bottom-right-radius: 20px;
     margin-bottom: 1rem;
     padding-left: 1rem;
+    width: 80%;
 }
 
 h5 {
     margin-bottom: 0 !important;
+}
+
+.comment-section {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-avatar-container {
+    display: flex;
+    margin-right: .5rem;
+
+
+}
+
+.comment-avatar-container img {
+
+    height: 35px;
+    width: 35px;
+    margin-left: .5rem;
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+.comment-avatar-container p {
+    margin-bottom: 0 !important;
+}
+
+p {
+    margin-bottom: 0 !important;
+}
+
+.comment-container .date {
+    color: rgb(223, 223, 223) !important;
+    text-align: end;
+
 }

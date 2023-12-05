@@ -9,7 +9,7 @@ const NavegationHor = () => {
 
     return (
         <>
-            <Navbar className='custom-nav-hor border-bottom border-light' data-bs-theme="dark">
+            <Navbar className='custom-nav-hor  ' data-bs-theme="dark">
                 <Container>
                     <Link to={'/'} className='navbar-brand'>
                         <img src={logo} alt="" />
