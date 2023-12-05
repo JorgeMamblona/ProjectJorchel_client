@@ -2,7 +2,7 @@ import './MyTaskCard.css'
 import AvatarList from '../../AvatarList/AvatarList'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { Button, Form, Modal, Row, Col } from 'react-bootstrap'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { prettyDate } from '../../../utils/prettyDate'
 import taskService from '../../../services/tasks.services'
 import UsersListForm from "../../UsersListForm/UsersListForm"
@@ -95,9 +95,12 @@ const MyTaskCard = ({
 
     const updateState = input => {
         setTaskState({ _id, state: input })
-        handleStateSubmit()
-    }
 
+    }
+    useEffect(() => {
+        handleStateSubmit()
+
+    })
     const handleStateSubmit = () => {
 
         taskService

@@ -49,6 +49,7 @@ const NewProjectForm = () => {
     }
 
     const setUsers = list => {
+        if (!list.includes(loggedUser._id)) list.unshift(loggedUser._id)
         setNewFormData({ ...newFormData, colaborators: list })
     }
 

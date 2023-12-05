@@ -32,6 +32,10 @@ class ProjectService {
         return this.api.get('/getOwnedProjects')
     }
 
+    getMyProjects() {
+        return this.api.get('/getMyProjects')
+    }
+
     getDetails(project_id) {
         return this.api.get(`/${project_id}`)
     }

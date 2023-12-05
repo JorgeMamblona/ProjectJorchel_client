@@ -12,7 +12,7 @@ const ProjectsContextWrapper = props => {
     const loadProjects = () => {
 
         projectService
-            .getOwnedProjects()
+            .getMyProjects()
             .then(({ data }) => setProjects(data))
             .catch(err => console.log(err))
     }

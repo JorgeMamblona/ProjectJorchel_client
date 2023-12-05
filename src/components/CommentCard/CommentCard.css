@@ -1,9 +1,20 @@
-.comment-container {
-    background-color: #0AA7FF;
+.comment-container-Owner-false {
+    background-color: #F72485;
     padding: .5rem;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    width: 80%;
+}
+
+.comment-container-Owner-true {
+    background-color: #0AA7FF;
+    padding: .5rem;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     margin-bottom: 1rem;
     padding-left: 1rem;
     width: 80%;
