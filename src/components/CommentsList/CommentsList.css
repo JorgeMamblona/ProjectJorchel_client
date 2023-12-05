@@ -6,7 +6,7 @@
     height: 100% !important;
     border: 1px solid #F72485;
     background-color: #100724;
-    padding: 1rem;
+
 }
 
 .my-comments {
@@ -19,12 +19,56 @@
 }
 
 .comments-scrollable {
-    border: 3px solid palevioletred;
-    height: 80vh;
-    width: 90%;
+    height: 90vh;
+    width: 100%;
+    padding: 2rem;
     overflow-y: auto;
+    background-color: #200e47;
 }
 
 .comments-scrollable::-webkit-scrollbar {
     display: none;
+}
+
+.send-button {
+
+    width: 50px;
+    height: 50px;
+    border-radius: 75px !important;
+    background-color: #0AA7FF !important;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+
+}
+
+.send-box {
+    margin-bottom: 0 !important;
+    position: fixed;
+    bottom: 25px !important;
+    right: 90px !important;
+    width: 31%;
+    bottom: 20px;
+
+}
+
+.close-button {
+    width: 50px;
+    height: 50px;
+    z-index: 100 !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    position: fixed;
+    right: 36.5% !important;
+    top: 5px;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
 }
