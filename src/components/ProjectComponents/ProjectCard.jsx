@@ -95,12 +95,28 @@ const ProjectCard = ({ title, state, endDate, colaborators, _id: project_id }) =
 
                         </Link>
                         <Form.Group className="mb-3">
+                            <div className="accordionWrapper">
+                                <div class="accordion accordion-flush" id={project_id}>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                <option value='TODO'>{formData.state}</option>
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                            <div ><option value='TODO' onClick={() => updateState('TODO')}>To Do</option>
+                                                <option value="ONGOING" onClick={() => updateState('ONGOING')}>On Going</option>
+                                                <option value="REVIEW" onClick={() => updateState('REVIEW')}>Review</option>
+                                                <option value="DONE" onClick={() => updateState('DONE')}>Done</option>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div>
-                                <option value='TODO'>{formData.state}</option>
-                                <option value='TODO' onClick={() => updateState('TODO')}>To Do</option>
-                                <option value="ONGOING" onClick={() => updateState('ONGOING')}>On Going</option>
-                                <option value="REVIEW" onClick={() => updateState('REVIEW')}>Review</option>
-                                <option value="DONE" onClick={() => updateState('DONE')}>Done</option>
+
+
                             </div>
                         </Form.Group>
                     </div>

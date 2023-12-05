@@ -22,6 +22,7 @@ const CommentCard = ({ content, owner, updatedAt }) => {
             </div>
             <div className="comment-container">
 
+
                 <p><b>{owner.username}</b></p>
                 <p>{content}</p>
 

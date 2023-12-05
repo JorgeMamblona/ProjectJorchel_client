@@ -16,11 +16,9 @@
     height: 100vh;
 }
 
-.custom-nav img {
-    width: 75px;
-    position: fixed;
-    top: 90vh !important;
-    left: 4vw;
+.logo {
+    width: 40%;
+    margin-right: 2rem;
 }
 
 .my-accordion {
@@ -47,7 +45,7 @@
 }
 
 .scrollable-content {
-    height: 150px;
+    height: 250px !important;
 }
 
 .scrollable-content::-webkit-scrollbar {
