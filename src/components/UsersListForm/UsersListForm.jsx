@@ -34,7 +34,7 @@ const UsersListForm = ({ setUsers }) => {
     const addUser = user => {
 
         const newList = [...selectedUsers]
-        newList.push(user)
+        if (!newList.includes(user)) newList.push(user)
         setSelectedUSers(newList)
     }
 

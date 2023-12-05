@@ -15,9 +15,9 @@ const AvatarList = ({ participants }) => {
             :
             <div className="contributors">
                 {
-                    users.map((elm, i) => {
+                    users.map(elm => {
                         return (
-                            <div key={elm._id + i} className="avatar">
+                            <div key={elm.username} className="avatar">
                                 <img src={elm.avatar} alt="" className='avatar-image' />
                             </div>
                         )

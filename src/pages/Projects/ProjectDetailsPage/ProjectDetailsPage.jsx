@@ -87,7 +87,7 @@ const ProjectPage = () => {
                 </div>
 
                 <div className='my-comments' style={{ display: display }}>
-                    <CommentsList parent={project_id} handleCommentsWindow={handleCommentsWindow} />
+                    <CommentsList scope={'Project'} parent={project_id} handleCommentsWindow={handleCommentsWindow} />
                 </div>
 
             </div>

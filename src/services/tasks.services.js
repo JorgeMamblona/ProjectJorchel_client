@@ -30,6 +30,11 @@ class TaskService {
     getOwnedTasks() {
         return this.api.get('/getOwnedTasks')
     }
+
+    getMyTasks() {
+        return this.api.get('/getMyTasks')
+    }
+
     delete(task_id) {
         return this.api.delete(`/${task_id}/delete`)
     }

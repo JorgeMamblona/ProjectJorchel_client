@@ -17,7 +17,7 @@ const ListTasksPage = () => {
     const loadMyTasks = () => {
 
         taskService
-            .getOwnedTasks()
+            .getMyTasks()
             .then(({ data }) => {
                 setTaskList(data)
             })
