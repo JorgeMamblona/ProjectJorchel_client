@@ -95,28 +95,31 @@ const ProjectCard = ({ title, state, endDate, colaborators, _id: project_id }) =
 
                         </Link>
                         <Form.Group className="mb-3">
-                            <div className="accordionWrapper">
-                                <div class="accordion accordion-flush" id={project_id}>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                                <option value='TODO'>{formData.state}</option>
-                                            </button>
-                                        </h2>
-                                        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                            <div ><option value='TODO' onClick={() => updateState('TODO')}>To Do</option>
-                                                <option value="ONGOING" onClick={() => updateState('ONGOING')}>On Going</option>
-                                                <option value="REVIEW" onClick={() => updateState('REVIEW')}>Review</option>
-                                                <option value="DONE" onClick={() => updateState('DONE')}>Done</option>
-                                            </div>
+                            <div className=" my-project-accordion accordion-flush prueba" id={project_id}>
+                                <div className="accordion-item">
+                                    <h2 className="accordion-header">
+                                        <button className={` accordion-button collapsed`} type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse-${project_id}`} aria-expanded="false" aria-controls={`flush-collapse-${project_id}`} >
+                                            <option value='TODO'>{formData.state}</option>
+                                            <svg width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.26946 7.6625L12.6817 1.95767C12.7826 1.85129 12.8626 1.72499 12.9173 1.586C12.9719 1.447 13 1.29803 13 1.14758C13 0.843741 12.8855 0.552344 12.6817 0.337496C12.5807 0.231114 12.4609 0.146727 12.3291 0.0891533C12.1972 0.0315797 12.0559 0.00194768 11.9131 0.00194767C11.6249 0.00194766 11.3484 0.122648 11.1446 0.337496L6.50092 5.24365L1.85725 0.337496C1.75662 0.230555 1.6369 0.145673 1.505 0.087748C1.37309 0.0298226 1.23161 -5.14413e-07 1.08872 -5.20659e-07C0.945822 -5.26905e-07 0.804341 0.0298226 0.672435 0.087748C0.54053 0.145673 0.420811 0.230555 0.320184 0.337496C0.218729 0.443563 0.1382 0.569755 0.0832456 0.708793C0.0282915 0.84783 -6.39625e-07 0.996961 -6.46209e-07 1.14758C-6.52793e-07 1.2982 0.0282915 1.44733 0.0832456 1.58637C0.1382 1.72541 0.218729 1.8516 0.320184 1.95767L5.73239 7.6625C5.83302 7.76944 5.95274 7.85433 6.08464 7.91225C6.21655 7.97018 6.35803 8 6.50092 8C6.64382 8 6.7853 7.97018 6.9172 7.91225C7.04911 7.85433 7.16883 7.76945 7.26946 7.6625Z" fill="white" />
+                                            </svg>
+
+                                        </button>
+                                    </h2>
+
+                                    <div id={`flush-collapse-${project_id}`} class="my-hr accordion-collapse collapse" data-bs-parent={`#${project_id}`} >
+                                        <hr />
+                                        <div ><option value='TODO' onClick={() => updateState('TODO')}>To Do</option>
+                                            <hr />
+                                            <option value="ONGOING" onClick={() => updateState('ONGOING')}>On Going</option>
+                                            <hr />
+                                            <option value="REVIEW" onClick={() => updateState('REVIEW')}>Review</option>
+                                            <hr />
+                                            <option value="DONE" onClick={() => updateState('DONE')}>Done</option>
+
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div>
-
-
                             </div>
                         </Form.Group>
                     </div>
