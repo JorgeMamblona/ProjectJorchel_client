@@ -1,0 +1,48 @@
+.task-details-page {
+    color: white;
+    width: 80vw !important;
+    padding: 2rem;
+}
+
+
+.task-container {
+    background-color: rgba(247, 36, 133, 0.20);
+}
+
+.task-container-header {
+    border-bottom: 1px solid #F72485 !important;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.task-container {
+    border: 1px solid #F72485 !important;
+    width: 100%;
+    height: 80vh !important;
+    border-radius: 20px;
+
+}
+
+.task-body {
+    height: 92.7%;
+}
+
+.main-description {
+    padding: 2rem;
+    border-right: 1px;
+    border-right: 1px solid #F72485 !important;
+    height: 92.7%;
+    width: 80%;
+}
+
+.main-description p {
+    font-size: 1rem;
+}
+
+.main-details {
+    padding: 2rem 0 2rem 2rem;
+    width: 30%;
+}
