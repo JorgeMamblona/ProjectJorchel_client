@@ -1,22 +1,34 @@
 import { useEffect, useState } from "react"
-const TaskCounter = ({ state, taskList, project_id }) => {
-
+import taskService from "../../../services/tasks.services"
+const TaskCounter = ({ state, project_id, taskList }) => {
     const [counter, setCounter] = useState(0)
     const [tasks, setTasks] = useState(taskList)
 
-
     useEffect(() => {
-        filterTasks()
-    }, [])
 
+        console.log(tasks)
+    }, [tasks])
+
+
+    // const loadTasks = () => {
+    //     taskService
+    //         .getMyTasks(project_id, state)
+    //         .then(({ data }) => {
+    //             setTasks(data)
+    //         })
+    //         .catch()
+    // }
 
     const filterTasks = () => {
         const filtered = tasks.filter(elm => elm.state === state && elm.project === project_id)
         setCounter(filtered.length)
+        console.log(filtered)
+
+
     }
 
     return (
-        !counter
+        !tasks
             ?
             <span>0</span>
             :

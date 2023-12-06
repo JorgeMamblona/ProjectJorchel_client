@@ -60,12 +60,10 @@ const ProjectPage = () => {
                         </Link>
 
                         <div className="colaborators">
-                            <div className="avatar-2">
-                                <img src={avatar} alt="" className='avatar-image' />
-                            </div>
-                            <div className="avatar-2">
-                                <img src={avatar} alt="" className='avatar-image' />
-                            </div>
+                            {
+                                projectData.colaborators.map(elm => <div key={elm._id}><img className='avatar-image' src={elm.avatar} /></div>)
+                            }
+
                         </div>
                     </div>
 

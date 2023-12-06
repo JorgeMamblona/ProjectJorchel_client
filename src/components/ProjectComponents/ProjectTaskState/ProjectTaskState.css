@@ -22,3 +22,7 @@
 .my-scrollable-content::-webkit-scrollbar {
     display: none;
 }
+
+.my-Link {
+    text-decoration: none;
+}
