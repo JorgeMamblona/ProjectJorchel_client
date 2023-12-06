@@ -34,7 +34,10 @@
 .my-icon2:hover path {
     stroke: #0AA7FF;
     fill: #0AA7FF;
-    ;
     stroke-opacity: 1;
 
+}
+
+.ownership-false {
+    visibility: hidden;
 }

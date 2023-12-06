@@ -86,7 +86,7 @@ const ProjectCard = ({ title, owner, state, endDate, colaborators, _id: project_
             :
             <div className={`project-card ${formData.state}`}>
                 <div className="header-project-card d-flex justify-content-between">
-                    <EditableField data={'project-title'} value={title} data_id={project_id} />
+                    <EditableField data={'project-title'} value={title} data_id={project_id} owner={owner} />
                     {
                         loggedUser._id === owner ?
 
