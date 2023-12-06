@@ -85,7 +85,7 @@ const TaskDetailsPage = () => {
                                 <p className="mb-2"><b>Participants: </b></p>
                                 {
                                     task.participants.map(elm =>
-                                        <div >
+                                        <div key={elm._id}>
                                             <ul>
                                                 <li className="d-flex"> <p>{elm.username} </p>
                                                     <img className='avatar' src={elm.avatar} alt="" /></li>
@@ -94,9 +94,6 @@ const TaskDetailsPage = () => {
                                         </div>
                                     )
                                 }
-                                {task.participants.map((elm) => {
-                                    console.log(elm.username)
-                                })}
 
                             </div>
 
