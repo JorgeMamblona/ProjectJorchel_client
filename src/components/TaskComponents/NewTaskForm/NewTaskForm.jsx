@@ -17,7 +17,6 @@ const NewTaskForm = () => {
     const navigate = useNavigate()
 
     const [newTaskData, setNewTaskData] = useState({
-
         title: '',
         description: '',
         state: 'TODO',

@@ -8,8 +8,7 @@ import taskService from '../../../services/tasks.services'
 import UsersListForm from "../../UsersListForm/UsersListForm"
 import EditableField from '../../EditableField/EditableField'
 
-
-
+// TODO: REVISAR LAYOUT DE BOOTSTRAP
 
 const MyTaskCard = ({
     title,
@@ -33,14 +32,29 @@ const MyTaskCard = ({
     const handleCloseEdit = () => setShowEdit(false)
     const handleShowEdit = () => setShowEdit(true)
 
+
+    const [taskState, setTaskState] = useState({
+        _id,
+        state
+    })
+
+    useEffect(() => {
+        handleStateSubmit()
+    })
+
+    useEffect(() => {
+        loadMyTasks()
+        handleStateSubmit()
+    }, [taskState])
+
     const [editFormData, seteditFormData] = useState({
-        title: title,
-        description: description,
-        state: state,
-        startDate: startDate,
-        endDate: endDate,
+        title,
+        description,
+        state,
+        startDate,
+        endDate,
         colaborators: [],
-        _id: _id
+        _id
 
     })
 
@@ -89,20 +103,12 @@ const MyTaskCard = ({
             .catch(err => console.log(err))
     }
 
-    const [taskState, setTaskState] = useState({
-        _id,
-        state
-    })
 
     const updateState = input => {
         setTaskState({ _id, state: input })
-
     }
-    useEffect(() => {
-        handleStateSubmit()
 
-    })
-    const handleStateSubmit = () => {
+    function handleStateSubmit() {
 
         taskService
             .edit(taskState)
@@ -110,11 +116,7 @@ const MyTaskCard = ({
             .catch(err => console.log(err))
     }
 
-    useEffect(() => {
-        loadMyTasks()
-        handleStateSubmit()
 
-    }, [taskState])
 
     return (
         <div className={`task-data row my-task-${taskState.state} `}>

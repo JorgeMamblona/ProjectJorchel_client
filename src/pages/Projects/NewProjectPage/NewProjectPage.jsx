@@ -2,6 +2,7 @@ import NewProjectForm from "../../../components/ProjectComponents/NewProjectForm
 
 import { Container, Row, Col } from "react-bootstrap"
 import './NewProjectPage.css'
+import Background from "../../../components/Background/background"
 
 const NewProjectPage = () => {
 
@@ -16,6 +17,7 @@ const NewProjectPage = () => {
                     </Col>
                 </Row>
             </Container>
+            <Background />
         </div>
     )
 }

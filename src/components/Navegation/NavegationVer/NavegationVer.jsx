@@ -25,7 +25,6 @@ const NavegationVer = () => {
     const doLogout = () => {
         logout()
         navigate("/")
-
     }
 
     return (

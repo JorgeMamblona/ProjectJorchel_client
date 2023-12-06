@@ -12,6 +12,7 @@ const LoginPage = () => {
                     <LoginForm />
                 </Col >
             </Row >
+
         </Container >
     )
 }

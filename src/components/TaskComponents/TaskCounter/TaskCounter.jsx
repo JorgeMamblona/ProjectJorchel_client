@@ -11,7 +11,6 @@ const TaskCounter = ({ state, project_id, taskList }) => {
     const filterTasks = () => {
         const filtered = tasks.filter(elm => elm.state === state && elm.project === project_id)
         setCounter(filtered.length)
-
     }
 
     return (

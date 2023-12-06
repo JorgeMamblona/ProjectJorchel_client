@@ -14,6 +14,7 @@ import { prettyDate } from "../../../utils/prettyDate"
 import projectService from "../../../services/projects.services"
 
 import './EditProjectForm.css'
+import { PROJECT_TYPES } from "../../../consts/project-consts"
 
 
 const EditProjectForm = () => {
@@ -40,7 +41,6 @@ const EditProjectForm = () => {
     useEffect(() => {
         handleDetails()
         loadProjects()
-
     }, [])
 
 
@@ -107,10 +107,10 @@ const EditProjectForm = () => {
                             <Form.Group className="mb-3">
                                 <Form.Label>State </Form.Label>
                                 <Form.Select type="text" value={editFormData.state} name='state' onChange={handleInputChange} >
-                                    <option value='TODO'>To Do</option>
-                                    <option value="ONGOING">On Going</option>
-                                    <option value="REVIEW">Review</option>
-                                    <option value="DONE">Done</option>
+                                    {
+                                        // TODO: OBTENER SIEMPRE LAS OPCIONES DE PROYECTOS DESDE CONSTANTES
+                                        PROJECT_TYPES.map(elm => <option value={elm.value} key={elm.value}>{elm.text}</option>)
+                                    }
                                 </Form.Select>
                             </Form.Group>
                         </div>
