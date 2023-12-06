@@ -61,6 +61,18 @@ body {
   color: #100724 !important;
 }
 
+.myButton5-outline {
+  border: 1px solid #0b82c8 !important;
+  background-color: transparent !important;
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.myButton5-outline:hover {
+  background-color: #0b82c8 !important;
+  color: white !important;
+}
+
 h2 {
   font-size: 1.5rem !important;
 

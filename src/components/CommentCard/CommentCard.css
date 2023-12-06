@@ -6,7 +6,7 @@
     border-bottom-right-radius: 20px;
     margin-bottom: 1rem;
     padding-left: 1rem;
-    width: 80%;
+    width: 70%;
 }
 
 .comment-container-Owner-true {
@@ -17,7 +17,17 @@
     border-bottom-left-radius: 20px;
     margin-bottom: 1rem;
     padding-left: 1rem;
-    width: 80%;
+    width: 70%;
+}
+
+.comment-section-Owner-true {
+    display: flex;
+    justify-content: end !important;
+}
+
+.comment-section-Owner-false {
+    display: flex;
+    justify-content: start !important;
 }
 
 h5 {
@@ -53,7 +63,7 @@ p {
     margin-bottom: 0 !important;
 }
 
-.comment-container .date {
+.date {
     color: rgb(223, 223, 223) !important;
     text-align: end;
 

@@ -5,4 +5,7 @@
 .new-project-page {
     width: 80vw;
     padding-top: 2rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    color: white;
 }

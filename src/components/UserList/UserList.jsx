@@ -12,9 +12,9 @@ const UserList = ({ userList, addUser }) => {
             {
                 userList.map(elm => {
                     return (
-                        <Button key={elm._id} className="mb-1 mr-1 sm d-flex" style={{ width: '100%' }} onClick={() => addUser({ _id: elm._id, username: elm.username, avatar: elm.avatar })}>
+                        <Button key={elm._id} className="button-user-list myButton5-outline mb-1 mr-1 sm d-flex" style={{ width: '100%' }} onClick={() => addUser({ _id: elm._id, username: elm.username, avatar: elm.avatar })}>
                             <p>{elm.username}</p>
-                            <img className="avatar-userlist" src={elm.avatar} alt="" />
+                            <img className="avatar-image" src={elm.avatar} alt="" />
                         </Button>
                     )
                 }).slice(0, 3)

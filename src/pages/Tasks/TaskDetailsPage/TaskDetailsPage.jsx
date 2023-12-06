@@ -36,6 +36,7 @@ const TaskDetailsPage = () => {
     }
 
 
+
     return (
         !task
             ?
@@ -69,20 +70,34 @@ const TaskDetailsPage = () => {
                     </div>
                     <div className="task-body d-flex">
                         <div className="main-description">
-                            <p><b>Description:</b>{task.description}</p>
+                            <p><b>Description:</b></p>
+                            <p>{task.description}</p>
                         </div>
-                        <div className="main-details">
-                            <p><b>Start date: </b>{prettyDate(task.startDate)}</p>
-                            <p><b>End date: </b>{prettyDate(task.endDate)}</p>
-                            <div className="task-informator d-flex">
+                        <div className="main-details ">
+                            <p className="mb-2"><b>Start date: </b>{prettyDate(task.startDate)}</p>
+                            <p className="mb-2"><b>End date: </b>{prettyDate(task.endDate)}</p>
+                            <div className="task-informator d-flex mb-2">
                                 <p><b>Informator: </b>{task.owner.username}</p>
                                 <img className='avatar' src={task.owner.avatar} alt="" />
                             </div>
-                            <div className="task-informator d-flex">
-                                <p><b>Participants: </b></p>{task.participants.map((elm) => {
-                                    elm.username
+                            <div className="task-participants">
+
+                                <p className="mb-2"><b>Participants: </b></p>
+                                {
+                                    task.participants.map(elm =>
+                                        <div >
+                                            <ul>
+                                                <li className="d-flex"> <p>{elm.username} </p>
+                                                    <img className='avatar' src={elm.avatar} alt="" /></li>
+
+                                            </ul>
+                                        </div>
+                                    )
+                                }
+                                {task.participants.map((elm) => {
+                                    console.log(elm.username)
                                 })}
-                                <img className='avatar' src={task.owner.avatar} alt="" />
+
                             </div>
 
                         </div>
@@ -93,7 +108,7 @@ const TaskDetailsPage = () => {
 
 
 
-            </div>
+            </div >
 
     )
 }

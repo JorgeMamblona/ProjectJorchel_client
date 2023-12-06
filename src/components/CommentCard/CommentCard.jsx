@@ -26,7 +26,7 @@ const CommentCard = ({ content, owner, updatedAt }) => {
     }, [])
 
     return (
-        <div className="comment-section d-flex">
+        <div className={`comment-section d-flex comment-section-Owner-${isOwner}`}>
 
             {
                 isOwner ? <></> : <div className="comment-avatar-container"><img src={owner.avatar} /></div>

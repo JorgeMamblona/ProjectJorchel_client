@@ -52,18 +52,14 @@ const NewTaskForm = () => {
     return (
         <div className="new-task-form">
             <Form onSubmit={handleFormSubmit}>
-                <Form.Group className="mb-3">
-                    <Form.Label>Title *</Form.Label>
-                    <Form.Control type="text" value={newTaskData.title} name='title' placeholder="Enter Project Title" onChange={handleInputChange}></Form.Control>
-                </Form.Group>
-
-                <Form.Group className="mb-3">
-                    <Form.Label>Description *</Form.Label>
-                    <Form.Control type="text" value={newTaskData.description} name='description' placeholder="Enter description" onChange={handleInputChange}></Form.Control>
-                </Form.Group>
-
-                <Row>
-                    <Col md={{ span: 6 }}>
+                <div className="row">
+                    <div className="col-6 title-form">
+                        <Form.Group className="mb-3">
+                            <Form.Label>Title *</Form.Label>
+                            <Form.Control type="text" value={newTaskData.title} name='title' placeholder="Enter Project Title" onChange={handleInputChange}></Form.Control>
+                        </Form.Group>
+                    </div>
+                    <div className="col-3">
                         <Form.Group className="mb-3">
                             <Form.Label>State </Form.Label>
                             <Form.Select type="text" value={newTaskData.state} name='state' onChange={handleInputChange}>
@@ -73,33 +69,51 @@ const NewTaskForm = () => {
                                 <option value="DONE">Done</option>
                             </Form.Select>
                         </Form.Group>
-                    </Col>
-
-                    <Col md={{ span: 6 }}>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-6">
                         <Form.Group className="mb-3">
+                            <Form.Label>Description *</Form.Label>
+                            <Form.Control type="text" value={newTaskData.description} name='description' placeholder="Enter description" onChange={handleInputChange}></Form.Control>
+                        </Form.Group>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-3">
+                        <Form.Group className="mb-3 date-form">
                             <Form.Label>Starting date:</Form.Label>
                             <Form.Control type="date" value={newTaskData.startDate} name='startDate' onChange={handleInputChange}></Form.Control>
                         </Form.Group>
-                    </Col>
+                    </div>
+                    <div className="col-3">
+                        <Col md={{ span: 6 }}>
+                            <Form.Group className="mb-3">
+                                <Form.Label>End date</Form.Label>
+                                <Form.Control type="date" value={newTaskData.endDate} name='endDate' onChange={handleInputChange}></Form.Control>
+                            </Form.Group>
+                        </Col>
 
-                    <Col md={{ span: 6 }}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>End date</Form.Label>
-                            <Form.Control type="date" value={newTaskData.endDate} name='endDate' onChange={handleInputChange}></Form.Control>
-                        </Form.Group>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col md={{ span: 6 }}>
+                    </div>
+                </div>
+
+
+                <div className="row user-select">
+                    <div className="col-6">
                         <UsersListForm data={newTaskData} handleInputChange={handleInputChange} setUsers={setUsers} />
-                    </Col>
-                    <Col md={{ span: 6 }}>
+                    </div>
+                    <div className="selectioned-user col-5">
+                        <Form.Label>Participants selected:</Form.Label>
                         {
-                            newTaskData.participants.map(elm => <p key={elm._id}>{elm.username}</p>)
+                            newTaskData.participants.map(elm =>
+                                <div key={elm._id} className='my-user-select'>
+                                    <p >{elm.username}</p>
+                                </div>)
                         }
-                    </Col>
-                </Row >
-                <Button className="mt-3" variant="primary" type="submit">
+                    </div>
+                </div>
+                <Button className="myButton2 mt-3" type="submit">
                     Submit
                 </Button>
             </Form>
