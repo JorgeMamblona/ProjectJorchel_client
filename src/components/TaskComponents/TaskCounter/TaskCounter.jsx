@@ -5,19 +5,9 @@ const TaskCounter = ({ state, project_id, taskList }) => {
     const [tasks, setTasks] = useState(taskList)
 
     useEffect(() => {
-
+        filterTasks()
         console.log(tasks)
     }, [tasks])
-
-
-    // const loadTasks = () => {
-    //     taskService
-    //         .getMyTasks(project_id, state)
-    //         .then(({ data }) => {
-    //             setTasks(data)
-    //         })
-    //         .catch()
-    // }
 
     const filterTasks = () => {
         const filtered = tasks.filter(elm => elm.state === state && elm.project === project_id)

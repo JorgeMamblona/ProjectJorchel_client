@@ -37,12 +37,22 @@ const ProjectCard = ({ title, owner, state, endDate, colaborators, _id: project_
     }
 
     const loadTasks = () => {
-        taskService
-            .getOwnedTasks()
-            .then(({ data }) => {
-                setTaskList(data)
-            })
-            .catch(err => console.log(err))
+
+        if (loggedUser._id === owner) {
+            taskService
+                .getOwnedTasks()
+                .then(({ data }) => {
+                    setTaskList(data)
+                })
+                .catch(err => console.log(err))
+        } else {
+            taskService
+                .getMyTasks()
+                .then(({ data }) => {
+                    setTaskList(data)
+                })
+                .catch(err => console.log(err))
+        }
     }
 
 
