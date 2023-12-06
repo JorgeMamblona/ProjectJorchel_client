@@ -68,18 +68,14 @@ const NewProjectForm = () => {
 
     return (
         <Form className="new-project-form" onSubmit={handleFormSubmit}>
-            <Form.Group className="mb-3">
-                <Form.Label>Title *</Form.Label>
-                <Form.Control type="text" value={newFormData.title} name='title' placeholder="Enter Project Title" onChange={handleInputChange}></Form.Control>
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-                <Form.Label>Description *</Form.Label>
-                <Form.Control type="text" value={newFormData.description} name='description' placeholder="Enter description" onChange={handleInputChange}></Form.Control>
-            </Form.Group>
-
-            <Row>
-                <Col md={{ span: 6 }}>
+            <div className="row ">
+                <div className="col-6 title-form">
+                    <Form.Group className="mb-3">
+                        <Form.Label>Title *</Form.Label>
+                        <Form.Control type="text" value={newFormData.title} name='title' placeholder="Enter Project Title" onChange={handleInputChange}></Form.Control>
+                    </Form.Group>
+                </div>
+                <div className='col-3' >
                     <Form.Group className="mb-3">
                         <Form.Label>State </Form.Label>
                         <Form.Select type="text" value={newFormData.state} name='state' onChange={handleInputChange}>
@@ -89,44 +85,66 @@ const NewProjectForm = () => {
                             <option value="DONE">Done</option>
                         </Form.Select>
                     </Form.Group>
-                </Col>
+                </div>
+            </div>
 
-                <Col md={{ span: 6 }}>
+            <div className="row">
+                <div className="col-6">
+
+                    <Form.Group className="mb-3">
+                        <Form.Label>Description *</Form.Label>
+                        <Form.Control type="text" value={newFormData.description} name='description' placeholder="Enter description" onChange={handleInputChange}></Form.Control>
+                    </Form.Group>
+                </div>
+            </div>
+            <div className="row">
+                <div className='col-6' >
                     <Form.Group className="mb-3">
                         <Form.Label>Image</Form.Label>
                         <Form.Control type="file" onChange={handleFileUpload}></Form.Control>
                     </Form.Group>
-                </Col>
+                </div>
+            </div>
 
-                <Col md={{ span: 6 }}>
-                    <Form.Group className="mb-3">
+
+
+            <div className="row">
+                <div className='col-3' >
+                    <Form.Group className="mb-3 date-form">
                         <Form.Label>Starting date:</Form.Label>
                         <Form.Control type="date" value={newFormData.startDate} name='startDate' onChange={handleInputChange}></Form.Control>
                     </Form.Group>
-                </Col>
+                </div>
 
-                <Col md={{ span: 6 }}>
+                <div className='col-3' >
                     <Form.Group className="mb-3">
                         <Form.Label>End date</Form.Label>
                         <Form.Control type="date" value={newFormData.endDate} name='endDate' onChange={handleInputChange}></Form.Control>
                     </Form.Group>
-                </Col>
-            </Row>
-            <Row>
-                <Col md={{ span: 6 }}>
+                </div>
+            </div>
+
+            <div className="row user-select">
+                <div className="col-6">
+                    <Form.Label>Participants:</Form.Label>
                     <UsersListForm setUsers={setUsers} />
-                </Col>
-                <Col md={{ span: 6 }}>
+                </div>
+                <div className="selectioned-user col-5">
+                    <Form.Label>Participants selected:</Form.Label>
                     {
                         newFormData.colaborators.map(elm => {
-                            return <div key={elm._id}><p>{elm.username}</p>
+                            return <div className='my-user-select' key={elm._id}>
+
+                                <p>{elm.username}</p>
+                                {/* <img className='avatar-image' src={elm.avatar} alt="" /> */}
 
                             </div>
                         })
                     }
-                </Col>
-            </Row >
-            <Button className="mt-3" variant="primary" type="submit">
+                </div>
+            </div>
+
+            <Button className="mt-3  myButton2" type="submit">
                 Submit
             </Button>
         </Form>

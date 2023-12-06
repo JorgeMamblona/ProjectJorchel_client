@@ -1,3 +1,31 @@
 .new-task-form {
     color: white;
 }
+
+.selectioned-user {
+    margin-left: 2rem;
+}
+
+.description {
+    margin-right: 1rem;
+}
+
+.my-user-select {
+    display: flex;
+    align-items: center;
+
+}
+
+.avatar-image {
+    background-color: white;
+}
+
+.title-form {
+    margin-right: 2.5rem !important;
+}
+
+.date-form {
+    margin-right: 2rem !important;
+
+
+}

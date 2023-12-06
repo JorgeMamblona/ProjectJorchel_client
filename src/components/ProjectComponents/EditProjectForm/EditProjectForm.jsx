@@ -99,27 +99,22 @@ const EditProjectForm = () => {
             <div className="edit-project-form">
                 <Form onSubmit={handleFormSubmit}>
                     <div className="row">
-                        <div className="col-6 item-list">
+                        <div className="col-6 title-form">
                             <Form.Label>Title *</Form.Label>
                             <Form.Control type="text" value={editFormData.title} name='title' placeholder={project.title} onChange={handleInputChange}></Form.Control>
                         </div>
-                        <div className="col-5 ">
-                            <Row>
-                                <Form.Label>Participants:</Form.Label>
-                                <Col md={{ span: 6 }}>
-                                    <UsersListForm setUsers={setUsers} />
-                                </Col>
-                                <Col md={{ span: 6 }}>
-                                    {
-                                        editFormData.colaborators
-                                            ?
-                                            editFormData.colaborators.map(elm => <p key={elm}>{elm.username}</p>)
-                                            :
-                                            <></>
-                                    }
-                                </Col>
-                            </Row >
+                        <div className="col-3">
+                            <Form.Group className="mb-3">
+                                <Form.Label>State </Form.Label>
+                                <Form.Select type="text" value={editFormData.state} name='state' onChange={handleInputChange} >
+                                    <option value='TODO'>To Do</option>
+                                    <option value="ONGOING">On Going</option>
+                                    <option value="REVIEW">Review</option>
+                                    <option value="DONE">Done</option>
+                                </Form.Select>
+                            </Form.Group>
                         </div>
+
                     </div>
 
                     <div className="row">
@@ -132,18 +127,8 @@ const EditProjectForm = () => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-2 item-list">
-                            <Form.Group className="mb-3">
-                                <Form.Label>State </Form.Label>
-                                <Form.Select type="text" value={editFormData.state} name='state' onChange={handleInputChange} >
-                                    <option value='TODO'>To Do</option>
-                                    <option value="ONGOING">On Going</option>
-                                    <option value="REVIEW">Review</option>
-                                    <option value="DONE">Done</option>
-                                </Form.Select>
-                            </Form.Group>
-                        </div>
-                        <div className="col-4">
+
+                        <div className="col-6">
 
                             <Form.Group className="mb-3">
                                 <Form.Label>Image</Form.Label>
@@ -155,7 +140,7 @@ const EditProjectForm = () => {
                         <div className="col-3 item-list">
 
                             <Col >
-                                <Form.Group className="mb-3">
+                                <Form.Group className="mb-3 ">
                                     <Form.Label>Current start date: {prettyDate(formatDate(editFormData.startDate))}</Form.Label>
                                     <Form.Control type="date" value={formatDate(editFormData.startDate)} name='startDate' onChange={handleInputChange}></Form.Control>
                                 </Form.Group>
@@ -164,10 +149,32 @@ const EditProjectForm = () => {
                         <div className="col-3">
 
 
-                            <Form.Group className="mb-3">
+                            <Form.Group className="mb-3 edit-date-form ">
                                 <Form.Label>End date</Form.Label>
                                 <Form.Control type="date" value={formatDate(editFormData.endDate)} name='endDate' onChange={handleInputChange}></Form.Control>
                             </Form.Group>
+                        </div>
+
+                    </div>
+                    <div className="row user-select">
+                        <div className="col-6">
+                            <Form.Label>Participants:</Form.Label>
+                            <UsersListForm setUsers={setUsers} />
+                        </div>
+                        <div className="col-5 selectioned-user ">
+                            <Form.Label>Participants selected:</Form.Label>
+                            {
+                                editFormData.colaborators
+                                    ?
+                                    editFormData.colaborators.map(elm => <div className='my-user-select' key={elm._id}>
+
+                                        <p>{elm.username}</p>
+                                        {/* <img className='avatar-image' src={elm.avatar} alt="" /> */}
+
+                                    </div>)
+                                    :
+                                    <></>
+                            }
                         </div>
 
                     </div>

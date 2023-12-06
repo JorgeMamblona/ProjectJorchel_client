@@ -6,6 +6,7 @@
     font-family: 'Popins', sans-serif;
     align-items: center;
     border-bottom: solid 1px #F72485 !important;
+    z-index: 100 !important;
 
 }
 
