@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { Button, Form } from "react-bootstrap"
 import './TaskDetailsPage.css'
 import { prettyDate } from "../../../utils/prettyDate"
+import Background from "../../../components/Background/background"
 
 
 
@@ -103,7 +104,7 @@ const TaskDetailsPage = () => {
 
                 </div>
 
-
+                <Background />
 
             </div >
 

@@ -52,7 +52,7 @@ const ProjectPage = () => {
 
                 <div className="header-info justify-content-between">
 
-                    <EditableField data={'project-title'} value={projectData.title} data_id={projectData._id} />
+                    <EditableField data={'project-title'} value={projectData.title} data_id={projectData._id} owner={projectData.owner} />
                     <div className="d-flex">
                         <Link className='link-margin' to={`/task/create/${projectData._id}`}>
                             <Button className="myButton2" >New Task</Button>

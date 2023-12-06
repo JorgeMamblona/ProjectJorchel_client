@@ -5,6 +5,7 @@ import TaskList from '../../../components/TaskComponents/TaskList/TaskList'
 import { useEffect, useState } from "react"
 
 import './ListTasksPage.css'
+import Background from '../../../components/Background/background'
 
 const ListTasksPage = () => {
 
@@ -31,6 +32,7 @@ const ListTasksPage = () => {
             :
             <div className='list-tasks-page '>
                 <TaskList taskList={taskList} loadMyTasks={loadMyTasks} />
+                <Background />
             </div>
     )
 }
