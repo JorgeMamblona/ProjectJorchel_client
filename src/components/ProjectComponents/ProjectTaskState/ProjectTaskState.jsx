@@ -5,6 +5,7 @@ import TaskCard from '../../TaskComponents/TaskCard/TaskCard'
 import { useEffect, useState } from 'react'
 
 import './ProjectTaskState.css'
+import { Link } from 'react-router-dom'
 
 const ProjectTaskState = ({ project_id, state }) => {
 
@@ -37,7 +38,7 @@ const ProjectTaskState = ({ project_id, state }) => {
                 </div>
                 <div className='my-scrollable-content'>
                     {
-                        taskList.map(elm => <TaskCard key={elm._id} {...elm} />)
+                        taskList.map(elm => <Link className={"my-Link"} to={`/task/${elm._id}`}><TaskCard key={elm._id} {...elm} /></Link>)
                     }
                 </div>
             </div>

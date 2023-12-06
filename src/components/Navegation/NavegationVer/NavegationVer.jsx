@@ -34,7 +34,7 @@ const NavegationVer = () => {
                 <div className="nav-header d-flex mr-2">
                     <img className='logo' src={logo} alt="" />
                     <Link to={'/'} className='navbar-brand'></Link>
-                    <img className='avatar' src={loggedUser.image} alt="" />
+                    <img className='avatar' src={loggedUser.avatar} alt="" />
                     <NavDropdown title={loggedUser.username} id="collapsible-nav-dropdown">
 
                         <Link className='dropdown-item' to={'/my-profile'} >Mi perfil </Link>
