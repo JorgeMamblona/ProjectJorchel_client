@@ -38,7 +38,7 @@ const ProjectTaskState = ({ project_id, state }) => {
                 </div>
                 <div className='my-scrollable-content'>
                     {
-                        taskList.map(elm => <Link className={"my-Link"} to={`/task/${elm._id}`}><TaskCard key={elm._id} {...elm} /></Link>)
+                        taskList.map(elm => <Link key={elm._id} className={"my-Link"} to={`/task/${elm._id}`}><TaskCard key={elm._id} {...elm} /></Link>)
                     }
                 </div>
             </div>
