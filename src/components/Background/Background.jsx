@@ -1,4 +1,5 @@
 import './Background.css'
+
 const Background = () => {
     return (
         <div className="area" >

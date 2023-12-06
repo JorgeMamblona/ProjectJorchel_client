@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { NavDropdown, Container, Accordion, Button } from 'react-bootstrap'
 
 import logo from './../../../assets/logo.png'
-
+import Loading from '../../Loading/Loading'
 import 'bootstrap'
 import './NavegationVer.css'
 
@@ -58,7 +58,7 @@ const NavegationVer = () => {
                             <div className="accordion-body my-accordion-body scrollable-content">
                                 <hr />
                                 {/* NOT: DESACOPLAR LISTADO DE PROYECTOS */}
-                                {!projects ? <><p>loading</p></> : projects.map(e => {
+                                {!projects ? <><Loading></Loading></> : projects.map(e => {
                                     return (
                                         <div key={e._id}>
                                             <Link to={`/project/${e._id}`} className='nav-link' >{e.title}</Link>

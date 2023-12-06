@@ -2,6 +2,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import SignupForm from "../../components/SignupForm/SignupForm"
 
 import './SignupPage.css'
+import Background from "../../components/Background/background"
 
 const SignupPage = () => {
     return (
@@ -14,6 +15,7 @@ const SignupPage = () => {
                     </Col>
                 </Row>
             </Container>
+            <Background />
         </div>
     )
 }
