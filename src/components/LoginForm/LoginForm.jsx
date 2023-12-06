@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { Form, Button } from "react-bootstrap"
 import authService from "../../services/auth.services"
 import { AuthContext } from "../../contexts/auth.context"
+import Background from "../Background/background"
 
 const SignupForm = () => {
 
@@ -51,7 +52,9 @@ const SignupForm = () => {
             <Button className="myButton2" type="submit">
                 Submit
             </Button>
+            <Background />
         </Form>
+
     )
 }
 

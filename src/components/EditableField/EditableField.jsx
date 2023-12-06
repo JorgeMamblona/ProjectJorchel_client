@@ -49,14 +49,8 @@ const EditableField = ({ value, data, data_id, owner }) => {
     const handleFormSubmit = e => {
         e.preventDefault()
 
-        if (model === 'project') {
-            projectHandler()
-
-        }
-        if (model === 'task') {
-            taskHandler()
-
-        }
+        model === 'project' && projectHandler()
+        model === 'task' && taskHandler()
 
         setEditable(!editable)
     }
@@ -80,6 +74,7 @@ const EditableField = ({ value, data, data_id, owner }) => {
         checkOwnership()
         setformData({ _id: data_id, [key]: value })
     }, [data_id])
+
     return (
         <div className="form-edit">
             <Form onSubmit={handleFormSubmit}>

@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap'
 
 import './ProjectDetailsPage.css'
+import Background from '../../../components/Background/background'
 import CommentsList from '../../../components/CommentsList/CommentsList'
 
 
@@ -38,7 +39,7 @@ const ProjectPage = () => {
     }
 
     const handleCommentsWindow = () => {
-        display === 'none' ? setDisplay('block') : setDisplay('none')
+        setDisplay(display === 'none' ? 'block' : 'none')
     }
 
     return (
@@ -85,6 +86,7 @@ const ProjectPage = () => {
                 <div className='my-comments' style={{ display: display }}>
                     <CommentsList scope={'Project'} parent={project_id} handleCommentsWindow={handleCommentsWindow} />
                 </div>
+                <Background />
 
             </div>
     )

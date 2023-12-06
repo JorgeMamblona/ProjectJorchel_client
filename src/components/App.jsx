@@ -1,13 +1,14 @@
 import { AuthContext } from '../contexts/auth.context'
 
 import Navegation from './Navegation/Navegation'
-import Footer from './Footer/Footer'
 import AppRoutes from '../routes/AppRoutes'
+import Background from './Background/background'
 
 import { useContext } from 'react'
 
 import 'bootstrap'
 import './App.css'
+
 
 function App() {
 

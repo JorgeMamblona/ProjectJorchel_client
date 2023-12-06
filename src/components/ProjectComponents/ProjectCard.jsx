@@ -21,9 +21,9 @@ const ProjectCard = ({ title, owner, state, endDate, colaborators, _id: project_
 
     const [show, setShow] = useState(false)
     const [taskList, setTaskList] = useState()
+
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
-
 
     const deleteProject = () => {
         projectService
@@ -31,28 +31,19 @@ const ProjectCard = ({ title, owner, state, endDate, colaborators, _id: project_
             .then(() => {
                 loadProjects()
                 handleClose()
-
             })
             .catch(err => console.log(err))
     }
 
     const loadTasks = () => {
 
-        if (loggedUser._id === owner) {
-            taskService
-                .getOwnedTasks()
-                .then(({ data }) => {
-                    setTaskList(data)
-                })
-                .catch(err => console.log(err))
-        } else {
-            taskService
-                .getMyTasks()
-                .then(({ data }) => {
-                    setTaskList(data)
-                })
-                .catch(err => console.log(err))
-        }
+        const transaction = loggedUser._id === owner ? taskService.getOwnedTasks() : taskService.getMyTasks()
+
+        transaction
+            .then(({ data }) => {
+                setTaskList(data)
+            })
+            .catch(err => console.log(err))
     }
 
 
@@ -70,12 +61,10 @@ const ProjectCard = ({ title, owner, state, endDate, colaborators, _id: project_
         setFormData({ _id: project_id, state: input })
     }
     const handleSubmit = () => {
-
         projectService
             .edit(formData)
             .then()
             .catch(err => console.log(err))
-
     }
 
 
@@ -120,6 +109,7 @@ const ProjectCard = ({ title, owner, state, endDate, colaborators, _id: project_
 
                                             <div id={`flush-collapse-${project_id}`} className="my-hr accordion-collapse collapse" data-bs-parent={`#${project_id}`} >
                                                 <hr />
+                                                {/* TODO: ENCAPSULAR SVGS */}
                                                 <div ><option value='TODO' onClick={() => updateState('TODO')}>To Do</option>
                                                     <hr />
                                                     <option value="ONGOING" onClick={() => updateState('ONGOING')}>On Going</option>

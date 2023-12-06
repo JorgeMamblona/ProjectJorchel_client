@@ -5,6 +5,7 @@ import ProjectCard from '../../../components/ProjectComponents/ProjectCard'
 import { useContext, useEffect, useState } from "react"
 
 import './ProjectsPage.css'
+import Background from '../../../components/Background/background'
 
 const ListProjectPage = () => {
 
@@ -24,10 +25,11 @@ const ListProjectPage = () => {
                 {/* TODO: DESACOPLAR PROJECTSLIST */}
                 <div className='project-scrollable-content'>
                     {
-                        !projects ? <><h1>Loading</h1></> : projects.map(elm => <ProjectCard key={elm._id} {...elm} />)
+                        !projects ? <h1>Loading</h1> : projects.map(elm => <ProjectCard key={elm._id} {...elm} />)
                     }
                 </div>
             </div>
+            <Background />
         </div>
     )
 }

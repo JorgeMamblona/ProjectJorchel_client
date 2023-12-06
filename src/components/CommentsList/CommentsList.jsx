@@ -75,7 +75,6 @@ const CommentsList = ({ scope, parent, handleCommentsWindow }) => {
 
                     </Form.Group>
 
-
                 </div>
             </div>
     )

@@ -23,13 +23,16 @@ const AppRoutes = () => {
             <Route path='/log-in' element={<LoginPage />} />
             <Route path='/project/:project_id' element={<ProjectPage />} />
             <Route path='/task/:task_id' element={<TaskDetailsPage />} />
+
             <Route element={<PrivateRoute />}>
                 <Route path='/project/myProjects' element={<ListProjectPage />} />
                 <Route path='/task/myTasks' element={<ListTasksPage />} />
                 <Route path='/task/create/:project_id' element={<NewTaskPage />} />
-                <Route path='/project/create' element={<NewProjectPage />}></Route>
+                <Route path='/project/create' element={<NewProjectPage />} />
                 <Route path='/project/:project_id/edit' element={<ProjectEditPage />} />
             </Route>
+
+            <Route path='*' element={<h1>404</h1>} />
         </Routes>
     )
 }
