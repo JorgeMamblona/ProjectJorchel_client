@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react'
 import { prettyDate } from '../../../utils/prettyDate'
 import taskService from '../../../services/tasks.services'
 import UsersListForm from "../../UsersListForm/UsersListForm"
+import EditableField from '../../EditableField/EditableField'
 
 
 
@@ -109,20 +110,17 @@ const MyTaskCard = ({
             .catch(err => console.log(err))
     }
 
-
     useEffect(() => {
         loadMyTasks()
         handleStateSubmit()
 
     }, [taskState])
 
-
-
     return (
         <div className={`task-data row my-task-${taskState.state} `}>
 
             <div className="col-3">
-                <p>{title}</p>
+                <EditableField data={'task-title'} value={title} data_id={_id} />
             </div>
 
 
@@ -166,7 +164,7 @@ const MyTaskCard = ({
                                     </button>
                                 </h2>
 
-                                <div id={`flush-collapse-${_id}`} class="my-hr accordion-collapse collapse" data-bs-parent={`#${_id}`} >
+                                <div id={`flush-collapse-${_id}`} className="my-hr accordion-collapse collapse" data-bs-parent={`#${_id}`} >
                                     <hr />
                                     <div ><option value='TODO' onClick={() => updateState('TODO')}>To Do</option>
                                         <hr />

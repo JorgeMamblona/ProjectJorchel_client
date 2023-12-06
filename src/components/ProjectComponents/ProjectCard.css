@@ -41,6 +41,23 @@
     background: rgba(10, 167, 255, 0.20);
 }
 
+
+.p-TODO {
+    color: rgba(217, 217, 217, 1)
+}
+
+.p-ONGOING {
+    color: rgba(247, 36, 133, 1)
+}
+
+.p-REVIEW {
+    color: rgba(149, 123, 255, 1)
+}
+
+.p-DONE {
+    color: rgba(10, 167, 255, 1)
+}
+
 .modal-content {
     border: solid 1px #0AA7FF !important;
     background-color: #100724 !important;

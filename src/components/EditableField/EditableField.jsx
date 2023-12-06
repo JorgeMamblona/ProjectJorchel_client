@@ -6,6 +6,7 @@ import { Form, Button } from "react-bootstrap"
 import { useEffect, useRef, useState, useContext } from "react"
 
 import './EditableField.css'
+import taskService from "../../services/tasks.services"
 
 const EditableField = ({ value, data, data_id }) => {
 
@@ -32,7 +33,6 @@ const EditableField = ({ value, data, data_id }) => {
 
     const handleInputChange = e => {
         const { value } = e.target
-        console.log(e)
         setformData({ _id: data_id, [key]: value })
     }
 
@@ -43,6 +43,10 @@ const EditableField = ({ value, data, data_id }) => {
             projectHandler()
 
         }
+        if (model === 'task') {
+            taskHandler()
+
+        }
 
         setEditable(!editable)
     }
@@ -50,6 +54,13 @@ const EditableField = ({ value, data, data_id }) => {
     const projectHandler = () => {
 
         projectService
+            .edit(formData)
+            .then(() => loadProjects())
+            .catch(err => console.log(err))
+    }
+
+    const taskHandler = () => {
+        taskService
             .edit(formData)
             .then(() => loadProjects())
             .catch(err => console.log(err))

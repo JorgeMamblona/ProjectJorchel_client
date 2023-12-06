@@ -6,14 +6,11 @@ const TaskCounter = ({ state, project_id, taskList }) => {
 
     useEffect(() => {
         filterTasks()
-        console.log(tasks)
     }, [tasks])
 
     const filterTasks = () => {
         const filtered = tasks.filter(elm => elm.state === state && elm.project === project_id)
         setCounter(filtered.length)
-        console.log(filtered)
-
 
     }
 

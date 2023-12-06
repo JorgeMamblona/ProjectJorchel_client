@@ -17,7 +17,7 @@ const AvatarList = ({ participants }) => {
                 {
                     users.map(elm => {
                         return (
-                            <div key={elm.username} className="avatar">
+                            <div key={Math.random()} className="avatar">
                                 <img src={elm.avatar} alt="" className='avatar-image' />
                             </div>
                         )

@@ -6,8 +6,6 @@ import EditableField from '../../../components/EditableField/EditableField'
 
 import { useParams, Link } from "react-router-dom"
 
-import avatar from './../../../assets/holaaa.jpeg'
-
 import { useEffect, useState } from 'react'
 
 import { Button } from 'react-bootstrap'

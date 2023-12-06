@@ -66,3 +66,19 @@
     display: flex;
     justify-content: space-between;
 }
+
+.included-TODO-true {
+    background-color: rgba(217, 217, 217, 0.40);
+}
+
+.included-ONGOING-true {
+    background-color: rgba(247, 36, 133, 0.40);
+}
+
+.included-REVIEW-true {
+    background-color: rgba(149, 123, 255, 0.40);
+}
+
+.included-DONE-true {
+    background-color: rgba(10, 167, 255, 0.40);
+}

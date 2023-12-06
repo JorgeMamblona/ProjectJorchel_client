@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import taskService from '../../services/tasks.services'
 
 import AvatarList from './../AvatarList/AvatarList'
-
+import EditableField from '../EditableField/EditableField'
 import './ProjectCard.css'
 import { Button, Form, Modal } from 'react-bootstrap'
 
@@ -86,7 +86,7 @@ const ProjectCard = ({ title, owner, state, endDate, colaborators, _id: project_
             :
             <div className={`project-card ${formData.state}`}>
                 <div className="header-project-card d-flex justify-content-between">
-                    <h5>{title}</h5>
+                    <EditableField data={'project-title'} value={title} data_id={project_id} />
                     {
                         loggedUser._id === owner ?
 
@@ -118,7 +118,7 @@ const ProjectCard = ({ title, owner, state, endDate, colaborators, _id: project_
                                                 </button>
                                             </h2>
 
-                                            <div id={`flush-collapse-${project_id}`} class="my-hr accordion-collapse collapse" data-bs-parent={`#${project_id}`} >
+                                            <div id={`flush-collapse-${project_id}`} className="my-hr accordion-collapse collapse" data-bs-parent={`#${project_id}`} >
                                                 <hr />
                                                 <div ><option value='TODO' onClick={() => updateState('TODO')}>To Do</option>
                                                     <hr />
@@ -135,17 +135,17 @@ const ProjectCard = ({ title, owner, state, endDate, colaborators, _id: project_
                                 </Form.Group>
                             </div>
                             :
-                            <><h5>hola</h5></>
+                            <></>
                     }
                 </div>
                 <hr />
 
                 <div className="body-project-card d-flex justify-content-around">
                     <p>{prettyDate(endDate)}</p>
-                    <p>Tasks to do: {<TaskCounter state={'TODO'} project_id={project_id} taskList={taskList} />}</p>
-                    <p>Tasks on going:{<TaskCounter state={'ONGOING'} project_id={project_id} taskList={taskList} />}</p>
-                    <p>Tasks on review:{<TaskCounter state={'REVIEW'} project_id={project_id} taskList={taskList} />}</p>
-                    <p>Tasks done:{<TaskCounter state={'DONE'} project_id={project_id} taskList={taskList} />}</p>
+                    <p className='p-TODO'>Tasks to do: {<TaskCounter state={'TODO'} project_id={project_id} taskList={taskList} />}</p>
+                    <p className='p-ONGOING'>Tasks on going:{<TaskCounter state={'ONGOING'} project_id={project_id} taskList={taskList} />}</p>
+                    <p className='p-REVIEW'>Tasks on review:{<TaskCounter state={'REVIEW'} project_id={project_id} taskList={taskList} />}</p>
+                    <p className='p-DONE'>Tasks done:{<TaskCounter state={'DONE'} project_id={project_id} taskList={taskList} />}</p>
                     <AvatarList participants={colaborators} />
                 </div>
 
