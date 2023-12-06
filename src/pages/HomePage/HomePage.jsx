@@ -2,7 +2,7 @@ import './HomePage.css'
 import React from 'react';
 import Lottie from 'lottie-react';
 
-import animationData from './../../lotties/Animation - 1701866819359.json'
+import animationData from './../../lotties/animate.json'
 
 
 
@@ -23,7 +23,7 @@ const HomePage = () => {
                     animationData={animationData}
                     loop={true}
                     autoplay={true}
-                    style={{ width: '50%', height: 'auto' }}
+                    style={{ width: '20%', height: 'auto' }}
                 />
             </div>
             <div className="area" >
