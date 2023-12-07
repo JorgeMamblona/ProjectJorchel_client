@@ -4,6 +4,7 @@ import Lottie from 'lottie-react';
 
 import animationData from './../../lotties/animationdefinitive.json'
 import Background from '../../components/Background/background';
+import Footer from '../../components/Footer/Footer'
 
 
 
@@ -45,6 +46,7 @@ const HomePage = () => {
                     <li></li>
                 </ul>
             </div >
+            <Footer />
 
 
         </div >

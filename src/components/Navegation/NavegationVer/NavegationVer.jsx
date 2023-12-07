@@ -10,6 +10,7 @@ import logo from './../../../assets/logo.png'
 import Loading from '../../Loading/Loading'
 import 'bootstrap'
 import './NavegationVer.css'
+import Footer from '../../Footer/Footer'
 
 const NavegationVer = () => {
 
@@ -77,8 +78,9 @@ const NavegationVer = () => {
                 </Link>
                 <Link to={'/project/myProjects'} className='my-nav nav-link mt-3'>All Projects</Link>
                 <Link to={'/task/myTasks'} className='my-nav nav-link mt-3'>All Tasks</Link>
-
+                <p className='footer-navver'>This is Jorchel's project</p>
             </Container >
+
         </div >
     )
 }

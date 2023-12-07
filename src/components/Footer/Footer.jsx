@@ -10,7 +10,7 @@ const Footer = () => {
 
     return (
         <div className="footer">
-            <p>Este es un proyecto de Jorchel :3</p>
+            <p>Our last project yay :3</p>
         </div>
     )
 }
