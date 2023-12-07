@@ -1,5 +1,5 @@
 import { ProjectsContext } from '../../contexts/projects.context'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import taskService from '../../services/tasks.services'
 
 import AvatarList from './../AvatarList/AvatarList'
@@ -13,7 +13,7 @@ import projectService from '../../services/projects.services'
 import TaskCounter from '../TaskComponents/TaskCounter/TaskCounter'
 import { AuthContext } from '../../contexts/auth.context'
 
-const ProjectCard = ({ title, owner, state, endDate, colaborators, _id: project_id }) => {
+const ProjectCard = ({ title, description, owner, state, endDate, colaborators, _id: project_id }) => {
 
     const { loadProjects } = useContext(ProjectsContext)
 
@@ -123,11 +123,14 @@ const ProjectCard = ({ title, owner, state, endDate, colaborators, _id: project_
                                         </div>
                                     </div>
                                 </Form.Group>
+
                             </div>
+
                             :
                             <></>
                     }
                 </div>
+                <p className='description-thing'>Description: {description}</p>
                 <hr />
 
                 <div className="body-project-card d-flex justify-content-around">
