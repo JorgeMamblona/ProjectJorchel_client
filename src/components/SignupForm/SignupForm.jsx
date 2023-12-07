@@ -9,6 +9,7 @@ import { useState } from "react"
 import Background from "../Background/background"
 import { Form, Button } from "react-bootstrap"
 import './SignupForm.css'
+import FormError from "../FormError/FormError"
 
 const SignupForm = () => {
 
@@ -22,7 +23,7 @@ const SignupForm = () => {
         avatar: avatar
     })
 
-    //const [isLoading]
+    const [errors, setErrors] = useState([])
 
     const handleInputChange = e => {
 
@@ -38,7 +39,7 @@ const SignupForm = () => {
         authService
             .signup(formData)
             .then(() => navigate('/'))
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.response.data.errorMessages))
     }
 
     const handleFileUpload = e => {
@@ -79,6 +80,10 @@ const SignupForm = () => {
             <Button className="myButton2" type="submit">
                 Submit
             </Button>
+
+            {errors.length > 0 && <FormError>{errors.map(elm => <p key={elm}>{elm}</p>)}</FormError>}
+
+
             <Background />
 
         </Form >
