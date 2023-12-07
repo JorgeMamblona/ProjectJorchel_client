@@ -99,7 +99,8 @@ const NewTaskForm = () => {
 
 
                 <div className="row user-select">
-                    <div className="col-6">
+                    <div className="col-5">
+                        <Form.Label>Participants:</Form.Label>
                         <UsersListForm data={newTaskData} handleInputChange={handleInputChange} setUsers={setUsers} />
                     </div>
                     <div className="selectioned-user col-5">
@@ -112,7 +113,7 @@ const NewTaskForm = () => {
                         }
                     </div>
                 </div>
-                <Button className="myButton2 mt-3" type="submit">
+                <Button className="myButton2 submit-form" type="submit">
                     Submit
                 </Button>
             </Form>

@@ -20,6 +20,26 @@
 
 }
 
+.my-icon5 path {
+    transition: stroke 0.3s ease-in-out;
+}
+
+.my-icon5:hover path {
+    stroke: #0AA7FF;
+    stroke-opacity: 1;
+
+}
+
+.my-icon3 path {
+    transition: stroke 0.3s ease-in-out;
+}
+
+.my-icon3:hover path {
+    fill: #F72485;
+    fill-opacity: 1;
+
+}
+
 .button-icon {
     background-color: transparent !important;
     border: 0 !important;

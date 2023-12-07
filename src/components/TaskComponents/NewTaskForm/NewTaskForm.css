@@ -16,6 +16,13 @@
 
 }
 
+.user-select {
+    position: fixed;
+    top: 30vh !important;
+    right: 7vw !important;
+    width: 30vw !important;
+}
+
 .avatar-image {
     background-color: white;
 }
@@ -28,4 +35,8 @@
     margin-right: 2rem !important;
 
 
+}
+
+.submit-form {
+    margin-top: 6rem !important;
 }

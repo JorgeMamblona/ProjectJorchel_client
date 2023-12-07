@@ -31,7 +31,20 @@ const HomePage = () => {
 
                 />
             </div>
-            <Background></Background>
+            <div className="my-area" >
+                <ul className="my-circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div >
 
 
         </div >
