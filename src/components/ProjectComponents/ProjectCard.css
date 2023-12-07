@@ -112,8 +112,9 @@
     border: 1px solid #ffffff;
     border-radius: 8px;
     padding: 1rem;
-    width: 100%;
+    width: 130px;
     margin-bottom: 1rem;
+
 }
 
 .my-hr hr {
@@ -124,6 +125,7 @@
 
 .accordion-header {
     color: #ffffff;
+    text-align: center !important;
 }
 
 
