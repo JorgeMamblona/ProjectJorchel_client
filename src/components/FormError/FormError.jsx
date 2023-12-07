@@ -1,9 +1,10 @@
 import { Alert } from "react-bootstrap"
+import './FormError.css'
 
 const FormError = ({ children }) => {
     return (
         <>
-            <Alert variant="danger">
+            <Alert className="my-alert" variant="danger">
                 {children}
             </Alert>
         </>
