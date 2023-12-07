@@ -6,6 +6,9 @@ import { useEffect, useState } from "react"
 
 import './ListTasksPage.css'
 import Background from '../../../components/Background/background'
+import Loading from '../../../components/Loading/Loading'
+
+
 
 const ListTasksPage = () => {
 
@@ -28,7 +31,7 @@ const ListTasksPage = () => {
     return (
         !taskList
             ?
-            <></>
+            <><Loading /></>
             :
             <div className='list-tasks-page '>
                 <TaskList taskList={taskList} loadMyTasks={loadMyTasks} />

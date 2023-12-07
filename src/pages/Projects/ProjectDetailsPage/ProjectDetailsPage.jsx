@@ -13,6 +13,7 @@ import { Button } from 'react-bootstrap'
 import './ProjectDetailsPage.css'
 import Background from '../../../components/Background/background'
 import CommentsList from '../../../components/CommentsList/CommentsList'
+import Loading from '../../../components/Loading/Loading'
 
 
 
@@ -46,7 +47,7 @@ const ProjectPage = () => {
 
         !projectData
             ?
-            <></>
+            <><Loading /></>
             :
             <div className="project-page">
 

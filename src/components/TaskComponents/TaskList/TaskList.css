@@ -4,7 +4,7 @@
 
 .list-scrollable-content {
     border-radius: 15px !important;
-    border: 2px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.727);
     margin-top: 2rem;
     width: 70vw !important;
     height: 80vh !important;
