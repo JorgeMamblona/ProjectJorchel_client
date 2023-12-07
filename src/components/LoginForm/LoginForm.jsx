@@ -4,6 +4,7 @@ import { Form, Button } from "react-bootstrap"
 import authService from "../../services/auth.services"
 import { AuthContext } from "../../contexts/auth.context"
 import Background from "../Background/background"
+import FormError from "../FormError/FormError"
 
 const SignupForm = () => {
 
@@ -12,6 +13,8 @@ const SignupForm = () => {
         email: '',
         password: '',
     })
+
+    const [errors, setErrors] = useState([])
 
     const navigate = useNavigate()
 
@@ -34,7 +37,7 @@ const SignupForm = () => {
                 authenticateUser()
                 navigate('/')
             })
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.response.data.errorMessages))
     }
 
     return (
@@ -52,6 +55,9 @@ const SignupForm = () => {
             <Button className="myButton2" type="submit">
                 Submit
             </Button>
+
+            {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}
+
             <Background />
         </Form>
 

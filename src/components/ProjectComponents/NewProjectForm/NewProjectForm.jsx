@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom"
 import { Col, Form, Row, Button } from "react-bootstrap"
 
 import './NewProjectForm.css'
+import FormError from "../../FormError/FormError"
 
 const NewProjectForm = () => {
 
@@ -31,6 +32,8 @@ const NewProjectForm = () => {
         owner: loggedUser._id
     })
 
+    const [errors, setErrors] = useState([])
+
     const handleInputChange = e => {
         const { value, name } = e.target
         setNewFormData({ ...newFormData, [name]: value })
@@ -45,7 +48,7 @@ const NewProjectForm = () => {
                 authenticateUser()
                 navigate("/")
             })
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.response.data.errorMessages))
     }
 
     const setUsers = list => {
@@ -144,9 +147,14 @@ const NewProjectForm = () => {
                 </div>
             </div>
 
+
             <Button className="mt-3  myButton2" type="submit">
                 Submit
             </Button>
+
+            {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}
+
+
         </Form>
     )
 }

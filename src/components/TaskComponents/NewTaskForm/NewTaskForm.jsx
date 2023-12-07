@@ -10,6 +10,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 import { Col, Form, Row, Button } from "react-bootstrap"
 import './NewTaskForm.css'
+import FormError from "../../FormError/FormError"
 
 const NewTaskForm = () => {
 
@@ -26,6 +27,9 @@ const NewTaskForm = () => {
         project: project_id
     })
 
+    const [errors, setErrors] = useState([])
+
+
     const handleInputChange = e => {
 
         const { value, name } = e.target
@@ -40,7 +44,7 @@ const NewTaskForm = () => {
         taskService
             .create(newTaskData)
             .then(() => navigate(`/project/${project_id}`))
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.response.data.errorMessages))
     }
 
     const setUsers = participants => {
@@ -115,6 +119,9 @@ const NewTaskForm = () => {
                 <Button className="myButton2 mt-3" type="submit">
                     Submit
                 </Button>
+
+                {errors.length > 0 && <FormError>{errors.map(elm => <p>{elm}</p>)}</FormError>}
+
             </Form>
         </div>
     )

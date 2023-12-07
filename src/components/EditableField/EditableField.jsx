@@ -8,6 +8,7 @@ import { useEffect, useRef, useState, useContext } from "react"
 import './EditableField.css'
 import taskService from "../../services/tasks.services"
 import { AuthContext } from "../../contexts/auth.context"
+import FormError from "../FormError/FormError"
 
 const EditableField = ({ value, data, data_id, owner }) => {
 
@@ -17,6 +18,8 @@ const EditableField = ({ value, data, data_id, owner }) => {
     const [editable, setEditable] = useState(false)
 
     const [isOwnership, setIsOwnership] = useState(false)
+
+    const [errors, setErrors] = useState('')
 
     const checkOwnership = () => {
         if (loggedUser._id === owner) {
@@ -49,6 +52,11 @@ const EditableField = ({ value, data, data_id, owner }) => {
     const handleFormSubmit = e => {
         e.preventDefault()
 
+        if (Object.values(formData)[1] < 1) {
+            setErrors('Please, insert at least two characters')
+            return
+        }
+
         model === 'project' && projectHandler()
         model === 'task' && taskHandler()
 
@@ -59,14 +67,20 @@ const EditableField = ({ value, data, data_id, owner }) => {
 
         projectService
             .edit(formData)
-            .then(() => loadProjects())
+            .then(() => {
+                setErrors('')
+                loadProjects()
+            })
             .catch(err => console.log(err))
     }
 
     const taskHandler = () => {
         taskService
             .edit(formData)
-            .then(() => loadProjects())
+            .then(() => {
+                setErrors('')
+                loadProjects()
+            })
             .catch(err => console.log(err))
     }
 
@@ -103,6 +117,11 @@ const EditableField = ({ value, data, data_id, owner }) => {
                         value={formData.title}
                         onChange={handleInputChange}
                     />
+                    {
+                        errors.length > 0 ? <FormError>{errors}</FormError> : <></>
+                    }
+
+
 
                 </Form.Group>
             </Form >
