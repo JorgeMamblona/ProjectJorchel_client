@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { Button, Form, Modal, Row, Col } from "react-bootstrap"
 import './TaskDetailsPage.css'
 import { prettyDate } from "../../../utils/prettyDate"
-import Background from "../../../components/Background/background"
+import Background from "../../../components/Background/back-ground"
 import UsersListForm from "../../../components/UsersListForm/UsersListForm"
 
 

@@ -2,7 +2,7 @@ import NewProjectForm from "../../../components/ProjectComponents/NewProjectForm
 
 import { Container, Row, Col } from "react-bootstrap"
 import './NewProjectPage.css'
-import Background from "../../../components/Background/background"
+import Background from "../../../components/Background/back-ground"
 
 const NewProjectPage = () => {
 

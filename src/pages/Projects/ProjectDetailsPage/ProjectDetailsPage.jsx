@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap'
 
 import './ProjectDetailsPage.css'
-import Background from '../../../components/Background/background'
+import Background from '../../../components/Background/back-ground'
 import CommentsList from '../../../components/CommentsList/CommentsList'
 import Loading from '../../../components/Loading/Loading'
 

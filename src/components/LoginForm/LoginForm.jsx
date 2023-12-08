@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { Form, Button } from "react-bootstrap"
 import authService from "../../services/auth.services"
 import { AuthContext } from "../../contexts/auth.context"
-import Background from "../Background/background"
+import Background from "../Background/back-ground"
 import FormError from "../FormError/FormError"
 
 const SignupForm = () => {

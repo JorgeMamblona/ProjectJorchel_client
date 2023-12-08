@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap"
 
 import './NewTaskPage.css'
 
-import Background from "../../../components/Background/background"
+import Background from "../../../components/Background/back-ground"
 
 const NewTaskPage = () => {
     return (

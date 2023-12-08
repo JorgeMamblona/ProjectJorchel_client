@@ -3,7 +3,7 @@ import EditProjectForm from "../../../components/ProjectComponents/EditProjectFo
 import { Container, Row, Col } from "react-bootstrap"
 
 import './ProjectEditPage.css'
-import Background from "../../../components/Background/background"
+import Background from "../../../components/Background/back-ground"
 
 const ProjectEditPage = () => {
     return (

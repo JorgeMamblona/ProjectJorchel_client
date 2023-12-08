@@ -1,5 +1,5 @@
 
-import Background from "../Background/background"
+import Background from "../Background/back-ground"
 const Loading = () => {
     return (
         <Background />

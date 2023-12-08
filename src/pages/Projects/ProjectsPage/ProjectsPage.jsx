@@ -7,7 +7,7 @@ import { useContext, useEffect, useState } from "react"
 import Loading from '../../../components/Loading/Loading'
 
 import './ProjectsPage.css'
-import Background from '../../../components/Background/background'
+import Background from '../../../components/Background/back-ground'
 
 const ListProjectPage = () => {
 

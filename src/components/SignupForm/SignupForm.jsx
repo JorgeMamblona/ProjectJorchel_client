@@ -6,7 +6,7 @@ import avatar from './../../assets/holaaa.jpeg'
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 
-import Background from "../Background/background"
+import Background from "../Background/back-ground"
 import { Form, Button } from "react-bootstrap"
 import './SignupForm.css'
 import FormError from "../FormError/FormError"
