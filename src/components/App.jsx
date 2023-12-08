@@ -2,7 +2,6 @@ import { AuthContext } from '../contexts/auth.context'
 
 import Navegation from './Navegation/Navegation'
 import AppRoutes from '../routes/AppRoutes'
-import Background from './Background/background'
 
 import { useContext } from 'react'
 
